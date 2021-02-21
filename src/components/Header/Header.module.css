@@ -1,0 +1,43 @@
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 320px;
+  height: 48px;
+  background: rgb(210, 231, 231);
+}
+
+.header::after {
+  position: absolute;
+  top: 52px;
+  content: "";
+  display: block;
+  width: 320px;
+  height: 0px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+@media (min-width: 768px) {
+  .header {
+    width: 768px;
+    height: 44px;
+    padding: 18px 70px;
+    background: rgb(240, 177, 203);
+  }
+  .header::after {
+    width: 768px;
+    left: 0px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .header {
+    padding-top: 82px;
+    width: 1280px;
+    border-bottom: none;
+  }
+  .header::after {
+    width: 0px;
+  }
+}
