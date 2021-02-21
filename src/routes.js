@@ -1,14 +1,14 @@
-import { lazy } from 'react';
+import { lazy } from "react";
 
 export default [
   {
-    path: '/',
-    label: 'Home',
+    path: "/",
+    label: "Home",
     exact: true,
     pablic: true,
     restricted: false,
     component: lazy(() =>
-      import('./view/HomeView.js' /* webpackChunkName: "home-view" */)
+      import("./view/HomeView.js" /* webpackChunkName: "home-view" */)
     ),
   },
 ];
