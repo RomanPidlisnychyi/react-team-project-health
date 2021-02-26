@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
 
-export default function Nav() {
+export default function Nav() { 
   return (
     <div className={styles.nav_wrap}>
       <ul className={styles.nav_list}>
