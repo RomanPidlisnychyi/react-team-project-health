@@ -1,10 +1,7 @@
 .container {
   margin: 0 auto;
-  padding-top: 20px;
-}
-.container {
   width: 320px;
-  margin: 0 auto;
+  padding-top: 14px;
 }
 
 @media (min-width: 768px) {
@@ -18,12 +15,5 @@
   .container {
     width: 1280px;
     /* padding: 0px 35px; */
-  }
-}
-
-@media (min-width: 1680px) {
-  .wrapper {
-    width: 1680px;
-    /* padding: 0px 171px; */
   }
 }
