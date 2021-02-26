@@ -1,8 +1,8 @@
 .nav_wrap {
   display: flex;
-  position: absolute;
-  left: 146px;
-  top: 18px;
+  align-items: center;
+  padding-left: 46px;
+  padding-right: 16px;
 }
 
 .nav_list {
@@ -23,9 +23,9 @@
 }
 
 .nav_gamburger {
-  position: absolute;
+  /* position: absolute;
   left: 132px;
-  top: 8px;
+  top: 8px; */
   width: 18px;
   height: 12px;
   cursor: pointer;
@@ -38,17 +38,13 @@
   margin-bottom: 3px;
 }
 
-@media (min-width: 768px) {
-  .nav_wrap {
-    left: 522px;
-    top: 14px;
-  }
-}
+/* @media (min-width: 768px) {
+  
+} */
 
 @media (min-width: 1280px) {
   .nav_wrap {
-    left: 178px;
-    top: 44px;
+    padding: 0px;
   }
 
   .nav_list::before {

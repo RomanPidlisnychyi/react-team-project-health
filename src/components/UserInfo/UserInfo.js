@@ -7,8 +7,8 @@ import vectorHeader from "../../images/vector_header.svg";
 export default function UserInfo() {
   return (
     <div className={styles.userInfo}>
-      <Link to="/" className="userInfo_vector">
-        <img src={vectorHeader} alt="" />
+      <Link to="/" className={styles.userInfo_vector}>
+        <img className={styles.userInfo_img} src={vectorHeader} alt="" />
       </Link>
 
       <ul className={styles.userInfo_list}>

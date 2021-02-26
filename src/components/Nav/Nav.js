@@ -1,28 +1,38 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import styles from "./Nav.module.css";
+import routes from "../../routes";
 
-export default function Nav() {
+export default function Nav({ currentPath }) {
   return (
     <div className={styles.nav_wrap}>
       <ul className={styles.nav_list}>
-        <li className={styles.nav_item}>
-          <NavLink to="/" className={styles.nav_link}>
-            Вход
-          </NavLink>
-        </li>
-        <li className={styles.nav_item}>
-          <NavLink to="/" className={styles.nav_link}>
-            Регистрация
-          </NavLink>
-        </li>
-      </ul>
+        {currentPath === "/" &&
+          routes.map((route) => {
+            if (route.path === "/login" || route.path === "/register") {
+              return (
+                <li key={route.path} className={styles.nav_item}>
+                  <NavLink to={route.path} className={styles.nav_link}>
+                    {route.label}
+                  </NavLink>
+                </li>
+              );
+            }
+          })}
 
-      <div className={styles.nav_gamburger}>
-        <span className={styles.nav_gamburger_item}></span>
-        <span className={styles.nav_gamburger_item}></span>
-        <span className={styles.nav_gamburger_item}></span>
-      </div>
+        {currentPath === "/login" &&
+          routes.map((route) => {
+            if (route.path === "/login" || route.path === "/register") {
+              return (
+                <li key={route.path} className={styles.nav_item}>
+                  <NavLink to={route.path} className={styles.nav_link}>
+                    {route.label}
+                  </NavLink>
+                </li>
+              );
+            }
+          })}
+      </ul>
     </div>
   );
 }

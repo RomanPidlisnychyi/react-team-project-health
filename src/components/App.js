@@ -6,9 +6,10 @@ import Header from "./Header/Header";
 import routes from "../routes";
 
 export default function App() {
+  console.log("App");
   return (
     <Layout>
-      <Header></Header>
+      <Header />
       <Suspense fallback={false}>
         <Switch>
           {routes.map((route) =>
