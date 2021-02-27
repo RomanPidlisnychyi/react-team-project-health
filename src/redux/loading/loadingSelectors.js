@@ -1,1 +1,1 @@
-export default (state) => state.loading;
+export default state => state.loading;
