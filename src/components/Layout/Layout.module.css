@@ -1,0 +1,19 @@
+.container {
+  margin: 0 auto;
+  width: 320px;
+  padding-top: 14px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 768px;
+    /* padding: 0px 40px; */
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    width: 1280px;
+    /* padding: 0px 35px; */
+  }
+}

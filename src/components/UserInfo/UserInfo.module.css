@@ -1,0 +1,58 @@
+.userInfo {
+  position: absolute;
+  top: 46px;
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+  height: 40px;
+  background: #eff1f3;
+}
+
+.userInfo_img {
+  padding-top: 16px;
+  padding-left: 15px;
+}
+
+.userInfo_list {
+  position: relative;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+  padding-top: 6px;
+}
+
+.userInfo_list::before {
+  position: absolute;
+  left: 35px;
+  top: 5px;
+  content: "";
+  display: block;
+  height: 32px;
+  border: 1px solid #e0e0e0;
+  background: #e0e0e0;
+}
+
+.userInfo_item:nth-of-type(-n + 1) {
+  padding-right: 30px;
+}
+
+.userInfo_link {
+  text-decoration: none;
+  color: #000000;
+}
+
+@media (min-width: 768px) {
+  .userInfo {
+    background-color: initial;
+    top: 3px;
+    left: 288px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .userInfo {
+    left: 860px;
+    top: 58px;
+  }
+}

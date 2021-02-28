@@ -1,0 +1,30 @@
+.logo {
+  width: 46px;
+  height: 44px;
+  margin-left: 16px;
+}
+
+.svg {
+  display: block;
+  width: 48px;
+  height: 44px;
+}
+
+/* @media (min-width: 768px) {
+  .logo {
+    left: 70px;
+  }
+} */
+
+@media (min-width: 1280px) {
+  .logo {
+    /* left: 90px;
+    top: 34px; */
+    width: 70px;
+    height: 66px;
+  }
+  .svg {
+    width: 70px;
+    height: 66px;
+  }
+}
