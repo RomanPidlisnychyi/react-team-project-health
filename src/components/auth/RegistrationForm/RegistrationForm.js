@@ -135,13 +135,13 @@ class RegistrationForm extends Component {
             <Link to={`/login`} className={styles.buttonLogin}>
               <Button title={'Вход'} role={'link'} />
             </Link>
-            <Link className={styles.buttonRegistration}>
-              <Button
-                title={'Регистрация'}
-                type={'submit'}
-                disabled={!this.state.formValid}
-              />
-            </Link>
+
+            <Button
+              title={'Регистрация'}
+              type={'submit'}
+              disabled={!this.state.formValid}
+              className={styles.buttonRegistration}
+            />
           </div>
         </form>
       </div>
