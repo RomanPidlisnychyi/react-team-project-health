@@ -106,13 +106,13 @@ class LoginForm extends Component {
             <FormErrors formErrors={this.state.formErrors.password} />
           </label>
           <div className={styles.buttons}>
-            <Link className={styles.buttonLogin}>
-              <Button
-                title={'Вход'}
-                type={'submit'}
-                disabled={!this.state.formValid}
-              />
-            </Link>
+            <Button
+              className={styles.buttonLogin}
+              title={'Вход'}
+              type={'submit'}
+              disabled={!this.state.formValid}
+            />
+
             <Link to={`/register`} className={styles.buttonRegistration}>
               <Button title={'Регистрация'} role={'link'} />
             </Link>
