@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { loadingReducer } from './loading';
-import { combineReducers } from 'redux';
+import { modalReducer } from './modal';
 
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/authReducer';
@@ -25,6 +25,7 @@ const store = configureStore({
   reducer: {
     loading: loadingReducer,
     auth: persistReducer(authPersistConfig, authReducer),
+    modal: modalReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {

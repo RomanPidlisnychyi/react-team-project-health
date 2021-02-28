@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from '../components/auth/LoginForm/LoginForm';
 
-export default function RegisterView() {
+export default function LoginVeiw() {
   return <LoginForm />;
 }

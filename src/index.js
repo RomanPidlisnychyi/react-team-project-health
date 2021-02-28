@@ -7,10 +7,10 @@ import { persistor } from './redux/store';
 import App from './components/App';
 import store from './redux/store';
 import './components/base.css';
-
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css/animate.min.css';
+import './base.css';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -21,5 +21,5 @@ ReactDOM.render(
       </PersistGate>
     </Provider>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
