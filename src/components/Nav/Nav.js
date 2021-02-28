@@ -1,38 +1,42 @@
-import React from "react";
-import { NavLink, Route } from "react-router-dom";
-import styles from "./Nav.module.css";
-import routes from "../../routes";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styles from './Nav.module.css';
+import routes from '../../routes';
+import { getToken } from '../../redux/auth/authSelectors';
+import { connect } from 'react-redux';
 
-export default function Nav({ currentPath }) {
+function Nav({ currentPath, token }) {
   return (
     <div className={styles.nav_wrap}>
       <ul className={styles.nav_list}>
-        {currentPath === "/" &&
-          routes.map((route) => {
-            if (route.path === "/login" || route.path === "/register") {
-              return (
-                <li key={route.path} className={styles.nav_item}>
-                  <NavLink to={route.path} className={styles.nav_link}>
-                    {route.label}
-                  </NavLink>
-                </li>
-              );
-            }
-          })}
-
-        {currentPath === "/login" &&
-          routes.map((route) => {
-            if (route.path === "/login" || route.path === "/register") {
-              return (
-                <li key={route.path} className={styles.nav_item}>
-                  <NavLink to={route.path} className={styles.nav_link}>
-                    {route.label}
-                  </NavLink>
-                </li>
-              );
-            }
-          })}
+        {token
+          ? routes
+              .filter(route => route.pablic === false)
+              .map(route => {
+                return (
+                  <li key={route.path} className={styles.nav_item}>
+                    <NavLink to={route.path} className={styles.nav_link}>
+                      {route.label}
+                    </NavLink>
+                  </li>
+                );
+              })
+          : routes
+              .filter(route => route.pablic && route.path !== '/')
+              .map(route => {
+                return (
+                  <li key={route.path} className={styles.nav_item}>
+                    <NavLink to={route.path} className={styles.nav_link}>
+                      {route.label}
+                    </NavLink>
+                  </li>
+                );
+              })}
       </ul>
     </div>
   );
 }
+
+const mapStateToProp = state => ({ token: state.auth.token });
+
+export default connect(mapStateToProp)(Nav);
