@@ -1,8 +1,9 @@
-import React from "react";
-import ListOfNonRecommendedProducts from "../ListOfNonRecommendedProducts/ListOfNonRecommendedProducts";
-import styles from "./ModalCalories.module.css";
+import React from 'react';
+import ListOfNonRecommendedProducts from '../ListOfNonRecommendedProducts/ListOfNonRecommendedProducts';
+import styles from './ModalCalories.module.css';
+import Button from '../Button/Button';
 
-export default function ModalCalories({ calories = "2800" }) {
+export default function ModalCalories({ calories = '2800' }) {
   return (
     <div className={styles.cover}>
       <div className={styles.modalCalories}>
@@ -25,9 +26,13 @@ export default function ModalCalories({ calories = "2800" }) {
               <ListOfNonRecommendedProducts stylesList={styles.item} />
             </ol>
             <div className={styles.buttonStartLosingWeightWrapper}>
-              <button className={styles.buttonStartLosingWeight}>
+              <Button
+                title={'Начать худеть'}
+                className={styles.buttonStartLosingWeight}
+              />
+              {/* <button className={styles.buttonStartLosingWeight}>
                 Начать худеть
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

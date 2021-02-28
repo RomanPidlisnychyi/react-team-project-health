@@ -47,7 +47,7 @@ input {
   border: 2px solid #fc842d;
 }
 
-button {
+/* button {
   width: 176px;
   height: 44px;
   background: #fc842d;
@@ -68,7 +68,7 @@ button {
   transition: all 0.5s;
   position: relative;
   cursor: pointer;
-}
+} */
 
 :-webkit-autofill:focus {
   background-color: aqua;
@@ -120,6 +120,7 @@ input:focus::placeholder {
 .buttons {
   display: flex;
   flex-direction: column;
+  padding-top: 60px;
 }
 
 .buttonLogin {
@@ -130,7 +131,6 @@ input:focus::placeholder {
   margin: 0;
   margin-top: 20px;
 }
-
 .red {
   outline: 1px solid red;
 }
@@ -165,5 +165,11 @@ input:focus::placeholder {
   .buttons {
     flex-direction: row;
     align-items: flex-end;
+    padding-top: 38px;
+  }
+}
+@media (min-width: 1280px) {
+  .buttons {
+    padding-top: 60px;
   }
 }
