@@ -5,7 +5,6 @@ import Home from "../components/Home/Home";
 export default function HomeView() {
   return (
     <Layout>
-      <h1>Hello form Home View</h1>
       <Home />
     </Layout>
   );

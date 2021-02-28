@@ -3,16 +3,14 @@ import styles from "./Button.module.css";
 
 const Button = () => {
   return (
-    <div className={styles.buttonWrapper}>
-      <button
-        type="submit"
-        value="submit"
-        className={styles.button}
-        // onClick={onLoadMore}
-        >
-        Похудеть
-      </button>
-    </div>
+    <button
+      type="submit"
+      value="submit"
+      className={styles.button}
+      // onClick={onLoadMore}
+    >
+      Похудеть
+    </button>
   );
 };
 
