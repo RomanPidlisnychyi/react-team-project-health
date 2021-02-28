@@ -50,7 +50,7 @@
 }
 
 .calories::after {
-  content: "";
+  content: '';
   width: 290px;
   height: 1px;
   background-color: #e0e0e0;
@@ -97,17 +97,7 @@
 
 .buttonStartLosingWeightWrapper {
   text-align: center;
-}
-
-.buttonStartLosingWeight {
-  padding: 13px 26px;
-  width: 176px;
-  height: 44px;
-  border: none;
-  background: #fc842d;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  border-radius: 30px;
-  margin-bottom: 80px;
+  padding-bottom: 80px;
 }
 
 @media (min-width: 768px) {
@@ -151,8 +141,8 @@
     bottom: -12px;
   }
 
-  .buttonStartLosingWeight {
-    margin-bottom: 68px;
+  .buttonStartLosingWeightWrapper {
+    padding-bottom: 68px;
   }
 }
 

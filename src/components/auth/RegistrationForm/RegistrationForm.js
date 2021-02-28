@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { authOperations } from '../../../redux/auth';
 import styles from './form.module.css';
-
+import Button from '../../Button/Button';
 import { FormErrors } from './FormErrors';
 
 class RegistrationForm extends Component {
@@ -39,7 +39,7 @@ class RegistrationForm extends Component {
 
     const inputColor = (fieldName, color) => {
       return (document.getElementById(
-        `${fieldName}`
+        `${fieldName}`,
       ).style.borderColor = `${color}`);
     };
 
@@ -74,7 +74,7 @@ class RegistrationForm extends Component {
         emailValid: emailValid,
         passwordValid: passwordValid,
       },
-      this.validateForm
+      this.validateForm,
     );
   }
 
@@ -132,19 +132,16 @@ class RegistrationForm extends Component {
             <FormErrors formErrors={this.state.formErrors.password} />
           </label>
           <div className={styles.buttons}>
-            <Link to={`/login`}>
-              <button className={styles.buttonLogin} role="link">
-                Вход
-              </button>
+            <Link to={`/login`} className={styles.buttonLogin}>
+              <Button title={'Вход'} role={'link'} />
             </Link>
-
-            <button
-              className={styles.buttonRegistration}
-              type="submit"
-              disabled={!this.state.formValid}
-            >
-              Регистрация
-            </button>
+            <Link className={styles.buttonRegistration}>
+              <Button
+                title={'Регистрация'}
+                type={'submit'}
+                disabled={!this.state.formValid}
+              />
+            </Link>
           </div>
         </form>
       </div>
@@ -153,5 +150,5 @@ class RegistrationForm extends Component {
 }
 
 export default connect(null, { onRegister: authOperations.register })(
-  RegistrationForm
+  RegistrationForm,
 );
