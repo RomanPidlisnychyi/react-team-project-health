@@ -1,21 +1,20 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-// import { authSelectors } from '../../../redux/loading';
+import { useSelector } from 'react-redux';
+import { authSelectors } from '../../../redux/auth';
 
 export default function PablicRoute({
   component: Component,
   restricted,
   ...rest
 }) {
-  // const isAuthenticated = useSelector(authSelectors.getUserName);
-  const isAuthenticated = false;
+  const isAuthenticated = useSelector(authSelectors.getToken);
   return (
     <Route
       {...rest}
       render={props =>
         restricted && isAuthenticated ? (
-          <Redirect to="/" />
+          <Redirect to="/calculator" />
         ) : (
           <Component {...props} />
         )

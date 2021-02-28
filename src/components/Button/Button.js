@@ -1,23 +1,22 @@
-import React from "react";
-import styles from "./Button.module.css";
+import React from 'react';
+import styles from './Button.module.css';
 
-const Button = () => {
+export default function Button({
+  title = '',
+  onClick = null,
+  type = 'button',
+  disabled = false,
+  role = '',
+}) {
   return (
     <button
-      type="submit"
-      value="submit"
       className={styles.button}
-      // onClick={onLoadMore}
+      onClick={onClick}
+      type={type}
+      disabled={disabled}
+      role={role}
     >
-      Похудеть
+      {title}
     </button>
   );
-};
-
-// Button.propTypes = {
-//   props: PropTypes.exact({
-//     onLoadMore: PropTypes.func.isRequired,
-//   }),
-// };
-
-export default Button;
+}
