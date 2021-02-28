@@ -1,10 +1,12 @@
-import { render } from "@testing-library/react";
-import React from "react";
-import { Link } from "react-router-dom";
-import styles from "./UserInfo.module.css";
-import vectorHeader from "../../images/vector_header.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './UserInfo.module.css';
+import vectorHeader from '../../images/vector_header.svg';
+import { authOperations } from '../../redux/auth/index';
+import { connect } from 'react-redux';
 
-export default function UserInfo() {
+function UserInfo({ showName, logOut }) {
+  console.log('logOut', logOut);
   return (
     <div className={styles.userInfo}>
       <Link to="/" className={styles.userInfo_vector}>
@@ -13,16 +15,22 @@ export default function UserInfo() {
 
       <ul className={styles.userInfo_list}>
         <li className={styles.userInfo_item}>
-          <Link to="/" className={styles.userInfo_link}>
-            Nic
-          </Link>
+          <span>{showName}</span>
         </li>
         <li className={styles.userInfo_item}>
-          <Link to="/" className={styles.userInfo_link}>
-            Выйти
-          </Link>
+          <button onClick={() => logOut()}>Выйти</button>
         </li>
       </ul>
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  showName: state.auth.user.name,
+});
+
+const mapDispatchToProps = {
+  logOut: authOperations.logOut,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);

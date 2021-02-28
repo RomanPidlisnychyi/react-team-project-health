@@ -64,7 +64,7 @@ const logIn = credentials => dispatch => {
   axios
     .put('/login', user)
     .then(response => {
-      token.set(response.data.token);
+      token.set(response.data.token.accessToken);
       dispatch(authActions.loginSuccess(response.data));
     })
     .catch(error => {
@@ -85,6 +85,7 @@ const logIn = credentials => dispatch => {
 };
 
 const logOut = () => dispatch => {
+  console.log('token', token);
   dispatch(authActions.logoutRequest());
 
   axios
@@ -93,6 +94,7 @@ const logOut = () => dispatch => {
       token.unset();
       dispatch(authActions.logoutSuccess());
     })
+
     .catch(error => {
       store.addNotification({
         type: 'danger',

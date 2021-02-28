@@ -1,5 +1,9 @@
 .closeButton {
   display: none;
+  color: black;
+  box-shadow: none;
+  width: 0;
+  height: 0;
 }
 @media (min-width: 768px) {
   .modal {
