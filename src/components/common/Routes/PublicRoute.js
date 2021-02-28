@@ -8,14 +8,13 @@ export default function PablicRoute({
   restricted,
   ...rest
 }) {
-  const isAuthenticated = useSelector(authSelectors.getUserName);
-  /*   const isAuthenticated = false; */
+  const isAuthenticated = useSelector(authSelectors.getToken);
   return (
     <Route
       {...rest}
       render={props =>
         restricted && isAuthenticated ? (
-          <Redirect to="/" />
+          <Redirect to="/calculator" />
         ) : (
           <Component {...props} />
         )
