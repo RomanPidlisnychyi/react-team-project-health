@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Nav.module.css';
 import routes from '../../routes';
-import { getToken } from '../../redux/auth/authSelectors';
+import { authSelectors } from '../../redux/auth';
 import { connect } from 'react-redux';
 
 function Nav({ currentPath, token }) {
@@ -37,6 +37,6 @@ function Nav({ currentPath, token }) {
   );
 }
 
-const mapStateToProp = state => ({ token: state.auth.token });
+const mapStateToProp = state => ({ token: authSelectors.getToken(state) });
 
 export default connect(mapStateToProp)(Nav);

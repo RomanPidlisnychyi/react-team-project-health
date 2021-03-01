@@ -24,7 +24,6 @@ class LoginForm extends Component {
     e.preventDefault();
 
     this.props.onLogin({ ...this.state });
-    this.setState({ email: '', password: '' });
   };
 
   validateField(fieldName, value) {

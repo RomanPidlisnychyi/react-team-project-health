@@ -3,6 +3,11 @@ import { createReducer } from '@reduxjs/toolkit';
 import authActions from './authActions';
 
 const initialUserState = { name: null, email: null };
+const initialTokenState = {
+  accessToken: null,
+  refreshToken: null,
+  expiresIn: null,
+};
 
 const user = createReducer(initialUserState, {
   [authActions.registerSucces]: (_, { payload }) => payload.user,
@@ -11,10 +16,10 @@ const user = createReducer(initialUserState, {
   [authActions.logoutSuccess]: () => initialUserState,
 });
 
-const token = createReducer(null, {
+const token = createReducer(initialTokenState, {
   [authActions.registerSucces]: (_, { payload }) => payload.token,
-  [authActions.loginSuccess]: (_, { payload }) => payload.token.accessToken,
-  [authActions.logoutSuccess]: () => null,
+  [authActions.loginSuccess]: (_, { payload }) => payload.token,
+  [authActions.logoutSuccess]: () => initialTokenState,
 });
 
 const error = createReducer(null, {
