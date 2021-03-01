@@ -1,5 +1,5 @@
 import axios from 'axios';
-import authActions from './authActions';
+import { authActions, authSelectors } from '../auth';
 import { store } from 'react-notifications-component';
 import apiURL from '../../services/apiURL';
 
@@ -63,11 +63,12 @@ const logIn = credentials => dispatch => {
 
   dispatch(authActions.loginRequest());
 
-  axios
+  return axios
     .put('/login', user)
     .then(response => {
       token.set(response.data.token.accessToken);
       dispatch(authActions.loginSuccess(response.data));
+      return response.data.token;
     })
     .catch(error => {
       store.addNotification({
@@ -143,4 +144,41 @@ const current = accessToken => dispatch => {
     });
 };
 
-export default { register, logIn, logOut, current };
+const refresh = expiresIn => (dispatch, getState) => {
+  const intervalId = setInterval(() => {
+    const state = getState();
+    const { refreshToken } = authSelectors.getObjToken(state);
+
+    const options = {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${refreshToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: null,
+    };
+
+    return fetch(`${apiURL}/users/refresh`, options)
+      .then(response => response.json())
+      .then(data => {
+        if (data.message) {
+          clearInterval(intervalId);
+          dispatch(authActions.refreshError('Пользователь не авторизован'));
+          return;
+        }
+
+        const newRefreshToken = data.refreshToken;
+        dispatch(authActions.refreshSuccess(newRefreshToken));
+      })
+      .catch(error => {
+        clearInterval(intervalId);
+        dispatch(authActions.refreshError(error));
+      });
+  }, expiresIn * 900);
+
+  // expiresIn - на API это значение жизни токена в секундах.
+  // setInterval - работает в милисекундах потому делаем значение немного меньше
+  // чем жизнь токена на сервере.
+};
+
+export default { register, logIn, logOut, current, refresh };

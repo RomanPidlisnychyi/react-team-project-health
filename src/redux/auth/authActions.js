@@ -16,6 +16,10 @@ const currentRequest = createAction('auth/currentRequest');
 const currentSuccess = createAction('auth/currentSuccess');
 const currentError = createAction('auth/currentError');
 
+const refreshRequest = createAction('auth/refreshRequest');
+const refreshSuccess = createAction('auth/refreshSuccess');
+const refreshError = createAction('auth/refreshError');
+
 export default {
   registerRequest,
   registerSuccess,
@@ -29,4 +33,7 @@ export default {
   currentRequest,
   currentSuccess,
   currentError,
+  refreshRequest,
+  refreshSuccess,
+  refreshError,
 };

@@ -1,11 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import styles from "./Home.module.css";
-
+import styles from './Home.module.css';
 
 // import Button from "../Button/Button";
-import CaloriesForm from "../CaloriesForm/CaloriesForm";
+import CaloriesForm from '../CaloriesForm/CaloriesForm';
 
 // export default function Home() {
 //    return <h2 className={styles.titlePage}>Hello from Home public page</h2>
@@ -21,22 +20,22 @@ class Home extends Component {
   };
 
   state = {
-    height: "",
-    age: "",
-    currentWeight: "",
-    desiredWeight: "",
-    bloodGroup: "",
+    height: '',
+    age: '',
+    currentWeight: '',
+    desiredWeight: '',
+    bloodGroup: '',
   };
 
-  handleInput = (e) => {
+  handleInput = e => {
     const { name, value } = e.target;
 
     this.setState({ [name]: value });
 
-    console.log("this1.state:", this.state);
+    // console.log("this1.state:", this.state);
   };
 
-  handleRadio = (e) => {
+  handleRadio = e => {
     const { value } = e.target;
 
     // console.log("value:", value);
@@ -44,10 +43,10 @@ class Home extends Component {
       bloodGroup: value,
     });
 
-    console.log("this2.state:", this.state);
+    // console.log("this2.state:", this.state);
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
 
     //TODO Відправитти на бек, отримати результат і записати в User.params
@@ -163,7 +162,7 @@ class Home extends Component {
                     onChange={this.handleRadio}
                     className={styles.inputRadio}
                   />
-                  <span className={styles.inputRadioName}>3</span>{" "}
+                  <span className={styles.inputRadioName}>3</span>{' '}
                 </label>
                 <label className={styles.inputRadioLabel}>
                   <input
@@ -184,7 +183,8 @@ class Home extends Component {
           <button
             type="submit"
             className={styles.dailyCaloriesButton}
-            onClick={this.onLoadMore}>
+            onClick={this.onLoadMore}
+          >
             Похудеть
           </button>
           {/* <CaloriesForm></CaloriesForm> */}
