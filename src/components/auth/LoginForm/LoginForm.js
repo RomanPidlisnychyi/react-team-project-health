@@ -26,9 +26,7 @@ class LoginForm extends Component {
 
     onLogin({ ...this.state }).then(response => {
       if (response && response.expiresIn) {
-        setTimeout(() => {
-          onRefresh(response.expiresIn);
-        }, response.expiresIn * 900);
+        onRefresh(response.expiresIn);
       }
     });
   };

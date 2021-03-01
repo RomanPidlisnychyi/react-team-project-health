@@ -16,17 +16,11 @@ function App() {
   const name = useSelector(authSelectors.getUserName);
   const token = useSelector(authSelectors.getToken);
 
-  // expiresIn - на API это значение жизни токена в секундах.
-  // setTimeout - работает в милисекундах потому делаем значение немного меньше
-  // чем жизнь токена на сервере.
-
   useEffect(() => {
     if (!name && token) {
       dispatch(authOperations.current(token)).then(response => {
         if (response && response.token && response.token.expiresIn) {
-          setTimeout(() => {
-            dispatch(authOperations.refresh(response.token.expiresIn));
-          }, response.token.expiresIn * 900);
+          dispatch(authOperations.refresh(response.token.expiresIn));
         }
       });
     }
