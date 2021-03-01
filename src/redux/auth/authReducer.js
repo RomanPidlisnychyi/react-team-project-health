@@ -14,6 +14,7 @@ const user = createReducer(initialUserState, {
   [authActions.loginSuccess]: (_, { payload }) => payload.user,
   [authActions.currentSuccess]: (_, { payload }) => payload.user,
   [authActions.currentError]: () => initialUserState,
+  [authActions.refreshError]: () => initialUserState,
   [authActions.logoutSuccess]: () => initialUserState,
   [authActions.logoutError]: () => initialUserState,
 });
@@ -23,6 +24,11 @@ const token = createReducer(initialTokenState, {
   [authActions.loginSuccess]: (_, { payload }) => payload.token,
   [authActions.currentSuccess]: (_, { payload }) => payload.token,
   [authActions.currentError]: () => initialTokenState,
+  [authActions.refreshSuccess]: (state, { payload }) => ({
+    ...state,
+    refreshToken: payload,
+  }),
+  [authActions.refreshError]: () => initialTokenState,
   [authActions.logoutSuccess]: () => initialTokenState,
   [authActions.logoutError]: () => initialTokenState,
 });
