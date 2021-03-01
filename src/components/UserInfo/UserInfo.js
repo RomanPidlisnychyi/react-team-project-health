@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './UserInfo.module.css';
 import vectorHeader from '../../images/vector_header.svg';
-import { authOperations } from '../../redux/auth/index';
+import { authOperations, authSelectors } from '../../redux/auth';
 import { connect } from 'react-redux';
 
 function UserInfo({ showName, logOut }) {
@@ -26,7 +26,7 @@ function UserInfo({ showName, logOut }) {
 }
 
 const mapStateToProps = state => ({
-  showName: state.auth.user.name,
+  showName: authSelectors.getUserName(state),
 });
 
 const mapDispatchToProps = {
