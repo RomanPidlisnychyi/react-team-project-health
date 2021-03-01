@@ -1,8 +1,9 @@
 import axios from 'axios';
 import authActions from './authActions';
 import { store } from 'react-notifications-component';
+import apiURL from '../../services/apiURL';
 
-axios.defaults.baseURL = 'https://health-fsoff2.herokuapp.com/auth';
+axios.defaults.baseURL = `${apiURL}/auth`;
 
 const token = {
   set(token) {
@@ -86,7 +87,6 @@ const logIn = credentials => dispatch => {
 };
 
 const logOut = () => dispatch => {
-  console.log('token', token);
   dispatch(authActions.logoutRequest());
 
   axios
@@ -113,4 +113,34 @@ const logOut = () => dispatch => {
     });
 };
 
-export default { register, logIn, logOut };
+const current = accessToken => dispatch => {
+  token.set(accessToken);
+
+  dispatch(authActions.currentRequest());
+
+  const options = {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    body: null,
+  };
+
+  return fetch(`${apiURL}/users/current`, options)
+    .then(response => response.json())
+    .then(data => {
+      if (data.message) {
+        dispatch(authActions.currentError('Пользователь не авторизован'));
+        return;
+      }
+
+      dispatch(authActions.currentSuccess(data));
+      return data;
+    })
+    .catch(error => {
+      dispatch(authActions.currentError(error));
+    });
+};
+
+export default { register, logIn, logOut, current };
