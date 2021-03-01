@@ -6,7 +6,6 @@ import { authOperations, authSelectors } from '../../redux/auth';
 import { connect } from 'react-redux';
 
 function UserInfo({ showName, logOut }) {
-  console.log('logOut', logOut);
   return (
     <div className={styles.userInfo}>
       <Link to="/" className={styles.userInfo_vector}>

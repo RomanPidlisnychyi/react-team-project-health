@@ -21,7 +21,7 @@ const register = credentials => dispatch => {
   };
   dispatch(authActions.registerRequest());
 
-  axios
+  return axios
     .post('/register', user)
     .then(res => {
       store.addNotification({
@@ -50,6 +50,7 @@ const register = credentials => dispatch => {
       });
 
       dispatch(authActions.registerError(error.message));
+      return error;
     });
 };
 
