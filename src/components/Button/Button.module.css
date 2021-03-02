@@ -1,4 +1,6 @@
 .button {
+  min-width: 176px;
+  height: 44px;
   font-family: Verdana;
   font-style: normal;
   font-weight: bold;

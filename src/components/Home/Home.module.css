@@ -6,7 +6,6 @@
   font-family: Verdana;
   font-style: normal;
   font-weight: bold;
-  /* background-color: rgb(248, 250, 228); */
 }
 
 .titleForm {
@@ -18,11 +17,14 @@
 }
 
 .dailyCaloriesForm {
+  padding-right: 30px;
+}
+
+.dailyCaloriesLabelWrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding-right: 30px;
   margin-bottom: 40px;
 }
 
@@ -50,9 +52,8 @@
 }
 
 .dailyCaloriesInput {
-  min-width: 90px;
+  width: 90px;
   padding: 0px 4px;
-  /* min-height: 16px; */
   font-family: Verdana;
   font-style: normal;
   font-weight: bold;
@@ -104,11 +105,8 @@
 }
 
 .inputRadioName::before {
-  content: "";
-  /* display: inline-block; */
+  content: '';
   display: block;
-  /* width: 1em; */
-  /* height: 1em; */
   width: 20px;
   height: 20px;
   flex-shrink: 0;
@@ -150,7 +148,6 @@
 
 /*! Button */
 .buttonWrapper {
-  /* max-width: 176px; */
   margin: 0px auto;
 }
 
@@ -184,12 +181,11 @@
     margin: 0px auto;
     padding: 100px 76px 0px 87px;
 
-    background: url("../../images/Home/Strawberry-Big-PNG.png") left 464px top
+    background: url('../../images/Home/Strawberry-Big-PNG.png') left 464px top
         503px no-repeat,
-      url("../../images/Home/Layer-9.png") left 277px top 513px no-repeat,
-      url("../../images/Home/Layer-4 1.png") left bottom no-repeat,
-      url("../../images/Home/Vector 3.png") left 247px top 381px no-repeat;
-    /* background-color: rgb(230, 248, 252); */
+      url('../../images/Home/Layer-9.png') left 277px top 513px no-repeat,
+      url('../../images/Home/Layer-4 1.png') left bottom no-repeat,
+      url('../../images/Home/Vector 3.png') left 247px top 381px no-repeat;
   }
 
   .titleForm {
@@ -200,13 +196,15 @@
   }
 
   .dailyCaloriesForm {
+    padding-right: 0px;
+  }
+
+  .dailyCaloriesLabelWrapper {
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
     max-width: 550px;
     height: 187px;
-    background-color: #fff;
-    padding-right: 0px;
     margin-bottom: 64px;
   }
 
@@ -236,13 +234,12 @@
   .wrapper {
     margin: 0px auto;
     padding: 146px 0px 0px 115px;
-    background: url("../../images/Home/Layer-4\ 1-big.png") left 339px top -172px
+    background: url('../../images/Home/Layer-4\ 1-big.png') left 339px top -172px
         no-repeat,
-      url("../../images/Home/Strawberry-Big-PNG-big.png") right 5px bottom 35px
+      url('../../images/Home/Strawberry-Big-PNG-big.png') right 5px bottom 35px
         no-repeat,
-      url("../../images/Home/Layer-9-big.png") left 782px top -152px no-repeat,
-      url("../../images/Home/Vector 3-big.png") right bottom no-repeat;
-    /* background-color: rgb(237, 247, 230); */
+      url('../../images/Home/Layer-9-big.png') left 782px top -152px no-repeat,
+      url('../../images/Home/Vector 3-big.png') right bottom no-repeat;
   }
 
   .titleForm {
