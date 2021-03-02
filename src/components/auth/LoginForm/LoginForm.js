@@ -21,10 +21,14 @@ class LoginForm extends Component {
   };
 
   handleSubmit = e => {
+    const { onLogin, onRefresh } = this.props;
     e.preventDefault();
 
-    this.props.onLogin({ ...this.state });
-    this.setState({ email: '', password: '' });
+    onLogin({ ...this.state }).then(response => {
+      if (response && response.expiresIn) {
+        onRefresh(response.expiresIn);
+      }
+    });
   };
 
   validateField(fieldName, value) {
@@ -123,4 +127,7 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(null, { onLogin: authOperations.logIn })(LoginForm);
+export default connect(null, {
+  onLogin: authOperations.logIn,
+  onRefresh: authOperations.refresh,
+})(LoginForm);

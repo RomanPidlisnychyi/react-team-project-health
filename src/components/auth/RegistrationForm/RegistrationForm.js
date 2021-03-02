@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { authOperations } from '../../../redux/auth';
+import { authOperations, authSelectors } from '../../../redux/auth';
 import styles from './form.module.css';
 import Button from '../../Button/Button';
 import { FormErrors } from './FormErrors';
@@ -27,8 +27,12 @@ class RegistrationForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.props.onRegister({ ...this.state });
-    this.setState({ name: '', email: '', password: '' });
+    this.props.onRegister({ ...this.state }).then(res => {
+      if (res) {
+        return;
+      }
+      this.setState({ name: '', email: '', password: '' });
+    });
   };
 
   validateField(fieldName, value) {
@@ -149,6 +153,8 @@ class RegistrationForm extends Component {
   }
 }
 
-export default connect(null, { onRegister: authOperations.register })(
-  RegistrationForm,
-);
+const mapStateToProps = state => ({ authError: authSelectors.getError(state) });
+
+export default connect(mapStateToProps, {
+  onRegister: authOperations.register,
+})(RegistrationForm);
