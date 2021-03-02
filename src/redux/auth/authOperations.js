@@ -27,13 +27,30 @@ const register = credentials => dispatch => {
     .then(res => {
       store.addNotification({
         type: 'success',
-        message: 'Поздравляем! Регистрация прошла успешно =)',
+        message:
+          'На указанный Вами адрес почты выслано письмо для завершения регистрации.',
         container: 'center',
         animationIn: ['animate__animated animate__zoomIn'],
         animationOut: ['animate__animated animate__zoomOut'],
         dismiss: {
-          duration: 5000,
+          duration: 10000,
           onScreen: true,
+          showIcon: true,
+        },
+      });
+    })
+    .then(res => {
+      store.addNotification({
+        type: 'info',
+        message:
+          'Чтобы войти, пожалуйста подтвердите Вашу почту перейдя по ссылке в письме',
+        container: 'top-full',
+        animationIn: ['animate__animated animate__zoomIn'],
+        animationOut: ['animate__animated animate__zoomOut'],
+        dismiss: {
+          duration: 0,
+          onScreen: true,
+          showIcon: true,
         },
       });
     })
@@ -45,8 +62,9 @@ const register = credentials => dispatch => {
         animationIn: ['animate__animated animate__zoomIn'],
         animationOut: ['animate__animated animate__zoomOut'],
         dismiss: {
-          duration: 5000,
+          duration: 10000,
           onScreen: true,
+          showIcon: true,
         },
       });
 
