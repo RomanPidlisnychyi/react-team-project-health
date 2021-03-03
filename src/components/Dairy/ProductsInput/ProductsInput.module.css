@@ -1,0 +1,31 @@
+.input {
+	position: relative;
+	width: 240px;
+	height: 16px;
+	font-family: Verdana;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 17px;
+	letter-spacing: 0.04em;
+	color: #9b9faa;
+	border: none;
+}
+
+.input::before {
+	content: '""';
+	display: block;
+	position: absolute;
+	width: 239px;
+	height: 50px;
+	left: 20px;
+	top: 50px;
+	border: 100px solid #000;
+	background: #000;	
+}
+
+/* .input:active,
+input:hover,
+input:focus {
+	border: none;
+} */
