@@ -1,0 +1,50 @@
+.listContainer {
+    /* position: absolute;
+    left: 0;
+    top: 20px; */
+    max-height: 300px;
+    width: 600px;
+    overflow: auto;
+    scrollbar-width: 3px;
+    
+    /* background: #ddd; */
+    /* border: 1px solid #333; */
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);;
+}
+.listContainer::-moz-scrollbar{
+    scrollbar-color: #458245 #714826;     /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: auto;  /* толщина */
+}
+
+/* .listContainer::-webkit-scrollbar { width: 3px;} */
+/* полоса прокрутки (скроллбар) */
+.listContainer::-webkit-scrollbar {
+    width: 5px; /* ширина для вертикального скролла */
+    height: 8px; /* высота для горизонтального скролла */
+    background-color: #aaaaaa;
+}
+
+/* ползунок скроллбара */
+.listContainer::-webkit-scrollbar-thumb {
+    background-color: #dddddd;
+    border-radius: 9em;
+    box-shadow: inset 1px 1px 10px #f3faf7;
+}
+
+.listContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #253861;
+}
+
+
+.listContainer:hover {
+    cursor: pointer;
+}
+
+.list {
+    list-style: none;
+}
+
+.listItem:hover  {
+    background: #dddddd;
+}
