@@ -6,11 +6,19 @@ import WeightInput from '../WeightInput/WeightInput';
 import ProductsInput from '../ProductsInput/ProductsInput.js';
 import rationsItemOperations from '../../../redux/dairy/rationsItemOperations';
 import Button from '../Button/Button';
+import Picker from '../Picker/Picker';
+import rationsItemActions from '../../../redux/dairy/rationsItemActions';
 // const debounce = require('lodash.debounce');
 
 class ProductInputForm extends Component {
+    state = {
+        date: '',
+        weight: '',
+        productTitle: '',
+        addTitlesSucces: false,
+    }
+
     componentDidMount() {
-        console.log('didMount');
         this.props.onDidMount();
     }
 
@@ -27,14 +35,66 @@ class ProductInputForm extends Component {
         this.props.onHoverList(e.target[keys[1]].value);
     }
 
+    handleChangeWeight = e => {
+        this.setState({ weight: e.target.value });
+    }
+
+    handlerChangeDate = e => {
+        // console.log('e: ', e.target.value)
+        const date = e.target.value.split('-');
+        const transformedDate = [date[2], date[1], date[0]].join('-');
+        // console.log('transformedDate: ', transformedDate);
+
+        this.setState({
+            date: e.target.value,
+            transformedDate
+        });
+
+        this.props.onGetInfo(transformedDate);
+    }
+
+    handleClick = async e => {
+        try {
+            this.setState({ addTitlesSucces: false });
+            const { transformedDate, weight, productTitle } = this.state;
+            const { productSearchValue, onRationsItemAdd, onGetInfo } = this.props;
+
+            const rtt = {
+                date: transformedDate,
+                productTitle: productSearchValue,
+                weight: Number(weight)
+            }
+
+            onRationsItemAdd(rtt);
+            onGetInfo(transformedDate);
+
+            // // await = this.props.addItemSucces;
+            // console.log('addDidSuccess: ', addDidSuccess);
+            // // const addDidSuccess = await this.state.rationsItemAddSuccess;
+            // if (!addDidSuccess) {
+            //     console.log('Error by trying to add Item, try again')
+            // }
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
     render() {
-        const { visibleListProducts, products, onUnsetVisibleList, productSearchValue, productsForFilter } = this.props;
+        const { transformedDate, weight, date, productTitle } = this.state
+        const { visibleListProducts, products, onUnsetVisibleList, productSearchValue } = this.props;
+
+        const rtt = {
+            date: transformedDate,
+            productTitle: productSearchValue,
+            weight: Number(weight)
+        }
 
         return <form id="form-products" className={styles.form} onSubmit={this.handleSubmit}>
+            <Picker date={date} onChangeData={this.handlerChangeDate} />
             <ProductsInput />
-            <WeightInput /> 
-         <Button title="Добавить"/>
-
+            <WeightInput weight={weight} onChangeWeight={this.handleChangeWeight} />
+            <Button title="Добавить" onClick={this.handleClick} />
 
             {products && products.length > 0 && visibleListProducts &&
                 <ProductsList
@@ -51,6 +111,7 @@ const mapStateToProps = (state, ownProps) => ({
     productSearchValue: state.productSearchValue,
     productsForFilter: state.titles,
     visibleListProducts: state.visibleListProducts,
+    addItemSucces: state.rationsItemAddSuccess,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -59,6 +120,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         dispatch(rationsItemOperations.productSearchValueChange(param));
     },
     onDidMount: () => dispatch(rationsItemOperations.getTitles()),
+    onRationsItemAdd: (param) => dispatch(rationsItemOperations.rationsItemAdd(param)),
+    onAddSuccess: (param) => dispatch(rationsItemOperations.getInfoByDate(param)),
+    onGetInfo: (param) => dispatch(rationsItemOperations.getInfoByDate(param)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductInputForm);

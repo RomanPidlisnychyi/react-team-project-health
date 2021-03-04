@@ -4,8 +4,16 @@ import { createReducer } from '@reduxjs/toolkit';
 import rationsItemActions from './rationsItemActions';
 
 const rationsReducer = createReducer({}, {
-    [rationsItemActions.getInfoByDateRequest]: (state, action) => action.payload,
+    // [rationsItemActions.getInfoByDateRequest]: (state, action) => action.payload,
     [rationsItemActions.getInfoByDateSuccess]: (state, action) => action.payload,    
+    [rationsItemActions.getInfoByDateError]: (state, action) => ({}),  
+})
+
+const rationsItemAddReducer = createReducer(false, {
+    [rationsItemActions.rationsItemAddRequest]: () => false,
+    [rationsItemActions.rationsItemAddSuccess]: () => true,
+    [rationsItemActions.rationsItemAddError]: () => false,
+    [rationsItemActions.getInfoByDateRequest]: () => false,
 })
 
 const rationsItemDeleteReducer = createReducer(false, {
@@ -16,7 +24,7 @@ const rationsItemDeleteReducer = createReducer(false, {
 const getProductsReducer = createReducer([], {
     [rationsItemActions.getProductsSuccess]: (state, action) => action.payload,
     // [rationsItemActions.getProductsFilter]: (state, action) => state.filter(el => el.includes(action.payload)),
-    [rationsItemActions.getProductsError]: (state, action) => []
+    [rationsItemActions.getProductsError]: (state, action) => ([])
 })
 
 const visibleListProductsReducer = createReducer (false, {
@@ -36,6 +44,7 @@ const getTitlesReducer = createReducer([], {
 const errorReducer = createReducer({}, {
     [rationsItemActions.getProductsError]: (state, action) => action.payload,
     [rationsItemActions.getTitlesError]: (state, action) => action.payload,
+    [rationsItemActions.getInfoByDateError]: (state, action) => action.payload,
 })
 
 const rootReducer = combineReducers({
@@ -46,6 +55,7 @@ const rootReducer = combineReducers({
     visibleListProducts: visibleListProductsReducer,
     productSearchValue: productSearchValueReducer,
     titles: getTitlesReducer,
+    rationsItemAddSuccess: rationsItemAddReducer,
 })
 
 const objReducer = {
@@ -56,6 +66,7 @@ const objReducer = {
     visibleListProducts: visibleListProductsReducer,
     productSearchValue: productSearchValueReducer,
     titles: getTitlesReducer,
+    rationsItemAddSuccess: rationsItemAddReducer,
 }
 
 // export default rootReducer;
