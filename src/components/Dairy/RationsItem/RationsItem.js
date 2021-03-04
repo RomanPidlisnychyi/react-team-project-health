@@ -1,21 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import ButtonClose from '../ButtonClose/ButtonClose';
 import styles from './RationsItem.module.css';
+import {connect} from 'react-redux';
+import rationsItemOperations from '../../../redux/dairy/rationsItemOperations';
 
-const RationsItem = ({_id, title, weight, calories, onItemDelete}) => {
-    return (
+const RationsItem = ({_id, title, weight, calories, onItemDelete, date}) =>     
         <div className={styles.rationsItemWrapper}>
             <div className={styles.rationsItem, styles.rationsItemTitle}>{title} </div>
             <div className={styles.rationsItem, styles.rationsItemWeight}>{weight}г </div>
             <div className={styles.rationsItem, styles.rationsItemCalories}>{calories}ккал </div>
-            {/* <button className={styles.rationsItemButton} onClick={() => onItemDelete(_id)}>X</button> */}
             <ButtonClose onClick={() => onItemDelete(_id)}/>
         </div>
-    )
-}
 
-// mapStateToProps = state => 
+const mapStateToProps = () => ({
 
-// export default connect(mapStateToProps)(RationsItem);
-export default RationsItem;
+})  
+
+const mapDispatchToProps = (dispatch, ownprops) => ({
+    // onItemDelete: (param) => dispatch(rationsItemOperations.rationsItemDelete(param))
+})
+    
+export default connect(mapStateToProps, mapDispatchToProps)(RationsItem);

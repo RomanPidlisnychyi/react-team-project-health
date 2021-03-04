@@ -12,11 +12,11 @@ import CaloriesForm from '../CaloriesForm/CaloriesForm';
 
 class Home extends Component {
   static propTypes = {
-    height: PropTypes.number.isRequired,
-    age: PropTypes.number.isRequired,
-    currentWeight: PropTypes.number.isRequired,
-    desiredWeight: PropTypes.number.isRequired,
-    bloodGroup: PropTypes.number.isRequired,
+    height: PropTypes.number,
+    age: PropTypes.number,
+    currentWeight: PropTypes.number,
+    desiredWeight: PropTypes.number,
+    bloodGroup: PropTypes.number,
   };
 
   state = {

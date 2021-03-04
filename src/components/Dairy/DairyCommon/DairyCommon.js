@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './DairyCommon.module.css';
-import App from '../App';
+import ProductInputForm from '../ProductInputForm/ProductInputForm';
+import Rations from '../Rations/Rations';
 
 const DairyCommon = () => <div className={styles.commonWrapper}>
     <div className={styles.dairyWrapper}>
         {/* Dairy components */}
-        <App />
+        <ProductInputForm />
+        <Rations />
     </div>
     <div className={styles.usersInfoWrapper}>
         {/* UsersInfo components */}

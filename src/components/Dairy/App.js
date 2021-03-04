@@ -6,10 +6,10 @@ import Rations from './Rations/Rations';
 // import Button from './Button/Button';
 
 const App = () => (
-    <div className={styles.App}>
-        <Picker />
+    <div>
+        {/* <Picker />
         <ProductInputForm />
-        {/* <Rations /> */}
+        <Rations /> */}
     </div>
 )
 

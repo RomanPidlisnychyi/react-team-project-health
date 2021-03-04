@@ -4,6 +4,10 @@ const getInfoByDateRequest = createAction('getInfoByDate/Request');
 const getInfoByDateSuccess = createAction('getInfoByDate/Success');
 const getInfoByDateError = createAction('getInfoByDate/Error');
 
+const rationsItemAddRequest = createAction('rationsItemAdd/request');
+const rationsItemAddSuccess = createAction('rationsItemAdd/success');
+const rationsItemAddError = createAction('rationsItemAdd/error');
+
 const rationsItemDeleteRequest = createAction('rationsItemDelete/request');
 const rationsItemDeleteSuccess = createAction('rationItemDelete/success');
 const rationsItemDeleteError = createAction('rationsItemDelete/error');
@@ -20,6 +24,8 @@ const visibleListProductsError = createAction('visibleListProducts/Error');
 const getTitlesRequest = createAction('getTitles/Request');
 const getTitlesSuccess = createAction('getTitles/Success');
 const getTitlesError = createAction('getTitles/Error');
+
+
 
 const productSearchValueChange = createAction('productSearchValue/Change')
 
@@ -41,4 +47,7 @@ export default {
     getTitlesSuccess,
     getTitlesError,
     getProductsFilter,
+    rationsItemAddRequest,
+    rationsItemAddSuccess,
+    rationsItemAddError,
 }
