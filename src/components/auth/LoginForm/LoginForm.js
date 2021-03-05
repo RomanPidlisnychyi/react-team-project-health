@@ -24,11 +24,7 @@ class LoginForm extends Component {
     const { onLogin, onRefresh } = this.props;
     e.preventDefault();
 
-    onLogin({ ...this.state }).then(response => {
-      if (response && response.expiresIn) {
-        onRefresh(response.expiresIn);
-      }
-    });
+    onLogin({ ...this.state });
   };
 
   validateField(fieldName, value) {

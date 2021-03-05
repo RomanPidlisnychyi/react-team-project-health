@@ -81,12 +81,12 @@ const logIn = credentials => dispatch => {
 
   dispatch(authActions.loginRequest());
 
-  return axios
+  axios
     .put('/login', user)
     .then(response => {
       token.set(response.data.token.accessToken);
       dispatch(authActions.loginSuccess(response.data));
-      return response.data.token;
+      dispatch(refresh(response.data.token.expiresIn));
     })
     .catch(error => {
       store.addNotification({
@@ -101,7 +101,7 @@ const logIn = credentials => dispatch => {
         },
       });
 
-      dispatch(authActions.logoutError(error.message));
+      dispatch(authActions.loginError(error.message));
     });
 };
 
@@ -155,7 +155,8 @@ const current = accessToken => dispatch => {
       }
 
       dispatch(authActions.currentSuccess(data));
-      return data;
+
+      dispatch(refresh(data.token.expiresIn));
     })
     .catch(error => {
       dispatch(authActions.currentError(error));
@@ -163,9 +164,14 @@ const current = accessToken => dispatch => {
 };
 
 const refresh = expiresIn => (dispatch, getState) => {
-  const intervalId = setInterval(() => {
+  const setIntervalId = setInterval(() => {
     const state = getState();
     const { refreshToken } = authSelectors.getObjToken(state);
+    if (!refreshToken) {
+      clearInterval(setIntervalId);
+      dispatch(authActions.refreshError());
+      return;
+    }
 
     const options = {
       method: 'GET',
@@ -180,7 +186,7 @@ const refresh = expiresIn => (dispatch, getState) => {
       .then(response => response.json())
       .then(data => {
         if (data.message) {
-          clearInterval(intervalId);
+          clearInterval(setIntervalId);
           dispatch(authActions.refreshError('Пользователь не авторизован'));
           return;
         }
@@ -189,7 +195,7 @@ const refresh = expiresIn => (dispatch, getState) => {
         dispatch(authActions.refreshSuccess(newRefreshToken));
       })
       .catch(error => {
-        clearInterval(intervalId);
+        clearInterval(setIntervalId);
         dispatch(authActions.refreshError(error));
       });
   }, expiresIn * 900);
