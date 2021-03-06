@@ -1,0 +1,39 @@
+.rationsItemWrapper {
+    /* width: 600px; */
+    display: flex;
+    /* flex-wrap: nowrap; */
+}
+
+.rationsItem {
+    /* display: inline-block; */
+    /* width: 300px; */
+    height: 20px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.rationsItemTitle {
+    width: 200px;
+    min-height: 30px;
+    /* background: #aaaa88; */
+}
+
+.rationsItemWeight {
+    width: 80px;
+    /* background: #88aaaa; */
+}
+
+.rationsItemCalories {
+    width: 80px;
+    /* background: #aa88aa; */
+}
+
+
+.rationsItemButton {
+    width: 20px;
+    height: 20px;
+}
+
+.rationsItemButton:hover {
+    cursor: pointer;
+}

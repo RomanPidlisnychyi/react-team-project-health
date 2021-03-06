@@ -1,0 +1,23 @@
+.inline {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.title {
+  composes: inline;
+  width: 500px;
+}
+
+.weight {
+  composes: inline;
+  width: 50px;
+}
+
+.calories {
+  composes: inline;
+  width: 50px;
+}
+
+.button {
+  composes: inline;
+}

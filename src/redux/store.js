@@ -4,6 +4,7 @@ import { modalReducer } from './modal';
 
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/authReducer';
+import rationsItemReducer from './dairy/rationsItemReducer';
 import {
   persistStore,
   persistReducer,
@@ -14,6 +15,7 @@ import {
   REGISTER,
   FLUSH,
 } from 'redux-persist';
+import ration from '../redux/rations/rationItemsReducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -21,11 +23,15 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+console.log('REDUCER: ', rationsItemReducer);
+
 const store = configureStore({
   reducer: {
     loading: loadingReducer,
     auth: persistReducer(authPersistConfig, authReducer),
     modal: modalReducer,
+    ...rationsItemReducer,
+    ration,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {

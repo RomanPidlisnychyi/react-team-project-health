@@ -15,9 +15,11 @@ function Nav({ currentPath, token }) {
               .map(route => {
                 return (
                   <li key={route.path} className={styles.nav_item}>
-                    <NavLink to={route.path} className={styles.nav_link}>
-                      {route.label}
-                    </NavLink>
+                    <div className={styles.offRegist}>
+                      <NavLink to={route.path} className={styles.nav_link}>
+                        {route.label}
+                      </NavLink>
+                    </div>
                   </li>
                 );
               })
@@ -26,9 +28,11 @@ function Nav({ currentPath, token }) {
               .map(route => {
                 return (
                   <li key={route.path} className={styles.nav_item}>
-                    <NavLink to={route.path} className={styles.nav_link}>
-                      {route.label}
-                    </NavLink>
+                    <div className={styles.onRegist}>
+                      <NavLink to={route.path} className={styles.nav_link}>
+                        {route.label}
+                      </NavLink>
+                    </div>
                   </li>
                 );
               })}

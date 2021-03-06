@@ -1,5 +1,13 @@
 import React from 'react';
+import DairyCommon from '../components/Dairy/DairyCommon/DairyCommon';
+import Layout from '../components/Layout/Layout';
+import RationItemsList from '../components/RationItemsList/RationItemsList';
 
 export default function DiaryView() {
-  return <h1>Hello form Diary View</h1>;
+  return (
+    <Layout>
+      <DairyCommon />
+      <RationItemsList />
+    </Layout>
+  );
 }

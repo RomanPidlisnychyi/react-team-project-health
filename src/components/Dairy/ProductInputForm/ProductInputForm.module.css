@@ -1,0 +1,17 @@
+.form {
+    position: relative;
+    width: 100%;
+    /* display: flex; */
+}
+
+.input {
+  /* position: absolute;  */
+  /* left: 0;
+  top: 5px;  */
+}
+
+.select {
+    /* position: absolute; */
+    /* left: 0;
+    top: 0; */
+}

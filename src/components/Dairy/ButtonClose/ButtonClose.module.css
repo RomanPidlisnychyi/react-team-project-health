@@ -1,0 +1,29 @@
+.buttonContainer {
+    position: relative;
+    width: 20px;    
+    height: 20px;
+}
+
+.buttonContainer:hover {
+    cursor: pointer;
+}
+
+.buttonSides {
+    position: absolute;
+    width: 12px;
+    height: 2px;  
+    background:  #9B9FAA;
+    top: 50%;
+    transform: transdlateY(-50%);
+}
+
+.buttonOneSide {
+    composes: buttonSides;
+    transform: rotate(45deg);
+   
+}
+
+.buttonTwoSide {
+    composes: buttonSides;
+    transform: rotate(-45deg);
+}

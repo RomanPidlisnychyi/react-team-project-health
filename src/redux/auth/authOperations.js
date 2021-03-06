@@ -3,7 +3,7 @@ import { authActions, authSelectors } from '../auth';
 import { store } from 'react-notifications-component';
 import apiURL from '../../services/apiURL';
 
-axios.defaults.baseURL = `${apiURL}/auth`;
+axios.defaults.baseURL = `${apiURL}`;
 
 const token = {
   set(token) {
@@ -23,17 +23,34 @@ const register = credentials => dispatch => {
   dispatch(authActions.registerRequest());
 
   return axios
-    .post('/register', user)
+    .post('/auth/register', user)
     .then(res => {
       store.addNotification({
         type: 'success',
-        message: 'Поздравляем! Регистрация прошла успешно =)',
+        message:
+          'На указанный Вами адрес почты выслано письмо для завершения регистрации.',
         container: 'center',
         animationIn: ['animate__animated animate__zoomIn'],
         animationOut: ['animate__animated animate__zoomOut'],
         dismiss: {
-          duration: 5000,
+          duration: 10000,
           onScreen: true,
+          showIcon: true,
+        },
+      });
+    })
+    .then(res => {
+      store.addNotification({
+        type: 'info',
+        message:
+          'Чтобы войти, пожалуйста подтвердите Вашу почту перейдя по ссылке в письме',
+        container: 'top-full',
+        animationIn: ['animate__animated animate__zoomIn'],
+        animationOut: ['animate__animated animate__zoomOut'],
+        dismiss: {
+          duration: 0,
+          onScreen: true,
+          showIcon: true,
         },
       });
     })
@@ -45,8 +62,9 @@ const register = credentials => dispatch => {
         animationIn: ['animate__animated animate__zoomIn'],
         animationOut: ['animate__animated animate__zoomOut'],
         dismiss: {
-          duration: 5000,
+          duration: 10000,
           onScreen: true,
+          showIcon: true,
         },
       });
 
@@ -63,12 +81,12 @@ const logIn = credentials => dispatch => {
 
   dispatch(authActions.loginRequest());
 
-  return axios
-    .put('/login', user)
+  axios
+    .put('/auth/login', user)
     .then(response => {
       token.set(response.data.token.accessToken);
       dispatch(authActions.loginSuccess(response.data));
-      return response.data.token;
+      dispatch(refresh(response.data.token.expiresIn));
     })
     .catch(error => {
       store.addNotification({
@@ -83,7 +101,7 @@ const logIn = credentials => dispatch => {
         },
       });
 
-      dispatch(authActions.logoutError(error.message));
+      dispatch(authActions.loginError(error.message));
     });
 };
 
@@ -91,7 +109,7 @@ const logOut = () => dispatch => {
   dispatch(authActions.logoutRequest());
 
   axios
-    .patch('/logout')
+    .patch('/auth/logout')
     .then(() => {
       token.unset();
       dispatch(authActions.logoutSuccess());
@@ -137,7 +155,8 @@ const current = accessToken => dispatch => {
       }
 
       dispatch(authActions.currentSuccess(data));
-      return data;
+
+      dispatch(refresh(data.token.expiresIn));
     })
     .catch(error => {
       dispatch(authActions.currentError(error));
@@ -145,9 +164,14 @@ const current = accessToken => dispatch => {
 };
 
 const refresh = expiresIn => (dispatch, getState) => {
-  const intervalId = setInterval(() => {
+  const setIntervalId = setInterval(() => {
     const state = getState();
     const { refreshToken } = authSelectors.getObjToken(state);
+    if (!refreshToken) {
+      clearInterval(setIntervalId);
+      dispatch(authActions.refreshError());
+      return;
+    }
 
     const options = {
       method: 'GET',
@@ -162,7 +186,7 @@ const refresh = expiresIn => (dispatch, getState) => {
       .then(response => response.json())
       .then(data => {
         if (data.message) {
-          clearInterval(intervalId);
+          clearInterval(setIntervalId);
           dispatch(authActions.refreshError('Пользователь не авторизован'));
           return;
         }
@@ -171,7 +195,7 @@ const refresh = expiresIn => (dispatch, getState) => {
         dispatch(authActions.refreshSuccess(newRefreshToken));
       })
       .catch(error => {
-        clearInterval(intervalId);
+        clearInterval(setIntervalId);
         dispatch(authActions.refreshError(error));
       });
   }, expiresIn * 900);

@@ -18,11 +18,7 @@ function App() {
 
   useEffect(() => {
     if (!name && token) {
-      dispatch(authOperations.current(token)).then(response => {
-        if (response && response.token && response.token.expiresIn) {
-          dispatch(authOperations.refresh(response.token.expiresIn));
-        }
-      });
+      dispatch(authOperations.current(token));
     }
   }, []);
   return (
