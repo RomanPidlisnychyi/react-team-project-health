@@ -1,3 +1,9 @@
+.onRegist {}
+
+.offRegist {
+  display: none;
+}
+
 .nav_wrap {
   display: flex;
   align-items: center;
@@ -17,6 +23,7 @@
   text-decoration: none;
   color: #9b9faa;
 }
+
 .nav_link:hover {
   color: #212121;
 }
@@ -34,13 +41,11 @@
 }
 
 .nav_gamburger {
-  /* position: absolute;
-  left: 132px;
-  top: 8px; */
   width: 18px;
   height: 12px;
   cursor: pointer;
 }
+
 .nav_gamburger_item {
   display: block;
   height: 2px;
@@ -63,5 +68,9 @@
     height: 0px;
     border: 2px solid #e0e0e0;
     transform: rotate(90deg);
+  }
+
+  .offRegist {
+    display: inline-block;
   }
 }
