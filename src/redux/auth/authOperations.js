@@ -3,7 +3,7 @@ import { authActions, authSelectors } from '../auth';
 import { store } from 'react-notifications-component';
 import apiURL from '../../services/apiURL';
 
-axios.defaults.baseURL = `${apiURL}/auth`;
+axios.defaults.baseURL = `${apiURL}`;
 
 const token = {
   set(token) {
@@ -23,7 +23,7 @@ const register = credentials => dispatch => {
   dispatch(authActions.registerRequest());
 
   return axios
-    .post('/register', user)
+    .post('/auth/register', user)
     .then(res => {
       store.addNotification({
         type: 'success',
@@ -82,7 +82,7 @@ const logIn = credentials => dispatch => {
   dispatch(authActions.loginRequest());
 
   axios
-    .put('/login', user)
+    .put('/auth/login', user)
     .then(response => {
       token.set(response.data.token.accessToken);
       dispatch(authActions.loginSuccess(response.data));
@@ -109,7 +109,7 @@ const logOut = () => dispatch => {
   dispatch(authActions.logoutRequest());
 
   axios
-    .patch('/logout')
+    .patch('/auth/logout')
     .then(() => {
       token.unset();
       dispatch(authActions.logoutSuccess());
