@@ -15,6 +15,7 @@ import {
   REGISTER,
   FLUSH,
 } from 'redux-persist';
+import ration from '../redux/rations/rationItemsReducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -22,7 +23,7 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-console.log('REDUCER: ', rationsItemReducer)
+console.log('REDUCER: ', rationsItemReducer);
 
 const store = configureStore({
   reducer: {
@@ -30,6 +31,7 @@ const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     modal: modalReducer,
     ...rationsItemReducer,
+    ration,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {
