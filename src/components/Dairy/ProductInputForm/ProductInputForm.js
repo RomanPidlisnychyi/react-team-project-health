@@ -11,6 +11,7 @@ import Picker from '../Picker/Picker';
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import sendNotification from './notification';
+import rationsItemOperationsVit from '../../../redux/rations/rationItemsOperations';
 // import debounce from 'lodash.debounce';
 
 class ProductInputForm extends Component {
@@ -156,7 +157,7 @@ class ProductInputForm extends Component {
             })
         }
         catch (error) {
-            console.log(error);
+            console.log('add or updated fail :(',  error);
             sendNotification(error.payload.message || 'error');
         }
         finally {
@@ -210,51 +211,53 @@ class ProductInputForm extends Component {
     }
   };
 
-  render() {
-    const { transformedDate, weight, date, productTitle } = this.state;
-    const {
-      visibleListProducts,
-      products,
-      onUnsetVisibleList,
-      productSearchValue,
-    } = this.props;
+  // render() {
+  //   const { transformedDate, weight, date, productTitle } = this.state;
+  //   const {
+  //     visibleListProducts,
+  //     products,
+  //     onUnsetVisibleList,
+  //     productSearchValue,
+  //   } = this.props;
 
-    const rtt = {
-      date: transformedDate,
-      productTitle: productSearchValue,
-      weight: Number(weight),
-    };
+  //   const rtt = {
+  //     date: transformedDate,
+  //     productTitle: productSearchValue,
+  //     weight: Number(weight),
+  //   };
 
-    return (
-      <form
-        id="form-products"
-        className={styles.form}
-        onSubmit={this.handleSubmit}
-      >
-        <Picker date={date} onChangeData={this.handlerChangeDate} />
-        <ProductsInput />
-        <WeightInput weight={weight} onChangeWeight={this.handleChangeWeight} />
-        <Button title="Добавить" onClick={this.handleClick} />
+  //   return (
+  //     <form
+  //       id="form-products"
+  //       className={styles.form}
+  //       onSubmit={this.handleSubmit}
+  //     >
+  //       <Picker date={date} onChangeData={this.handlerChangeDate} />
+  //       <ProductsInput />
+  //       <WeightInput weight={weight} onChangeWeight={this.handleChangeWeight} />
+  //       <Button title="Добавить" onClick={this.handleClick} />
 
-        {products && products.length > 0 && visibleListProducts && (
-          <ProductsList
-            products={products}
-            onHover={this.handleItemHover}
-            onItemClick={onUnsetVisibleList}
-          />
-        )}
-      </form>
-    );
-  }
-}
+  //       {products && products.length > 0 && visibleListProducts && (
+  //         <ProductsList
+  //           products={products}
+  //           onHover={this.handleItemHover}
+  //           onItemClick={onUnsetVisibleList}
+  //         />
+  //       )}
+  //     </form>
+  //   );
+  // }
+// }
 
 const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onRationsItemAdd: (param) => dispatch(rationsItemOperations.rationsItemAdd(param)),
-    onGetInfo: (param) => dispatch(rationsItemOperations.getInfoByDate(param)),
-    onRationsItemUpdate: (param) => dispatch(rationsItemOperations.rationsItemUpdate(param)),
+    // onGetInfo: (param) => dispatch(rationsItemOperations.getInfoByDate(param)),
+    onGetInfo: (param) => dispatch (rationsItemOperationsVit.fetchRationItems(param)),
+    // onGetInfo: (param) => dispatch(rationsItemOperations.getInfoByDate(param)),
+    onRationsItemUpdate: (param) => dispatch(rationsItemOperationsVit.rationsItemUpdate(param)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductInputForm);

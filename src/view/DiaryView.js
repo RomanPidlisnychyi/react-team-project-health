@@ -7,9 +7,9 @@ import RationItemsList from '../components/RationItemsList/RationItemsList';
 export default function DiaryView() {
   return (
     <Layout>
-      <DairyCommon />
-      <RationItemsList />
       <App />
+      <RationItemsList />
+      
     </Layout>
   );
 }
