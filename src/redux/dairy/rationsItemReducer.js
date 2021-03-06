@@ -2,17 +2,17 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import rationsItemActions from './rationsItemActions';
 
-const onItemUpdate = (state, action) => {
-    const mm = state.filter(el => el.title !== action.payload.title);
-    const ar = [...mm, action.payload];
-    return ar;
-}
+// const onItemUpdate = (state, action) => {
+//     const mm = state.filter(el => el.title !== action.payload.title);
+//     const ar = [...mm, action.payload];
+//     return ar;
+// }
 
-const rationsReducer = createReducer({}, {
-    [rationsItemActions.getInfoByDateSuccess]: (state, action) => action.payload,
-    [rationsItemActions.getInfoByDateError]: (state, action) => ({}),
-    [rationsItemActions.rationsItemUpdate]: onItemUpdate,
-})
+// const rationsReducer = createReducer({}, {
+//     [rationsItemActions.getInfoByDateSuccess]: (state, action) => action.payload,
+//     [rationsItemActions.getInfoByDateError]: (state, action) => ({}),
+//     [rationsItemActions.rationsItemUpdate]: onItemUpdate,
+// })
 
 const errorReducer = createReducer(
   {},
@@ -25,12 +25,10 @@ const errorReducer = createReducer(
 
 const rootReducer = combineReducers({
     error: errorReducer,
-    rations: rationsReducer,
 })
 
 const objReducer = {
     error: errorReducer,
-    rations: rationsReducer,
 }
 
 // export default rootReducer;

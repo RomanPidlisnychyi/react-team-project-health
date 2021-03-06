@@ -11,6 +11,7 @@ import Picker from '../Picker/Picker';
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import sendNotification from './notification';
+import rationsItemOperationsVit from '../../../redux/rations/rationItemsOperations';
 // import debounce from 'lodash.debounce';
 
 class ProductInputForm extends Component {
@@ -156,7 +157,7 @@ class ProductInputForm extends Component {
             })
         }
         catch (error) {
-            console.log(error);
+            console.log('add or updated fail :(',  error);
             sendNotification(error.payload.message || 'error');
         }
         finally {
@@ -253,8 +254,10 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onRationsItemAdd: (param) => dispatch(rationsItemOperations.rationsItemAdd(param)),
-    onGetInfo: (param) => dispatch(rationsItemOperations.getInfoByDate(param)),
-    onRationsItemUpdate: (param) => dispatch(rationsItemOperations.rationsItemUpdate(param)),
+    // onGetInfo: (param) => dispatch(rationsItemOperations.getInfoByDate(param)),
+    onGetInfo: (param) => dispatch (rationsItemOperationsVit.fetchRationItems(param)),
+    // onGetInfo: (param) => dispatch(rationsItemOperations.getInfoByDate(param)),
+    onRationsItemUpdate: (param) => dispatch(rationsItemOperationsVit.rationsItemUpdate(param)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductInputForm);

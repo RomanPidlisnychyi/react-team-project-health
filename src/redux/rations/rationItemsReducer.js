@@ -1,6 +1,19 @@
 import { createReducer } from '@reduxjs/toolkit';
 import rationItemsActions from './rationItemsActions';
+<<<<<<< HEAD
 import authActions from '../auth/authActions';
+=======
+// import rationsItemActionsKolya from ''
+
+//================ from Kolya =====================================
+const onItemUpdate = (state, action) => {
+  const rationItems = state.rationItems.filter(el => el.title !== action.payload.title);
+  const date = state.date;
+  const ar = {rationItems: [...rationItems, action.payload], date};
+  return ar;
+}
+//=================================================================
+>>>>>>> full
 
 const initialState = { date: null, rationItems: [] };
 
@@ -18,6 +31,7 @@ const ration = createReducer(initialState, {
   [authActions.logoutSuccess]: (state, action) => initialState,
   [rationItemsActions.fetchRationItemsError]: (state, action) => initialState,
   [rationItemsActions.deleteRationItemSuccess]: onDeleteRationItem,
+  [rationItemsActions.rationsItemUpdate]: onItemUpdate,
 });
 
 export default ration;
