@@ -1,8 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import rationItemsActions from './rationItemsActions';
-<<<<<<< HEAD
 import authActions from '../auth/authActions';
-=======
 // import rationsItemActionsKolya from ''
 
 //================ from Kolya =====================================
@@ -13,7 +11,6 @@ const onItemUpdate = (state, action) => {
   return ar;
 }
 //=================================================================
->>>>>>> full
 
 const initialState = { date: null, rationItems: [] };
 
