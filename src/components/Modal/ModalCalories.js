@@ -2,8 +2,11 @@ import React from 'react';
 import ListOfNonRecommendedProducts from '../ListOfNonRecommendedProducts/ListOfNonRecommendedProducts';
 import styles from './ModalCalories.module.css';
 import Button from '../Button/Button';
+import { connect } from 'react-redux';
+import { modalActions } from '../../redux/modal/index';
+import { Link } from 'react-router-dom';
 
-export default function ModalCalories({ calories = '2800' }) {
+function ModalCalories({ calories = '2800', isModal }) {
   return (
     <div className={styles.cover}>
       <div className={styles.modalCalories}>
@@ -26,13 +29,14 @@ export default function ModalCalories({ calories = '2800' }) {
               <ListOfNonRecommendedProducts stylesList={styles.item} />
             </ol>
             <div className={styles.buttonStartLosingWeightWrapper}>
-              <Button
-                title={'Начать худеть'}
-                className={styles.buttonStartLosingWeight}
-              />
-              {/* <button className={styles.buttonStartLosingWeight}>
-                Начать худеть
-              </button> */}
+              <Link to={'/login'}>
+                <Button
+                  title={'Начать худеть'}
+                  className={styles.buttonStartLosingWeight}
+                  role={'link'}
+                  onClick={() => isModal()}
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -40,3 +44,9 @@ export default function ModalCalories({ calories = '2800' }) {
     </div>
   );
 }
+
+const mapDispatchToProps = {
+  isModal: modalActions.offModal,
+};
+
+export default connect(null, mapDispatchToProps)(ModalCalories);
