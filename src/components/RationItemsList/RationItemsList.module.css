@@ -1,3 +1,44 @@
 .list {
   list-style: none;
+  width: 287px;
+  max-height: 240px;
+  overflow: auto;
+  margin: auto;
+  scrollbar-width: 3px;
+  scrollbar-color: #264061;
+}
+
+/* полоса прокрутки (скроллбар) */
+.list::-webkit-scrollbar {
+  width: 6px; /* ширина для вертикального скролла */
+  height: 8px; /* высота для горизонтального скролла */
+  background-color: #f0f1f3;
+}
+
+/* ползунок скроллбара */
+.list::-webkit-scrollbar-thumb {
+  background-color: gray;
+  /* border-radius: 9em; */
+  box-shadow: inset 1px 1px 10px #f3faf7;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background-color: #264061;
+}
+
+/* .list:hover {
+  cursor: pointer;
+} */
+
+@media (min-width: 768px) {
+  .list {
+    width: 589px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .list {
+    width: 552px;
+    margin: 0;
+  }
 }
