@@ -1,16 +1,17 @@
 import React from 'react';
-import ProductInputForm from './ProductInputForm/ProductInputForm';
 import styles from './App.module.css';
-import Picker from './Picker/Picker';
-import Rations from './Rations/Rations';
-// import Button from './Button/Button';
+import ProductInputForm from '../Dairy/ProductInputForm/ProductInputForm';
+import Rations from '../Dairy/Rations/Rations';
 
-const App = () => (
-    <div>
-        {/* <Picker />
+const App = () => <div className={styles.commonWrapper}>
+    <div className={styles.dairyWrapper}>
+        {/* Dairy components */}
         <ProductInputForm />
-        <Rations /> */}
+        <Rations />
     </div>
-)
+    <div className={styles.usersInfoWrapper}>
+        {/* UsersInfo components */}
+    </div>
+</div>
 
-export default App;
+export default  App;
