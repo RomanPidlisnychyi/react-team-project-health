@@ -1,4 +1,3 @@
-
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import rationsItemActions from './rationsItemActions';
@@ -15,11 +14,14 @@ const rationsReducer = createReducer({}, {
     [rationsItemActions.rationsItemUpdate]: onItemUpdate,
 })
 
-const errorReducer = createReducer({}, {
+const errorReducer = createReducer(
+  {},
+  {
     [rationsItemActions.getProductsError]: (state, action) => action.payload,
     [rationsItemActions.getTitlesError]: (state, action) => action.payload,
     [rationsItemActions.getInfoByDateError]: (state, action) => action.payload,
-})
+  },
+);
 
 const rootReducer = combineReducers({
     error: errorReducer,
