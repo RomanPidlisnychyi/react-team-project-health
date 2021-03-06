@@ -20,11 +20,12 @@ class ProductInputForm extends Component {
         const nowDate = new Date();
         const year = nowDate.getFullYear().toString();
         const month = (nowDate.getMonth() + 1).toString();
-        const day = nowDate.getDay().toString();
+        const day = (nowDate.getDay() === 0 ? 7 : nowDate.getDay()).toString();
 
         const trDay = day.length === 2 ? day : '0' + day;
         const trMonth = month.length === 2 ? month : '0' + month;
         this.state.date = year + '-' + trMonth + '-' + trDay;
+        console.log('date: ', year + '-' + trMonth + '-' + trDay)
     }
 
     state = {
