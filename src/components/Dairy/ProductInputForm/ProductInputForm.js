@@ -210,43 +210,43 @@ class ProductInputForm extends Component {
     }
   };
 
-  render() {
-    const { transformedDate, weight, date, productTitle } = this.state;
-    const {
-      visibleListProducts,
-      products,
-      onUnsetVisibleList,
-      productSearchValue,
-    } = this.props;
+  // render() {
+  //   const { transformedDate, weight, date, productTitle } = this.state;
+  //   const {
+  //     visibleListProducts,
+  //     products,
+  //     onUnsetVisibleList,
+  //     productSearchValue,
+  //   } = this.props;
 
-    const rtt = {
-      date: transformedDate,
-      productTitle: productSearchValue,
-      weight: Number(weight),
-    };
+  //   const rtt = {
+  //     date: transformedDate,
+  //     productTitle: productSearchValue,
+  //     weight: Number(weight),
+  //   };
 
-    return (
-      <form
-        id="form-products"
-        className={styles.form}
-        onSubmit={this.handleSubmit}
-      >
-        <Picker date={date} onChangeData={this.handlerChangeDate} />
-        <ProductsInput />
-        <WeightInput weight={weight} onChangeWeight={this.handleChangeWeight} />
-        <Button title="Добавить" onClick={this.handleClick} />
+  //   return (
+  //     <form
+  //       id="form-products"
+  //       className={styles.form}
+  //       onSubmit={this.handleSubmit}
+  //     >
+  //       <Picker date={date} onChangeData={this.handlerChangeDate} />
+  //       <ProductsInput />
+  //       <WeightInput weight={weight} onChangeWeight={this.handleChangeWeight} />
+  //       <Button title="Добавить" onClick={this.handleClick} />
 
-        {products && products.length > 0 && visibleListProducts && (
-          <ProductsList
-            products={products}
-            onHover={this.handleItemHover}
-            onItemClick={onUnsetVisibleList}
-          />
-        )}
-      </form>
-    );
-  }
-}
+  //       {products && products.length > 0 && visibleListProducts && (
+  //         <ProductsList
+  //           products={products}
+  //           onHover={this.handleItemHover}
+  //           onItemClick={onUnsetVisibleList}
+  //         />
+  //       )}
+  //     </form>
+  //   );
+  // }
+// }
 
 const mapStateToProps = (state, ownProps) => ({
 });
