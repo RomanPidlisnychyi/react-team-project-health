@@ -1,5 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import rationItemsActions from './rationItemsActions';
+import authActions from '../auth/authActions';
 
 const initialState = { date: null, rationItems: [] };
 
@@ -14,6 +15,7 @@ const onDeleteRationItem = (state, action) => {
 const ration = createReducer(initialState, {
   [rationItemsActions.fetchRationItemsSuccess]: (state, action) =>
     action.payload,
+  [authActions.logoutSuccess]: (state, action) => initialState,
   [rationItemsActions.fetchRationItemsError]: (state, action) => initialState,
   [rationItemsActions.deleteRationItemSuccess]: onDeleteRationItem,
 });

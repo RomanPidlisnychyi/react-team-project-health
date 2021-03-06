@@ -21,6 +21,7 @@ class ProductInputForm extends Component {
 
   componentDidMount() {
     this.props.onDidMount();
+    this.props.getRation(this.state.date);
   }
 
   handleSubmit = e => {
@@ -56,30 +57,29 @@ class ProductInputForm extends Component {
   };
 
   handleClick = async e => {
-    try {
-      this.setState({ addTitlesSucces: false });
-      const { transformedDate, weight, productTitle } = this.state;
-      const { productSearchValue, onRationsItemAdd, onGetInfo } = this.props;
+    // try {
+    this.setState({ addTitlesSucces: false });
+    const { transformedDate, weight, productTitle } = this.state;
+    const { productSearchValue, onRationsItemAdd, onGetInfo } = this.props;
 
-      const rtt = {
-        date: transformedDate,
-        productTitle: productSearchValue,
-        weight: Number(weight),
-      };
+    const rtt = {
+      date: transformedDate,
+      productTitle: productSearchValue,
+      weight: Number(weight),
+    };
 
-      onRationsItemAdd(rtt);
-      //   onGetInfo(transformedDate);
-      this.props.getRation(transformedDate);
+    onRationsItemAdd(rtt);
+    //   onGetInfo(transformedDate);
 
-      // // await = this.props.addItemSucces;
-      // console.log('addDidSuccess: ', addDidSuccess);
-      // // const addDidSuccess = await this.state.rationsItemAddSuccess;
-      // if (!addDidSuccess) {
-      //     console.log('Error by trying to add Item, try again')
-      // }
-    } catch (error) {
-      console.log(error);
-    }
+    // // await = this.props.addItemSucces;
+    // console.log('addDidSuccess: ', addDidSuccess);
+    // // const addDidSuccess = await this.state.rationsItemAddSuccess;
+    // if (!addDidSuccess) {
+    //     console.log('Error by trying to add Item, try again')
+    // }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   render() {
