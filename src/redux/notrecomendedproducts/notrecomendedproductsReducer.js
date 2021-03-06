@@ -2,13 +2,16 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import notrecomendedproductsActions from './notrecomendedproductsActions';
 
-const notrecomendedproducts = createReducer(null, {
-  [notrecomendedproductsActions.getListNotRecomendedProductsAndCaloriesSuccess]: (
-    _,
-    { payload },
-  ) => payload,
-});
+const initialNotRecomProductsState = [];
 
+const notrecomendedproducts = createReducer(initialNotRecomProductsState, {
+  [notrecomendedproductsActions.getNotProductsSuccess]: (_, { payload }) =>
+    // payload.data,
+    payload,
+  [notrecomendedproductsActions.getNotProductsError]: () =>
+    initialNotRecomProductsState,
+});
+// [authActions.currentError]: () => initialUserState,
 // const error = createReducer({
 //   [notrecomendedproductsActions.getListNotRecomendedProductsAndCaloriesError]: (
 //     _,
@@ -17,6 +20,6 @@ const notrecomendedproducts = createReducer(null, {
 // });
 
 export default combineReducers({
-    notrecomendedproducts,
-    //   error
-  });
+  notrecomendedproducts,
+  //   error
+});

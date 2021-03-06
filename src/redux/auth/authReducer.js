@@ -9,6 +9,14 @@ const initialTokenState = {
   expiresIn: null,
 };
 
+const initialStateParams = {
+  height: null,
+  age: null,
+  currentWeight: null,
+  desiredWeight: null,
+  bloodGroup: null,
+};
+
 const user = createReducer(initialUserState, {
   [authActions.registerSucces]: (_, { payload }) => payload.user,
   [authActions.loginSuccess]: (_, { payload }) => payload.user,
@@ -40,8 +48,19 @@ const error = createReducer(null, {
   [authActions.currentError]: (_, { payload }) => payload,
 });
 
+
+// const createUserParams = (state, action) => {
+//   return [...state, action.payload];
+// };
+
+const params = createReducer(initialStateParams, {
+//   [authActions.paramsSuccess]: createUserParams,
+  [authActions.paramsSuccess]: (_, { payload }) => payload,
+});
+
 export default combineReducers({
   user,
   token,
   error,
+  params
 });

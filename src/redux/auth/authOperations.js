@@ -181,4 +181,51 @@ const refresh = expiresIn => (dispatch, getState) => {
   // чем жизнь токена на сервере.
 };
 
-export default { register, logIn, logOut, current, refresh };
+const params = userData => async dispatch => {
+  console.log('userDataParams:', userData);
+
+  dispatch(authActions.paramsRequest());
+
+  const options = {
+    method: 'PATCH',
+    'Content-Type': 'application/json',
+    // body: JSON.stringify(userData),
+    body: {
+      user: {
+        height: 185,
+        age: 35,
+        currentWeight: 75,
+        desiredWeight: 68,
+        bloodGroup: 4,
+      },
+    },
+  };
+
+  return (
+    fetch(`${apiURL}/users/params`, options)
+      .then(response => {
+        response.json();
+      })
+      .then(data => {
+        dispatch(authActions.paramsSuccess(data));
+        console.log('userParamsResponseData:', data);
+        // return data;
+      })
+      // .then(console.log)
+
+      // return await axios
+      //   // .patch(`${apiURL}/users/params`, userData)
+      //   .patch(`${apiURL}/params`, userData)
+      //   // .then(({ data }) => dispatch(authActions.addUserParamsSuccess(data)))
+      //   .then(response => {
+      //     dispatch(authActions.paramsSuccess(response.data));
+      //     console.log('responseUser.data:', response.data);
+      //   })
+      //   .then(data => {
+      //     console.log('userParamsResponseData:', data);
+      //   })
+      .catch(error => dispatch(authActions.paramsError(error)))
+  );
+};
+
+export default { register, logIn, logOut, current, refresh, params };

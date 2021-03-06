@@ -4,6 +4,9 @@ import styles from './ModalCalories.module.css';
 import Button from '../Button/Button';
 
 export default function ModalCalories({ calories = '2800' }) {
+// export default function ModalCalories({ calories, listNotRecomendedProducts }) {
+  // console.log('calories:', calories);
+
   return (
     <div className={styles.cover}>
       <div className={styles.modalCalories}>
@@ -23,7 +26,10 @@ export default function ModalCalories({ calories = '2800' }) {
               Продукты, которые вам не рекомендуется употреблять
             </h4>
             <ol className={styles.listItem}>
-              <ListOfNonRecommendedProducts stylesList={styles.item} />
+              <ListOfNonRecommendedProducts
+                // productsNotRecommended={listNotRecomendedProducts}
+                stylesList={styles.item}
+              />
             </ol>
             <div className={styles.buttonStartLosingWeightWrapper}>
               <Button

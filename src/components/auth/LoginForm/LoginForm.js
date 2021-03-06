@@ -49,7 +49,7 @@ class LoginForm extends Component {
 
         fieldValidationErrors.email = emailValid
           ? (inputColor('email', 'green'), '')
-          : (inputColor('email', 'red'), ' Неправельная почта');
+          : (inputColor('email', 'red'), ' Неправильная почта');
 
         break;
       case 'password':
