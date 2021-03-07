@@ -2,8 +2,6 @@ import axios from 'axios';
 import rationItemsActions from './rationItemsActions';
 import HEROKU from '../../services/apiURL';
 
-// axios.defaults.baseURL = 'https://health-fsoff2.herokuapp.com';
-
 // const fetchRationItems = date => dispatch => {
 //   dispatch(rationItemsActions.fetchRationItemsRequest());
 
@@ -25,22 +23,27 @@ import HEROKU from '../../services/apiURL';
 const fetchRationItems = date => dispatch => {
   dispatch(rationItemsActions.fetchRationItemsRequest());
 
-  return new Promise ((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     axios
-    .get(`/users/infobyday/${date}`)
-    .then(response =>
-      resolve(dispatch(
-        rationItemsActions.fetchRationItemsSuccess({
-          rationItems: response.data,
-          date,
-        }),
-      ),)
-    )
-    .catch(error =>
-      reject(dispatch(rationItemsActions.fetchRationItemsError(error.response.data))),
-    );
-  })
-  
+      .get(`/users/infobyday/${date}`)
+      .then(response =>
+        resolve(
+          dispatch(
+            rationItemsActions.fetchRationItemsSuccess({
+              rationItems: response.data,
+              date,
+            }),
+          ),
+        ),
+      )
+      .catch(error =>
+        reject(
+          dispatch(
+            rationItemsActions.fetchRationItemsError(error.response.data),
+          ),
+        ),
+      );
+  });
 };
 
 const deleteRationItem = (id, date) => dispatch => {
@@ -56,13 +59,13 @@ const deleteRationItem = (id, date) => dispatch => {
   };
 
   fetch(`${HEROKU}/rations/${id}`, options)
-  .then(() => dispatch(rationItemsActions.deleteRationItemSuccess(id)))
-  .catch(error => dispatch(rationItemsActions.deleteRationItemError(error)));
+    .then(() => dispatch(rationItemsActions.deleteRationItemSuccess(id)))
+    .catch(error => dispatch(rationItemsActions.deleteRationItemError(error)));
 };
 
 const rationsItemUpdate = param => dispatch => {
   dispatch(rationItemsActions.rationsItemUpdate(param));
-}
+};
 
 const rationItemsOperations = {
   fetchRationItems,

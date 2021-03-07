@@ -8,7 +8,6 @@
   height: 40px;
   background: #eff1f3;
   display: flex;
-
 }
 
 .userInfo_img {
@@ -50,25 +49,22 @@
   font-size: 14px;
   line-height: 13px;
   background-color: rgba(255, 255, 255, 0.1);
-  color: #9B9FAA;
+  color: #9b9faa;
 }
 
 .button::after {
   position: absolute;
   left: -15px;
   top: -10px;
-  content: "";
+  content: '';
   display: block;
   height: 32px;
   border: 1px solid #e0e0e0;
   background: #e0e0e0;
 }
 
-
-
 @media (min-width: 768px) {
   .userInfo {
-
     background-color: initial;
     top: 3px;
     left: 288px;
