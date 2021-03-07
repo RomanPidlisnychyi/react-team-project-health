@@ -20,12 +20,11 @@ class ProductInputForm extends Component {
         const nowDate = new Date();
         const year = nowDate.getFullYear().toString();
         const month = (nowDate.getMonth() + 1).toString();
-        const day = (nowDate.getDay() === 0 ? 7 : nowDate.getDay()).toString();
+        const day = (nowDate.getDate()).toString();
 
         const trDay = day.length === 2 ? day : '0' + day;
         const trMonth = month.length === 2 ? month : '0' + month;
         this.state.date = year + '-' + trMonth + '-' + trDay;
-        console.log('date: ', year + '-' + trMonth + '-' + trDay)
     }
 
     state = {
@@ -84,7 +83,6 @@ class ProductInputForm extends Component {
             this.setState({ products });
         }
         catch (error) {
-            console.log(error);
             sendNotification(error.message);
             this.setState({ visibleListProducts: false });
         }
@@ -128,7 +126,6 @@ class ProductInputForm extends Component {
 
         if (fail) {
             const failMessage = fail.details[0].message;
-            console.log('failMessage: ', failMessage);
 
             this.setState({
                 visibleNotification: true,
@@ -148,7 +145,6 @@ class ProductInputForm extends Component {
             })
 
             const rr = await onRationsItemAdd(ration);
-            console.log('rr: ', rr.payload)
             onRationsItemUpdate(rr.payload);
             sendNotification(`Продукт ${rr.payload.title} удачно добавлен` || 'ок!');
 
@@ -158,7 +154,6 @@ class ProductInputForm extends Component {
             })
         }
         catch (error) {
-            console.log('add or updated fail :(',  error);
             sendNotification(error.payload.message || 'error');
         }
         finally {
@@ -211,44 +206,6 @@ class ProductInputForm extends Component {
         </form >
     }
   };
-
-  // render() {
-  //   const { transformedDate, weight, date, productTitle } = this.state;
-  //   const {
-  //     visibleListProducts,
-  //     products,
-  //     onUnsetVisibleList,
-  //     productSearchValue,
-  //   } = this.props;
-
-  //   const rtt = {
-  //     date: transformedDate,
-  //     productTitle: productSearchValue,
-  //     weight: Number(weight),
-  //   };
-
-  //   return (
-  //     <form
-  //       id="form-products"
-  //       className={styles.form}
-  //       onSubmit={this.handleSubmit}
-  //     >
-  //       <Picker date={date} onChangeData={this.handlerChangeDate} />
-  //       <ProductsInput />
-  //       <WeightInput weight={weight} onChangeWeight={this.handleChangeWeight} />
-  //       <Button title="Добавить" onClick={this.handleClick} />
-
-  //       {products && products.length > 0 && visibleListProducts && (
-  //         <ProductsList
-  //           products={products}
-  //           onHover={this.handleItemHover}
-  //           onItemClick={onUnsetVisibleList}
-  //         />
-  //       )}
-  //     </form>
-  //   );
-  // }
-// }
 
 const mapStateToProps = (state, ownProps) => ({
 });
