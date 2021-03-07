@@ -1,198 +1,128 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import PropTypes from 'prop-types';
 
 import styles from './Home.module.css';
 
-// import Button from "../Button/Button";
+import Button from '../Button/Button';
 import CaloriesForm from '../CaloriesForm/CaloriesForm';
 
-// export default function Home() {
-//    return <h2 className={styles.titlePage}>Hello from Home public page</h2>
-// }
+import {
+  notrecomendedproductsOperations,
+  notrecomendedproductsSelectors,
+} from '../../redux/notrecomendedproducts';
+import { authOperations } from '../../redux/auth';
+import { modalActions, modalSelectors } from '../../redux/modal/';
+
+import Modal from '../Modal/Modal';
+import ModalCalories from '../Modal/ModalCalories';
 
 class Home extends Component {
-  static propTypes = {
-    height: PropTypes.number,
-    age: PropTypes.number,
-    currentWeight: PropTypes.number,
-    desiredWeight: PropTypes.number,
-    bloodGroup: PropTypes.number,
-  };
+  // static propTypes = {
+  //   height: PropTypes.number,
+  //   age: PropTypes.number,
+  //   currentWeight: PropTypes.number,
+  //   desiredWeight: PropTypes.number,
+  //   bloodGroup: PropTypes.number,
+  // };
 
   state = {
-    height: '',
-    age: '',
-    currentWeight: '',
-    desiredWeight: '',
-    bloodGroup: '',
+    //   height: '',
+    //   age: '',
+    //   currentWeight: '',
+    //   desiredWeight: '',
+    //   bloodGroup: '',
+    showModal: false,
   };
 
-  handleInput = e => {
-    const { name, value } = e.target;
+  // //! notRecomendedProducts
+  // onGetListNotRecomendedProductsAndCalories(userParams).then(data => {
+  //   if (data) {
+  //     console.log(
+  //       `NotRecomendedProducts of user saved successfully: param: ${data}`,
+  //     );
+  //     return;
+  //   }
+  //   console.log('Щось пішло не так! Спробуйте ввести параметри ще раз!');
+  //   // this.handleClearForm(e);
+  // });
 
-    this.setState({ [name]: value });
+  //! userParams
+  // onAddUserParams(userParams).then(data => {
+  //   if (data) {
+  //     console.log(`Parametrs of user saved successfully: param: ${data}`);
+  //     return;
+  //   }
+  //   console.log('Щось пішло не так! Спробуйте ввести параметри ще раз!');
+  //              this.handleClearForm(e);
+  // });
 
-    // console.log("this1.state:", this.state);
-  };
+  // console.log('thisSubmit.props:', this.props);
+  // console.log('thisSubmit.state:', this.state);
 
-  handleRadio = e => {
-    const { value } = e.target;
+  // this.showModalCalories();
+  // };
 
-    // console.log("value:", value);
-    this.setState({
-      bloodGroup: value,
-    });
+  componentDidUpdate() {
+    this.showModalCalories = () => {
+      // this.props.isModal({ isModal: true });
+      // dispatch(modalActions.onModal())
+      // this.props.showModal({ showModal: true });
+      // this.setState({ showModal: this.state.showModal });
+      // this.setState({ showModal: true });
+      // console.log('thisShow.state:', this.state);
+      // onClick={() => dispatch(modalActions.onModal())}
+    };
 
-    // console.log("this2.state:", this.state);
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-
-    //TODO Відправитти на бек, отримати результат і записати в User.params
-  };
+    this.handleModal = () => {
+      // console.log('thisShow.props:', this.props);
+      this.setState({ showModal: !this.state.showModal });
+    };
+  }
 
   render() {
-    const {
-      height,
-      age,
-      currentWeight,
-      desiredWeight,
-      bloodGroup,
-    } = this.state;
+    // console.log('thisRender.props:', this.props);
+    // console.log('thisRender.state:', this.state);
+
+    const { dailyCalorieNormInteger, listNotProducts, isModal } = this.props;
 
     return (
-      <div className={styles.wrapper}>
-        <h2 className={styles.titleForm}>
-          Просчитай свою суточную норму калорий прямо сейчас
-        </h2>
-        <form className={styles.dailyCaloriesForm} onSubmit={this.handleSubmit}>
-          <label className={styles.dailyCaloriesLabel}>
-            <span className={styles.dailyCaloriesName}>Рост &#42;</span>
-            <input
-              type="number"
-              name="height"
-              value={height}
-              placeholder="80-220"
-              min="80"
-              max="220"
-              required
-              onChange={this.handleInput}
-              className={styles.dailyCaloriesInput}
-            />
-          </label>
-          <label className={styles.dailyCaloriesLabel}>
-            <span className={styles.dailyCaloriesName}>Возраст &#42;</span>
-            <input
-              type="number"
-              name="age"
-              value={age}
-              placeholder="14-100"
-              min="14"
-              max="100"
-              required
-              onChange={this.handleInput}
-              className={styles.dailyCaloriesInput}
-            />
-          </label>
-          <label className={styles.dailyCaloriesLabel}>
-            <span className={styles.dailyCaloriesName}>Текущий вес &#42;</span>
-            <input
-              type="number"
-              name="currentWeight"
-              value={currentWeight}
-              placeholder="40-260"
-              min="40"
-              max="260"
-              required
-              onChange={this.handleInput}
-              className={styles.dailyCaloriesInput}
-            />
-          </label>
-          <label className={styles.dailyCaloriesLabel}>
-            <span className={styles.dailyCaloriesName}>Желаемый вес &#42;</span>
-            <input
-              type="number"
-              name="desiredWeight"
-              value={desiredWeight}
-              placeholder="30-220"
-              min="30"
-              max="220"
-              required
-              onChange={this.handleInput}
-              className={styles.dailyCaloriesInput}
-            />
-          </label>
-          <label className={styles.dailyCaloriesLabel}>
-            <div className={styles.inputRadioWrapper}>
-              <span className={styles.dailyCaloriesName}>
-                Группа крови &#42;
-              </span>
-
-              <div className={styles.radioGroupWrapper}>
-                <label className={styles.inputRadioLabel}>
-                  <input
-                    type="radio"
-                    name="bloodGroup"
-                    value={1}
-                    required
-                    // checked={}
-                    onChange={this.handleRadio}
-                    className={styles.inputRadio}
-                  />
-                  <span className={styles.inputRadioName}>1</span>
-                </label>
-                <label className={styles.inputRadioLabel}>
-                  <input
-                    type="radio"
-                    name="bloodGroup"
-                    value={2}
-                    required
-                    onChange={this.handleRadio}
-                    className={styles.inputRadio}
-                  />
-                  <span className={styles.inputRadioName}>2</span>
-                </label>
-                <label className={styles.inputRadioLabel}>
-                  <input
-                    type="radio"
-                    name="bloodGroup"
-                    value={3}
-                    required
-                    onChange={this.handleRadio}
-                    className={styles.inputRadio}
-                  />
-                  <span className={styles.inputRadioName}>3</span>{' '}
-                </label>
-                <label className={styles.inputRadioLabel}>
-                  <input
-                    type="radio"
-                    name="bloodGroup"
-                    value={4}
-                    required
-                    onChange={this.handleRadio}
-                    className={styles.inputRadio}
-                  />
-                  <span className={styles.inputRadioName}>4</span>
-                </label>
-              </div>
-            </div>
-          </label>
-        </form>
-        <div className={styles.buttonWrapper}>
-          <button
-            type="submit"
-            className={styles.dailyCaloriesButton}
-            onClick={this.onLoadMore}
-          >
-            Похудеть
-          </button>
-          {/* <CaloriesForm></CaloriesForm> */}
-          {/* <Button></Button> */}
+      <>
+        <div className={styles.wrapper}>
+          <h2 className={styles.titleForm}>
+            Просчитай свою суточную норму калорий прямо сейчас
+          </h2>
+          <CaloriesForm />
         </div>
-      </div>
+        {this.state.showModal && (
+          <Modal handleModal={this.handleModal}>
+            {/* {isModal && ( */}
+            {/* <Modal> */}
+            <ModalCalories
+              calories={dailyCalorieNormInteger}
+              listNotRecomendedProducts={listNotProducts}
+            />
+          </Modal>
+        )}
+      </>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  dailyCalorieNormInteger: notrecomendedproductsSelectors.getDailyCalorieNormInteger(
+    state,
+  ),
+  listNotProducts: notrecomendedproductsSelectors.getListNotProducts(state),
+});
+
+const mapDispatchToProps = {
+  onGetListNotRecomendedProductsAndCalories:
+    notrecomendedproductsOperations.getListNotRecomendedProductsAndCalories,
+  onAddUserParams: authOperations.params,
+  // isModal: modalActions.offModal,
+  // isModal: modalActions.onModal,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
