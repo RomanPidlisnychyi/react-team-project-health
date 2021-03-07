@@ -21,18 +21,21 @@
 .title {
   composes: inline;
   width: 138px;
+  padding-bottom: 5px;
 }
 
 .weight {
   composes: inline;
   width: 50px;
   text-align: center;
+  padding-bottom: 5px;
 }
 
 .calories {
   composes: inline;
   width: 60px;
   text-align: center;
+  padding-bottom: 5px;
 }
 
 .button {
@@ -43,6 +46,9 @@
   background: none;
   margin-right: 5px;
   cursor: pointer;
+  outline: none;
+  position: relative;
+  top: -11px;
 }
 
 .closeSpan {
@@ -52,16 +58,23 @@
 @media (min-width: 768px) {
   .title {
     width: 240px;
+    padding-bottom: 8px;
   }
 
   .weight {
     width: 106px;
     text-align: right;
+    padding-bottom: 8px;
   }
 
   .calories {
     width: 106px;
     text-align: right;
+    padding-bottom: 8px;
+  }
+
+  .button {
+    top: -15px;
   }
 }
 
