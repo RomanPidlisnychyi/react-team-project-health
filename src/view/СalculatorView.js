@@ -1,5 +1,7 @@
 import React from 'react';
+import СalculatorCalories from '../components/CalculatorCalories/CalculatorCalories'
+
 
 export default function СalculatorView() {
-  return <h1>Hello form Сalculator View</h1>;
+  return <СalculatorCalories/>;
 }

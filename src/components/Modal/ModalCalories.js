@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import { modalActions } from '../../redux/modal/index';
 import { Link } from 'react-router-dom';
 
-function ModalCalories({ calories = '2800', isModal }) {
+
+function ModalCalories({ calories = '2800', listNotRecomendedProducts, isModal }) {
   return (
     <div className={styles.cover}>
       <div className={styles.modalCalories}>
@@ -26,7 +27,10 @@ function ModalCalories({ calories = '2800', isModal }) {
               Продукты, которые вам не рекомендуется употреблять
             </h4>
             <ol className={styles.listItem}>
-              <ListOfNonRecommendedProducts stylesList={styles.item} />
+              <ListOfNonRecommendedProducts
+                productsNotRecommended={listNotRecomendedProducts}
+                stylesList={styles.item}
+              />
             </ol>
             <div className={styles.buttonStartLosingWeightWrapper}>
               <Link to={'/login'}>
