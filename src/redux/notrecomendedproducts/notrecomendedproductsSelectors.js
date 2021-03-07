@@ -1,11 +1,9 @@
 const getDailyCalorieNormInteger = state =>
-  state.notrecomendedproducts.notrecomendedproducts.dailyCalorieNormInteger;
+  state.notrecomendedproducts.dailyCalorieNormInteger;
 
-const getListNotProducts = state =>
-  state.notrecomendedproducts.notrecomendedproducts.listNotProducts;
+const getListNotProducts = state => state.notrecomendedproducts.listNotProducts;
 
 export default {
   getDailyCalorieNormInteger,
   getListNotProducts,
 };
-

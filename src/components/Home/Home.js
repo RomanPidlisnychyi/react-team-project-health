@@ -95,16 +95,14 @@ class Home extends Component {
           </h2>
           <CaloriesForm />
         </div>
-        {this.state.showModal && (
+        {/* {this.state.showModal && (
           <Modal handleModal={this.handleModal}>
-            {/* {isModal && ( */}
-            {/* <Modal> */}
             <ModalCalories
               calories={dailyCalorieNormInteger}
               listNotRecomendedProducts={listNotProducts}
             />
           </Modal>
-        )}
+        )} */}
       </>
     );
   }

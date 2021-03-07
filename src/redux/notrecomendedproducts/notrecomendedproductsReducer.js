@@ -3,18 +3,21 @@ import { createReducer } from '@reduxjs/toolkit';
 import notrecomendedproductsActions from './notrecomendedproductsActions';
 // import modalActions from '../modal/modalActions';
 
-const initialNotRecomProductsState = [];
-
-const notrecomendedproducts = createReducer(initialNotRecomProductsState, {
+const categiriesList = createReducer([], {
   [notrecomendedproductsActions.getNotProductsSuccess]: (_, { payload }) =>
-    payload,
-  // [modalActions.onModal]: () => true,
-  [notrecomendedproductsActions.getNotProductsError]: () =>
-    initialNotRecomProductsState,
+    payload.listNotProducts,
+  [notrecomendedproductsActions.getNotProductsError]: () => [],
+});
+
+const dailyCalorieNormInteger = createReducer(0, {
+  [notrecomendedproductsActions.getNotProductsSuccess]: (_, { payload }) =>
+    payload.dailyCalorieNormInteger,
+  [notrecomendedproductsActions.getNotProductsError]: () => 0,
 });
 
 export default combineReducers({
-  notrecomendedproducts,
+  categiriesList,
+  dailyCalorieNormInteger,
 });
 
 //* Action

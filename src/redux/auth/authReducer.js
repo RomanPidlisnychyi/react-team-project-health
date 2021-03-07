@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import authActions from './authActions';
-import modalActions from '../modal/modalActions';
 
 const initialUserState = { name: null, email: null };
 const initialTokenState = {
@@ -9,8 +8,7 @@ const initialTokenState = {
   refreshToken: null,
   expiresIn: null,
 };
-
-const initialStateParams = {
+const initialParamsState = {
   height: null,
   age: null,
   currentWeight: null,
@@ -20,8 +18,14 @@ const initialStateParams = {
 
 const user = createReducer(initialUserState, {
   [authActions.registerSucces]: (_, { payload }) => payload.user,
-  [authActions.loginSuccess]: (_, { payload }) => payload.user,
-  [authActions.currentSuccess]: (_, { payload }) => payload.user,
+  [authActions.loginSuccess]: (_, { payload }) => ({
+    name: payload.user.name,
+    email: payload.user.email,
+  }),
+  [authActions.currentSuccess]: (_, { payload }) => ({
+    name: payload.user.name,
+    email: payload.user.email,
+  }),
   [authActions.currentError]: () => initialUserState,
   [authActions.refreshError]: () => initialUserState,
   [authActions.logoutSuccess]: () => initialUserState,
@@ -42,6 +46,12 @@ const token = createReducer(initialTokenState, {
   [authActions.logoutError]: () => initialTokenState,
 });
 
+const params = createReducer(initialParamsState, {
+  [authActions.loginSuccess]: (_, { payload }) => payload.user.params,
+  [authActions.currentSuccess]: (_, { payload }) => payload.user.params,
+  [authActions.logoutSuccess]: () => initialParamsState,
+});
+
 const error = createReducer(null, {
   [authActions.registerError]: (_, { payload }) => payload,
   [authActions.registerSucces]: () => null,
@@ -55,20 +65,9 @@ const error = createReducer(null, {
   [authActions.refreshSuccess]: () => null,
 });
 
-// const createUserParams = (state, action) => {
-//   return [...state, action.payload];
-// };
-
-const params = createReducer(initialStateParams, {
-  //   [authActions.paramsSuccess]: createUserParams,
-  [authActions.paramsSuccess]: (_, { payload }) => payload,
-  // [modalActions.onModal]: () => true,
-  // [modalActions.offModal]: () => false,
-});
-
 export default combineReducers({
   user,
+  params,
   token,
   error,
-  params,
 });
