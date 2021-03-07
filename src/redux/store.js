@@ -25,7 +25,7 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-console.log('REDUCER: ', rationsItemReducer);
+// console.log('REDUCER: ', rationsItemReducer);
 
 const store = configureStore({
   reducer: {
