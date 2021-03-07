@@ -1,0 +1,20 @@
+.hamburger {
+  list-style: none;
+  width: 18px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.hamburger_item {
+  display: block;
+  height: 2px;
+  width: 24px;
+  background-color: #000000;
+  margin-bottom: 3px;
+}
+
+@media (min-width: 1280px) {
+  .hamburger {
+    display: none;
+  }
+}
