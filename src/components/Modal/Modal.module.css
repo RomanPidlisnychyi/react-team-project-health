@@ -7,6 +7,7 @@
 }
 /* @media (min-width: 768px) { */
 .modal {
+  z-index: 1;
   width: 100%;
   background: rgba(78, 78, 78, 0.12);
   position: fixed;
