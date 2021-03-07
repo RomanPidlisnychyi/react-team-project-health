@@ -1,12 +1,16 @@
 .cover {
-  margin: 0 auto;
-  width: 320px;
+  /* margin: 0 auto; */
+  /* width: 320px; */
+  width: 100vw;
+  /* margin-top: 120px; */
+
 }
 
 .modalCalories {
   background-color: white;
   padding-top: 40px;
-  width: 320px;
+  /* width: 320px; */
+  /* height: 650px; */
 }
 
 .modalCaloriesWrapper {
@@ -14,9 +18,10 @@
   margin: 0 auto;
 }
 
+/* 
 .closeButton {
   display: none;
-}
+} */
 
 .headingCalories {
   margin: 0;

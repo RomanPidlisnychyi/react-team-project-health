@@ -1,5 +1,4 @@
-.onRegist {
-}
+.onRegist {}
 
 .offRegist {
   display: none;
@@ -78,7 +77,7 @@
 
   .nav_hamburger {
     display: flex;
-    height: 200px;
+    /* height: 200px; */
   }
 
   .offRegist {
