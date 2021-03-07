@@ -1,4 +1,22 @@
 .modalNavWrap {
   background-color: #264061;
-  width: 320px;
+  min-width: 320px;
+  min-height: 488px;
+}
+.modalNav_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalNav_link {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .modalNavWrap {
+    min-width: 768px;
+    min-height: 944px;
+  }
 }
