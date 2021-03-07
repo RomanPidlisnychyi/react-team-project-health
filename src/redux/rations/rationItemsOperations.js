@@ -2,49 +2,48 @@ import axios from 'axios';
 import rationItemsActions from './rationItemsActions';
 import HEROKU from '../../services/apiURL';
 
-// const fetchRationItems = date => dispatch => {
-//   dispatch(rationItemsActions.fetchRationItemsRequest());
-
-//   axios
-//     .get(`/users/infobyday/${date}`)
-//     .then(response =>
-//       dispatch(
-//         rationItemsActions.fetchRationItemsSuccess({
-//           rationItems: response.data,
-//           date,
-//         }),
-//       ),
-//     )
-//     .catch(error =>
-//       dispatch(rationItemsActions.fetchRationItemsError(error.response.data)),
-//     );
-// };
-
 const fetchRationItems = date => dispatch => {
   dispatch(rationItemsActions.fetchRationItemsRequest());
 
-  return new Promise((resolve, reject) => {
-    axios
-      .get(`/users/infobyday/${date}`)
-      .then(response =>
-        resolve(
-          dispatch(
-            rationItemsActions.fetchRationItemsSuccess({
-              rationItems: response.data,
-              date,
-            }),
-          ),
-        ),
-      )
-      .catch(error =>
-        reject(
-          dispatch(
-            rationItemsActions.fetchRationItemsError(error.response.data),
-          ),
-        ),
+  return axios
+    .get(`/users/infobyday/${date}`)
+    .then(response => {
+      dispatch(
+        rationItemsActions.fetchRationItemsSuccess({
+          rationItems: response.data,
+          date,
+        }),
       );
-  });
+      return response;
+    })
+    .catch(error => dispatch(rationItemsActions.fetchRationItemsError(error)));
 };
+
+// const fetchRationItems = date => dispatch => {
+//   dispatch(rationItemsActions.fetchRationItemsRequest());
+
+//   return new Promise((resolve, reject) => {
+//      return axios
+//       .get(`/users/infobyday/${date}`)
+//       .then(response =>
+//         resolve(
+//           dispatch(
+//             rationItemsActions.fetchRationItemsSuccess({
+//               rationItems: response.data,
+//               date,
+//             }),
+//           ),
+//         ),
+//       )
+//       .catch(error =>
+//         reject(
+//           dispatch(
+//             rationItemsActions.fetchRationItemsError(error.response.data),
+//           ),
+//         ),
+//       );
+//   });
+// };
 
 const deleteRationItem = (id, date) => dispatch => {
   dispatch(rationItemsActions.deleteRationItemRequest());

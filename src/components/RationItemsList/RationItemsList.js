@@ -30,7 +30,7 @@ RationItemsList.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  rationItems: rationItemsSelectors.getRationItems(state),
+  rationItems: rationItemsSelectors.getReversedItems(state),
 });
 
 export default connect(mapStateToProps)(RationItemsList);
