@@ -1,11 +1,59 @@
-.App {
-	/* display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 16px;
-    padding-bottom: 24px; */
+/* .App {
 	position: relative;
 }
 
 .ButtonWrap {
 	text-align: center;
-}
+} */
+
+.commonWrapper {
+    display: flex;
+    flex-direction: column;
+    /* background: #ccccdd; */
+    outline: 1px #555555;
+    height: 600px;
+  }
+  
+  .dairyWrapper {
+    background: #cccccc;
+    outline: 1px #555555;
+    width: 287px;
+    margin: 0 auto;
+    height: 261px;
+  }
+  
+  .usersInfoWrapper {
+    background: #ccddcc;
+    outline: 1px #555555;
+    width: 100%;
+    width: 287px;
+    margin: 0 auto;
+    height: 300px;
+  }
+  
+  @media (min-width: 768px) {
+    .commonWrapper {
+      /* width: 768px; */
+      flex-direction: column;
+    }
+  
+    .dairyWrapper, .usersInfoWrapper {
+        width: 100%;
+    }  
+  }
+  
+  @media (min-width: 1280px) {
+    .commonWrapper {
+      /* width: 1280px; */
+      flex-direction: row;
+    }
+  
+    .dairyWrapper {
+        width: 58%;
+    }
+    
+    .usersInfoWrapper {
+      width: 42%;
+    }
+  }
+  

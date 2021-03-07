@@ -1,23 +1,76 @@
 .inline {
   display: inline-block;
-  margin-right: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin-bottom: 14px;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.span {
+  font-size: 10px;
 }
 
 .title {
   composes: inline;
-  width: 500px;
+  width: 138px;
 }
 
 .weight {
   composes: inline;
   width: 50px;
+  text-align: center;
 }
 
 .calories {
   composes: inline;
-  width: 50px;
+  width: 60px;
+  text-align: center;
 }
 
 .button {
   composes: inline;
+  width: 12px;
+  height: 12px;
+  border: none;
+  background: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.closeSpan {
+  color: #9b9faa;
+}
+
+@media (min-width: 768px) {
+  .title {
+    width: 240px;
+  }
+
+  .weight {
+    width: 106px;
+    text-align: right;
+  }
+
+  .calories {
+    width: 106px;
+    text-align: right;
+  }
+}
+
+@media (min-width: 1280px) {
+  .weight {
+    width: 104px;
+  }
+
+  .calories {
+    width: 104px;
+  }
 }
