@@ -1,16 +1,16 @@
-export default function NotRecommendedCategoryList({
-  productsNotRecommended = ['Мучные', 'Молоко', 'Красное мясо', 'Копченности'],
-  stylesList,
-}) {
+import styles from '../NotRecommended.module.css';
+
+export default function NotRecommendedCategoryList({ categories }) {
   return (
-    <ul>
-      {productsNotRecommended.map(products => {
-        return (
-          <li className={stylesList} key={products}>
-            {products}
+    <>
+      <h2>Нерекомендуемые продукты</h2>
+      <ol className={styles.listItem}>
+        {categories.map(category => (
+          <li className={styles.item} key={category}>
+            <span>{category}</span>
           </li>
-        );
-      })}
-    </ul>
+        ))}
+      </ol>
+    </>
   );
 }

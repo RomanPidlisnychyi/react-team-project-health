@@ -1,18 +1,38 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import CaloriesInfo from './CaloriesInfo/CaloriesInfo';
+import NotRecommendedCategoryList from './NotRecommendedCategoryList/NotRecommendedCategoryList';
+import NotRecommendedProductsList from './NotRecommendedProductsList/NotRecommendedProductsList';
 import NewModal from '../Modal/NewModal';
+import styles from './NotRecommended.module.css';
+
+const testCategories = [
+  'зерновые',
+  'мучные',
+  'орехи',
+  'овощи и зелень',
+  'масла и жиры',
+];
+
 export default function NotRecommended() {
   const [isModal, setIsModal] = useState(false);
+  const [products, setProducts] = useState(null);
+
+  // const categiry = useSelector(
+  //   notRecommendedSelectors.getNotRecommendedCategories,
+  // );
+
+  const categories = testCategories;
+
   return (
-    <>
-      <h1>Hello from Notrecommended</h1>
-      <button type="button" onClick={() => setIsModal(!isModal)}>
-        Modal
-      </button>
+    <div className={styles.wrapper}>
+      <CaloriesInfo />
+      <NotRecommendedCategoryList categories={categories} />
       {isModal && (
         <NewModal onModalClose={setIsModal}>
-          <h2>Hello from modal</h2>
+          <NotRecommendedProductsList />
         </NewModal>
       )}
-    </>
+    </div>
   );
 }
