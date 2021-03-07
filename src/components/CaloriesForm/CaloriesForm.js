@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import NewModal from '../Modal/NewModal';
+import ModalCalories from '../Modal/ModalCalories';
 import styles from './CaloriesForm.module.css';
 
 import {
   notrecomendedproductsOperations,
   notrecomendedproductsSelectors,
 } from '../../redux/notrecomendedproducts';
-import { authOperations } from '../../redux/auth';
+import { authOperations, authSelectors } from '../../redux/auth';
 import { modalActions, modalSelectors } from '../../redux/modal/';
 
 import Button from '../Button/Button';
@@ -32,15 +33,33 @@ class CaloriesForm extends Component {
     showModal: false,
   };
 
+  componentDidMount() {
+    const {
+      height,
+      age,
+      currentWeight,
+      desiredWeight,
+      bloodGroup,
+    } = this.props.userParams;
+
+    if (height) {
+      this.setState({ height, age, currentWeight, desiredWeight, bloodGroup });
+    }
+  }
+
   handleInput = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
 
+  onModalClose = () => {
+    this.setState({ showModal: false });
+  };
+
   handleRadio = e => {
     const { value } = e.target;
     this.setState({
-      bloodGroup: value,
+      bloodGroup: Number(value),
     });
   };
 
@@ -62,9 +81,9 @@ class CaloriesForm extends Component {
 
     //! notRecomendedProducts
     onGetListNotRecomendedProductsAndCalories(userParams).then(data => {
-      if (data) {
-        console.log(`NotRecomProduct of user saved successfully: ${data}`);
-
+      if (data && data.dailyCalorieNormInteger) {
+        this.setState({ showModal: true });
+        // console.log(`NotRecomProduct of user saved successfully: ${data}`);
         return;
       }
       console.log('Щось пішло не так! Спробуйте ввести параметри ще раз!');
@@ -101,6 +120,7 @@ class CaloriesForm extends Component {
       currentWeight,
       desiredWeight,
       bloodGroup,
+      showModal,
     } = this.state;
 
     return (
@@ -175,7 +195,7 @@ class CaloriesForm extends Component {
                     name="bloodGroup"
                     value={1}
                     required
-                    // checked={}
+                    checked={bloodGroup === 1}
                     onChange={this.handleRadio}
                     className={styles.inputRadio}
                   />
@@ -186,6 +206,7 @@ class CaloriesForm extends Component {
                     type="radio"
                     name="bloodGroup"
                     value={2}
+                    checked={bloodGroup === 2}
                     required
                     onChange={this.handleRadio}
                     className={styles.inputRadio}
@@ -197,6 +218,7 @@ class CaloriesForm extends Component {
                     type="radio"
                     name="bloodGroup"
                     value={3}
+                    checked={bloodGroup === 3}
                     required
                     onChange={this.handleRadio}
                     className={styles.inputRadio}
@@ -208,6 +230,7 @@ class CaloriesForm extends Component {
                     type="radio"
                     name="bloodGroup"
                     value={4}
+                    checked={bloodGroup === 4}
                     required
                     onChange={this.handleRadio}
                     className={styles.inputRadio}
@@ -226,6 +249,11 @@ class CaloriesForm extends Component {
             // onClick={this.showModalCalories}
             // onClick={() => dispatch(modalActions.onModal())}
           ></Button>
+          {showModal && (
+            <NewModal onModalClose={this.onModalClose}>
+              <ModalCalories />
+            </NewModal>
+          )}
         </div>
       </form>
     );
@@ -237,6 +265,7 @@ const mapStateToProps = state => ({
     state,
   ),
   listNotProducts: notrecomendedproductsSelectors.getListNotProducts(state),
+  userParams: authSelectors.getParams(state),
   // isModal: modalSelectors.isModal(state)
 });
 

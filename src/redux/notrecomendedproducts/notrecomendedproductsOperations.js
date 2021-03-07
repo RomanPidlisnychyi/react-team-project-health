@@ -5,15 +5,14 @@ import modalActions from '../modal/modalActions';
 
 const getListNotRecomendedProductsAndCalories = userParams => async dispatch => {
   dispatch(notrecomendedproductsActions.getNotProductsRequest());
-  dispatch(modalActions.offModal());
 
-  await axios
+  return await axios
     .post(`${apiURL}/notrecomendedproducts`, userParams)
     .then(response => {
       dispatch(
         notrecomendedproductsActions.getNotProductsSuccess(response.data),
       );
-      dispatch(modalActions.onModal());
+      return response.data;
     })
     .catch(error =>
       dispatch(
