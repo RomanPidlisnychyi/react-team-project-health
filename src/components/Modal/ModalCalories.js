@@ -3,8 +3,8 @@ import ListOfNonRecommendedProducts from '../ListOfNonRecommendedProducts/ListOf
 import styles from './ModalCalories.module.css';
 import Button from '../Button/Button';
 
-export default function ModalCalories({ calories = '2800' }) {
-// export default function ModalCalories({ calories, listNotRecomendedProducts }) {
+// export default function ModalCalories({ calories = '2800' }) {
+export default function ModalCalories({ calories, listNotRecomendedProducts }) {
   // console.log('calories:', calories);
 
   return (
@@ -27,7 +27,7 @@ export default function ModalCalories({ calories = '2800' }) {
             </h4>
             <ol className={styles.listItem}>
               <ListOfNonRecommendedProducts
-                // productsNotRecommended={listNotRecomendedProducts}
+                productsNotRecommended={listNotRecomendedProducts}
                 stylesList={styles.item}
               />
             </ol>

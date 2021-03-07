@@ -1,29 +1,13 @@
 import { createAction } from '@reduxjs/toolkit';
 
-// const getListNotRecomendedProductsAndCaloriesRequest = createAction(
-//   'notrecomendedproductsRequest',
-// );
-// const getListNotRecomendedProductsAndCaloriesSuccess = createAction(
-//   'notrecomendedproductsSuccess',
-// );
-// const getListNotRecomendedProductsAndCaloriesError = createAction(
-//   'notrecomendedproductsError',
-// );
-
-// export default {
-//   getListNotRecomendedProductsAndCaloriesRequest,
-//   getListNotRecomendedProductsAndCaloriesSuccess,
-//   getListNotRecomendedProductsAndCaloriesError,
-// };
-
 const getNotProductsRequest = createAction(
-  '/notrecomendedproducts/getnotproductsRequest',
+  '/notrecomendedproducts/getRequest',
 );
 const getNotProductsSuccess = createAction(
-  '/notrecomendedproducts/getnotproductsSuccess',
+  '/notrecomendedproducts/getSuccess',
 );
 const getNotProductsError = createAction(
-  '/notrecomendedproducts/getnotproductsError',
+  '/notrecomendedproducts/getError',
 );
 
 
