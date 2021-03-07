@@ -5,7 +5,7 @@
   max-height: 240px;
   overflow: auto;
   margin: auto;
-  padding-top: 15px;
+  margin-top: 15px;
   scrollbar-width: 3px;
   scrollbar-color: #264061;
 }
@@ -35,7 +35,7 @@
 @media (min-width: 768px) {
   .list {
     width: 589px;
-    padding-top: 22px;
+    margin-top: 22px;
   }
 }
 
@@ -43,5 +43,6 @@
   .list {
     width: 595px;
     margin: 0;
+    margin-top: 22px;
   }
 }
