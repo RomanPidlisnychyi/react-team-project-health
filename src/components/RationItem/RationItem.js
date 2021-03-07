@@ -13,15 +13,13 @@ const RationItem = ({ item, date, onDeleteItem }) => {
       <p className={styles.calories}>
         {calories} <span className={styles.span}>ккал</span>
       </p>
-      <section>
-        <button
-          type="button"
-          className={styles.button}
-          onClick={() => onDeleteItem(item._id, date)}
-        >
-          <span className={styles.closeSpan}>&#10006;</span>
-        </button>
-      </section>
+      <button
+        type="button"
+        className={styles.button}
+        onClick={() => onDeleteItem(item._id, date)}
+      >
+        <span className={styles.closeSpan}>&#10006;</span>
+      </button>
     </li>
   );
 };
