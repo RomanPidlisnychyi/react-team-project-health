@@ -251,7 +251,7 @@ class CaloriesForm extends Component {
           ></Button>
           {showModal && (
             <NewModal onModalClose={this.onModalClose}>
-              <ModalCalories />
+              <ModalCalories isModal={this.onModalClose} />
             </NewModal>
           )}
         </div>

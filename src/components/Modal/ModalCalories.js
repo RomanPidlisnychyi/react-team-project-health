@@ -1,13 +1,13 @@
 import React from 'react';
-import ListOfNonRecommendedProducts from '../ListOfNonRecommendedProducts/ListOfNonRecommendedProducts';
-import styles from './ModalCalories.module.css';
-import Button from '../Button/Button';
 import { connect } from 'react-redux';
-import { modalActions } from '../../redux/modal/index';
 import { Link } from 'react-router-dom';
+import ListOfNonRecommendedProducts from '../ListOfNonRecommendedProducts/ListOfNonRecommendedProducts';
+import NotRecommendedCategoryList from '../NotRecommended/NotRecommendedCategoryList/NotRecommendedCategoryList';
+import Button from '../Button/Button';
+import { notrecomendedproductsSelectors } from '../../redux/notrecomendedproducts';
+import styles from './ModalCalories.module.css';
 
-
-function ModalCalories({ calories = '2800', listNotRecomendedProducts, isModal }) {
+function ModalCalories({ calories, listNotRecomendedProducts, isModal }) {
   return (
     <div className={styles.cover}>
       <div className={styles.modalCalories}>
@@ -27,9 +27,8 @@ function ModalCalories({ calories = '2800', listNotRecomendedProducts, isModal }
               Продукты, которые вам не рекомендуется употреблять
             </h4>
             <ol className={styles.listItem}>
-              <ListOfNonRecommendedProducts
-                productsNotRecommended={listNotRecomendedProducts}
-                stylesList={styles.item}
+              <NotRecommendedCategoryList
+                categories={listNotRecomendedProducts}
               />
             </ol>
             <div className={styles.buttonStartLosingWeightWrapper}>
@@ -49,8 +48,11 @@ function ModalCalories({ calories = '2800', listNotRecomendedProducts, isModal }
   );
 }
 
-const mapDispatchToProps = {
-  isModal: modalActions.offModal,
-};
+const mapStateToProps = state => ({
+  listNotRecomendedProducts: notrecomendedproductsSelectors.getListNotProducts(
+    state,
+  ),
+  calories: notrecomendedproductsSelectors.getDailyCalorieNormInteger(state),
+});
 
-export default connect(null, mapDispatchToProps)(ModalCalories);
+export default connect(mapStateToProps)(ModalCalories);
