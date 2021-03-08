@@ -127,10 +127,6 @@ class CaloriesForm extends Component {
 
     const { dailyCalorieNormInteger, categoriesList } = this.props;
 
-  
-    // console.log('thisRenderForm.props:', this.props);
-    // console.log('thisRenderForm.state:', this.state);
-
     return (
       <form className={styles.dailyCaloriesForm} onSubmit={this.handleSubmit}>
         <div className={styles.dailyCaloriesLabelWrapper}>
@@ -250,15 +246,13 @@ class CaloriesForm extends Component {
           </label>
         </div>
         <div className={styles.buttonWrapper}>
-          <Button
-            title={'Похудеть'}
-            type="submit"
-          ></Button>
+          <Button title={'Похудеть'} type="submit"></Button>
           {showModal && (
             <NewModal onModalClose={this.onModalClose}>
               <ModalCalories
+                isModal={this.onModalClose}
                 calories={dailyCalorieNormInteger}
-                listNotRecomendedProducts={categoriesList}
+                categories={categoriesList}
               />
             </NewModal>
           )}
