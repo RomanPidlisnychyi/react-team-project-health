@@ -26,22 +26,23 @@ export default class NewModal extends Component {
   };
 
   render() {
-    const { topMenuModal, closeButtonMenu } = this.props;
+    const { topMenuModal, closeButton, closeButtonNav } = this.props;
     return (
       <div
         className={
-          topMenuModal ? `${styles.modal} ${styles.topMenuModal}` : styles.modal
+          topMenuModal
+            ? `${styles.modal} ${styles.topMenuModal} `
+            : styles.modal
         }
         onClick={this.closeModal}
       >
-        <div
-          className={
-            closeButtonMenu
-              ? `${styles.modalWrapper}${styles.closeButtonMenu}`
-              : styles.modalWrapper
-          }
-        >
-          <button className={styles.closeButton} onClick={this.closeModal}>
+        <div className={styles.modalWrapper}>
+          <button
+            className={
+              topMenuModal ? `${styles.closeButtonNav}` : styles.closeButton
+            }
+            onClick={this.closeModal}
+          >
             &#10006;
           </button>
           {this.props.children}

@@ -17,7 +17,7 @@ function Nav({ token }) {
         <NewModal
           onModalClose={setIsModal}
           topMenuModal={true}
-          closeButtonMenu={true}
+          // closeButtonNav={true}
         >
           <ModalNav setIsModal={setIsModal} />
         </NewModal>
