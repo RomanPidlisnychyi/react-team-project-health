@@ -15,43 +15,36 @@
 .commonWrapper {
   display: flex;
   flex-direction: column;
-  outline: 1px #555555;
   height: 600px;
 }
 
 .dairyWrapper {
-  outline: 1px #555555;
   width: 287px;
   margin: 0 auto;
 }
 
 .usersInfoWrapper {
-  outline: 1px #555555;
   width: 100%;
   width: 287px;
   margin: 0 auto;
-  height: 300px;
 }
 
 @media (min-width: 768px) {
   .commonWrapper {
-    /* width: 768px; */
     flex-direction: column;
-    /* background: #ccccdd; */
-    outline: 1px #555555;
+    /* outline: 1px #555555; */
     height: 600px;
   }
 
   .dairyWrapper {
-    outline: 1px solid #dddddd;
+    /* outline: 1px solid #dddddd; */
     width: 287px;
     margin: 0 auto;
-    /* height: 261px; */
   }
 
   .dairyWrapper,
   .usersInfoWrapper {
-    outline: 1px solid #dddddd;
+    /* outline: 1px solid #dddddd; */
     width: 100%;
   }
 }

@@ -21,7 +21,7 @@ class DairyWrapper extends Component {
             <RationItemsList />
             <ModalWrapper />
         </>
-        ) 
+        )
     }
 }
 

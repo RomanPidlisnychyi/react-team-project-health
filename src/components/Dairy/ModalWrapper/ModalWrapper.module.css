@@ -1,12 +1,14 @@
 .backGroundModal {
+    margin-left: -40px;
     background: #fff;
     width: 287px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .button {
     display: block;
     text-align: center;
+    padding-top: 20px;
     padding-bottom: 40px;
 }
 
