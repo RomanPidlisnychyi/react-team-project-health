@@ -23,6 +23,7 @@
 
 .visible {
   display: block;
+  /* width: 100%; */
 }
 
 @media (min-width: 768px) {
@@ -38,7 +39,7 @@
     display: block;
   }
   .inputPanelWrapperUsual {
-    display: block;
+    display: flex;
   }
 }
 
@@ -54,7 +55,7 @@
     display: block;
   }
   .inputPanelWrapperUsual {
-    display: block;
+    display: flex;
   }  
 }
 
@@ -82,13 +83,13 @@
 
   @media (min-width: 768px) {
     .buttonUsual {
-      display: block;
+      display: flex;
     }
   }
 
   @media (min-width: 1280px) {
     .buttonUsual {
-      display: block;
+      display: flex;
     }
   }
 

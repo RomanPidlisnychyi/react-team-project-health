@@ -238,6 +238,7 @@ class ProductInputForm extends Component {
               disabled={buttonAddDisabled}
             />
           </div>
+          </div>
 
           {products && products.length > 0 && visibleListProducts && (
             <ProductsList
@@ -249,7 +250,7 @@ class ProductInputForm extends Component {
           )}
 
           {visibleNotification && <ReactNotification />}
-        </div>
+       
       </form>
     );
   }

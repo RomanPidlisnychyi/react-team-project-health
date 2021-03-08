@@ -40,6 +40,8 @@
 .list {
     list-style: none;
     width: 287px;
+    /* padding-left: 5px; */
+
     /* position: absolute;
     left: 0;
     top: 0; */
@@ -47,6 +49,7 @@
 
 .listItem {
     line-height: 40px;
+    display: flex;
 }
 
 .listItem:hover  {
