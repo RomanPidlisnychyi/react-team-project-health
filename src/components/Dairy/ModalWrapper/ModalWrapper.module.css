@@ -1,10 +1,13 @@
 .backGroundModal {
     background: #fff;
+    width: 287px;
+    text-align: center;
 }
 
 .button {
     display: block;
     text-align: center;
+    padding-bottom: 40px;
 }
 
 @media(min-width: 768px) {
@@ -19,7 +22,7 @@
 
 @media(min-width: 1280px) {
     .button {
-        display: ncone;
+        display: none;
     }
     /* .backGroundModal {
         display: none;

@@ -191,7 +191,7 @@ class ProductInputForm extends Component {
         console.log('classes: ', classButton)
 
         return <form id="form-products" className={styles.form} onSubmit={this.handleSubmit}>
-            <div className={styles.datePickerWrapper}>
+            <div className={styles.datePickerWrapper, classUsualEnabled}>
                 <Picker date={date} onChangeData={this.handlerChangeDate} />
             </div>
 

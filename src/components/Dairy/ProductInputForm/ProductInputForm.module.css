@@ -35,10 +35,10 @@
   }
 
   .inputPanelWrapperModal {
-    display: block;
+    display: flex;
   }
   .inputPanelWrapperUsual {
-    display: block;
+    display: flex;
   }
 }
 
@@ -51,10 +51,10 @@
   }
 
   .inputPanelWrapperModal {
-    display: block;
+    display: flex;
   }
   .inputPanelWrapperUsual {
-    display: block;
+    display: flex;
   }  
 }
 
