@@ -250,6 +250,7 @@ class CaloriesForm extends Component {
           {showModal && (
             <NewModal onModalClose={this.onModalClose}>
               <ModalCalories
+                isModal={this.onModalClose}
                 calories={dailyCalorieNormInteger}
                 categories={categoriesList}
               />
