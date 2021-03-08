@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { authActions, authSelectors } from '../auth';
 import { notrecomendedproductsOperations } from '../notrecomendedproducts';
+import { rationItemsOperations } from '../rations';
 import { store } from 'react-notifications-component';
 import apiURL from '../../services/apiURL';
 
@@ -88,6 +89,7 @@ const logIn = credentials => dispatch => {
       token.set(response.data.token.accessToken);
       dispatch(authActions.loginSuccess(response.data));
       dispatch(refresh(response.data.token.expiresIn));
+      dispatch(rationItemsOperations.fetchRationItems());
     })
     .catch(error => {
       store.addNotification({
@@ -156,8 +158,8 @@ const current = accessToken => dispatch => {
       }
 
       dispatch(authActions.currentSuccess(data));
-
       dispatch(refresh(data.token.expiresIn));
+      dispatch(rationItemsOperations.fetchRationItems());
     })
     .catch(error => {
       dispatch(authActions.currentError(error));

@@ -4,7 +4,7 @@ import { rationItemsSelectors } from '../rations';
 const getDailyCalorieNormInteger = state =>
   state.notrecomendedproducts.dailyCalorieNormInteger;
 
-const getListNotProducts = state => state.notrecomendedproducts.categiriesList;
+const getListNotProducts = state => state.notrecomendedproducts.categoriesList;
 
 const getComboInfo = createSelector(
   [rationItemsSelectors.getRationItems, getDailyCalorieNormInteger],
