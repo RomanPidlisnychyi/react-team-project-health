@@ -3,7 +3,7 @@ import styles from './App.module.css';
 import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
-import dairyWrapper from '../Dairy/ProductInputForm/ProductInputForm';
+import dairyWrapper from '../Dairy/DairyWrapper/DairyWrapper';
 // import Rations from '../Dairy/Rations/Rations';
 import RationItemsList from '../RationItemsList/RationItemsList';
 import NotRecommended from '../NotRecommended/NotRecommended';
@@ -20,7 +20,7 @@ const App = () => (
       </Switch>
      
       {/* <Rations /> */}
-      <RationItemsList />
+      {/* <RationItemsList /> */}
     </div>
     <div className={styles.usersInfoWrapper}>
       <NotRecommended />

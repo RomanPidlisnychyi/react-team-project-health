@@ -19,7 +19,7 @@
 
 @media(min-width: 1280px) {
     .button {
-        display: none;
+        display: ncone;
     }
     /* .backGroundModal {
         display: none;

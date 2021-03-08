@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ProductInputForm from '../Dairy/ProductInputForm/ProductInputForm';
-import RationItemsList from '../RationItemsList/RationItemsList';
-import ModalWrapper from './ModalWrapper/ModalWrapper';
+import ProductInputForm from '../ProductInputForm/ProductInputForm';
+import RationItemsList from '../../RationItemsList/RationItemsList';
+import ModalWrapper from '../ModalWrapper/ModalWrapper';
 
 class DairyWrapper extends Component {
     state = {
@@ -21,7 +21,7 @@ class DairyWrapper extends Component {
             <RationItemsList />
             <ModalWrapper />
         </>
-        )
+        ) 
     }
 }
 
