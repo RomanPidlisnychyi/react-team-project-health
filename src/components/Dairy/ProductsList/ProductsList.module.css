@@ -1,17 +1,12 @@
 .listContainer {
-    /* position: absolute;
-    left: 0;
-    top: 20px; */
+    margin: 0 auto;
     max-height: 300px;
-    /* width: 600px; */
     overflow: auto;
     scrollbar-width: 3px;
-    
-    /* background: #ddd; */
-    /* border: 1px solid #333; */
     border-radius: 3px;
     box-shadow: 0 0 3px rgba(0,0,0,0.5);;
 }
+
 .listContainer::-moz-scrollbar{
     scrollbar-color: #458245 #714826;     /* «цвет ползунка» «цвет полосы скроллбара» */
     scrollbar-width: auto;  /* толщина */
@@ -22,14 +17,15 @@
 .listContainer::-webkit-scrollbar {
     width: 5px; /* ширина для вертикального скролла */
     height: 8px; /* высота для горизонтального скролла */
-    background-color: #aaaaaa;
+    
+    background-color: #dddddd;
 }
 
 /* ползунок скроллбара */
 .listContainer::-webkit-scrollbar-thumb {
-    background-color: #dddddd;
-    border-radius: 9em;
-    box-shadow: inset 1px 1px 10px #f3faf7;
+    background-color: #264061;
+    /* border-radius: 9em; */
+    box-shadow:  1px 1px 10px #f3faf7;
 }
 
 .listContainer::-webkit-scrollbar-thumb:hover {
@@ -43,7 +39,14 @@
 
 .list {
     list-style: none;
-    width: 300px;
+    width: 287px;
+    /* position: absolute;
+    left: 0;
+    top: 0; */
+}
+
+.listItem {
+    line-height: 40px;
 }
 
 .listItem:hover  {

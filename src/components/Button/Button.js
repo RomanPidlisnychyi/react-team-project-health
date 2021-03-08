@@ -10,10 +10,10 @@ export default function Button({
 }) {
   return (
     <button
-      className={styles.button}
+      disabled={disabled}
+      className={ styles.button}
       onClick={onClick}
       type={type}
-      disabled={disabled}
       role={role}
     >
       {title}

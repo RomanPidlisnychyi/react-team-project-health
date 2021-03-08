@@ -1,0 +1,38 @@
+.input {
+  width: 105px;
+  margin: 0;
+  padding: 0;
+  /* height: 16px; */
+  height: 40px;
+  margin-right: 70px;
+  outline: none;
+  border-radius: nullpx;
+  border: 1px solid; 
+  font-family: Verdana;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  outline: none;
+  color: #9B9FAA;
+  background: rgba(1, 1, 1, 0);
+  border: none;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+
+@media (min-width: 768px) {
+    .input {
+      /* width: 768px; */
+      margin-right: 40px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .input {
+      /* width: 768px; */
+      margin-right: 20px;
+    }
+}

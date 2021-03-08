@@ -31,6 +31,11 @@ const rationsItemUpdate = param => dispatch => {
     dispatch(rationsItemActions.rationsItemUpdate(param));
 }
 
+const dateToStore = param => dispatch => {
+    console.log('dateToStore: ', param)
+    dispatch(rationsItemActions.dateToStore(param));
+}
+
 const getProducts = spr => {
     if (spr === '' || spr.length === 1) {
         return;
@@ -48,4 +53,5 @@ export default {
     getProducts,
     rationsItemAdd,
     rationsItemUpdate,
+    dateToStore,
 }

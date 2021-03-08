@@ -13,7 +13,9 @@ const getProductsRequest = createAction('getProducts/request');
 const getProductsSuccess = createAction('getProducts/success');
 const getProductsError = createAction('getProducts/error');
 
-const productSearchValueChange = createAction('productSearchValue/Change')
+const productSearchValueChange = createAction('productSearchValue/Change');
+
+const dateToStore = createAction('dateToStor');
 
 export default {
     getInfoByDateRequest,
@@ -27,4 +29,5 @@ export default {
     rationsItemAddSuccess,
     rationsItemAddError,
     rationsItemUpdate,
+    dateToStore,
 }

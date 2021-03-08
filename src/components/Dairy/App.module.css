@@ -5,6 +5,12 @@
 .ButtonWrap {
 	text-align: center;
 } */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.7;
+}
 
 .commonWrapper {
   display: flex;
@@ -35,10 +41,21 @@
   .commonWrapper {
     /* width: 768px; */
     flex-direction: column;
+    /* background: #ccccdd; */
+    outline: 1px #555555;
+    height: 600px;
+  }
+  
+  .dairyWrapper {
+    outline: 1px solid #dddddd;
+    width: 287px;
+    margin: 0 auto;
+    /* height: 261px; */
   }
 
   .dairyWrapper,
   .usersInfoWrapper {
+    outline: 1px solid #dddddd;
     width: 100%;
   }
 }
