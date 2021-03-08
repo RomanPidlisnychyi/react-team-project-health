@@ -5,11 +5,13 @@ import authActions from '../auth/authActions';
 
 //================ from Kolya =====================================
 const onItemUpdate = (state, action) => {
-  const rationItems = state.rationItems.filter(el => el.title !== action.payload.title);
+  const rationItems = state.rationItems.filter(
+    el => el.title !== action.payload.title,
+  );
   const date = state.date;
-  const ar = {rationItems: [...rationItems, action.payload], date};
+  const ar = { rationItems: [...rationItems, action.payload], date };
   return ar;
-}
+};
 //=================================================================
 
 const initialState = { date: null, rationItems: [] };
@@ -26,7 +28,10 @@ const ration = createReducer(initialState, {
   [rationItemsActions.fetchRationItemsSuccess]: (state, action) =>
     action.payload,
   [authActions.logoutSuccess]: (state, action) => initialState,
-  [rationItemsActions.fetchRationItemsError]: (state, action) => initialState,
+  [rationItemsActions.fetchRationItemsError]: (_, { payload }) => ({
+    ...initialState,
+    date: payload,
+  }),
   [rationItemsActions.deleteRationItemSuccess]: onDeleteRationItem,
   [rationItemsActions.rationsItemUpdate]: onItemUpdate,
 });

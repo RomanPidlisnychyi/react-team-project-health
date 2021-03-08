@@ -16,7 +16,7 @@ const fetchRationItems = date => dispatch => {
       );
       return response;
     })
-    .catch(error => dispatch(rationItemsActions.fetchRationItemsError(error)));
+    .catch(error => dispatch(rationItemsActions.fetchRationItemsError(date)));
 };
 
 // const fetchRationItems = date => dispatch => {
