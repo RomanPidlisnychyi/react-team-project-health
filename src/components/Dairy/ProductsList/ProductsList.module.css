@@ -4,7 +4,10 @@
     overflow: auto;
     scrollbar-width: 3px;
     border-radius: 3px;
-    box-shadow: 0 0 3px rgba(0,0,0,0.5);;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    margin-top: 10px;
+    background: #fff;
+    position: absolute;
 }
 
 .listContainer::-moz-scrollbar{
@@ -24,7 +27,6 @@
 /* ползунок скроллбара */
 .listContainer::-webkit-scrollbar-thumb {
     background-color: #264061;
-    /* border-radius: 9em; */
     box-shadow:  1px 1px 10px #f3faf7;
 }
 
@@ -39,12 +41,6 @@
 
 .list {
     list-style: none;
-    width: 287px;
-    /* padding-left: 5px; */
-
-    /* position: absolute;
-    left: 0;
-    top: 0; */
 }
 
 .listItem {
