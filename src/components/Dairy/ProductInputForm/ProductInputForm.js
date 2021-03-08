@@ -192,9 +192,6 @@ class ProductInputForm extends Component {
 
     const { mode } = this.props;
 
-    // const classDatePickerWrapper = `${styles.datePickerWrapper}
-    //  ${mode === 'usual' ? styles.enabled : styles.disabled}`
-
     const classUsualEnabled = `${
       mode === 'usual' ? styles.visible : styles.hidden
     }`;
@@ -209,8 +206,6 @@ class ProductInputForm extends Component {
         ? styles.inputPanelWrapperUsual
         : styles.inputPanelWrapperModal
     }`;
-
-    console.log('classes: ', classButton);
 
     return (
       <form
