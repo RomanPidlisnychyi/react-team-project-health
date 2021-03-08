@@ -20,9 +20,9 @@ const refreshRequest = createAction('auth/refreshRequest');
 const refreshSuccess = createAction('auth/refreshSuccess');
 const refreshError = createAction('auth/refreshError');
 
-const paramsRequest = createAction('auth/paramsRequest');
-const paramsSuccess = createAction('auth/paramsSuccess');
-const paramsError = createAction('auth/paramsError');
+const paramsRequest = createAction('users/paramsRequest');
+const paramsSuccess = createAction('users/paramsSuccess');
+const paramsError = createAction('users/paramsError');
 
 export default {
   registerRequest,

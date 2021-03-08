@@ -75,29 +75,33 @@ class CaloriesForm extends Component {
 
     const {
       onGetListNotRecomendedProductsAndCalories,
-      // onAddUserParams,
+      onAddUserParams,
+      token,
     } = this.props;
 
-    //! notRecomendedProducts
-    onGetListNotRecomendedProductsAndCalories(userParams).then(data => {
-      if (data && data.dailyCalorieNormInteger) {
+    if (!token) {
+      onGetListNotRecomendedProductsAndCalories(userParams).then(data => {
+        if (data && data.dailyCalorieNormInteger) {
+          this.setState({ showModal: true });
+          // console.log(`NotRecomProduct of user saved successfully: ${data}`);
+          return;
+        }
+        console.log('Щось пішло не так! Спробуйте ввести параметри ще раз!');
+      });
+
+      return;
+    }
+
+    onAddUserParams(userParams).then(data => {
+      console.log('dataUserPar', data);
+
+      if (data && data.age) {
         this.setState({ showModal: true });
         return;
       }
       console.log('Щось пішло не так! Спробуйте ввести параметри ще раз!');
+      this.handleClearForm(e);
     });
-
-    //! userParams
-    // onAddUserParams(userParams).then(data => {
-    //   console.log('dataUserPar', data);
-
-    //   if (data) {
-    //     console.log(`Parametrs of user saved successfully: param: ${data}`);
-    //     return;
-    //   }
-    //   console.log('Щось пішло не так! Спробуйте ввести параметри ще раз!');
-    //   this.handleClearForm(e);
-    // });
   };
 
   handleClearForm = e => {
@@ -270,6 +274,7 @@ const mapStateToProps = state => ({
   ),
   categoriesList: notrecomendedproductsSelectors.getListNotProducts(state),
   userParams: authSelectors.getParams(state),
+  token: authSelectors.getToken(state),
 });
 
 const mapDispatchToProps = {

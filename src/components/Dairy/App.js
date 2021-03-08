@@ -6,28 +6,26 @@ import { Route } from 'react-router-dom';
 import ProductInputForm from '../Dairy/ProductInputForm/ProductInputForm';
 // import Rations from '../Dairy/Rations/Rations';
 import RationItemsList from '../RationItemsList/RationItemsList';
-
+import NotRecommended from '../NotRecommended/NotRecommended';
 import CalculatorCalories from '../CalculatorCalories/CalculatorCalories';
 
-const App = () => {
-  return (
-    <div className={styles.commonWrapper}>
-      <div className={styles.dairyWrapper}>
-        {/* Dairy components */}
-
-        <Switch>
-          <Route path="/calculator" component={CalculatorCalories} />
-          <Route path="/dairy" component={ProductInputForm} />
-        </Switch>
-
-        {/* <Rations /> */}
-        <RationItemsList />
-      </div>
-      <div className={styles.usersInfoWrapper}>
-        {/* UsersInfo components */}
-      </div>
+const App = () => (
+  <div className={styles.commonWrapper}>
+    <div className={styles.dairyWrapper}>
+      {/* Dairy components */}
+  
+      <Switch>
+         <Route path="/calculator" component={CalculatorCalories} />
+         <Route path="/dairy" component={ProductInputForm} />
+      </Switch>
+     
+      {/* <Rations /> */}
+      <RationItemsList />
     </div>
-  );
-};
+    <div className={styles.usersInfoWrapper}>
+      <NotRecommended />
+    </div>
+  </div>
+);
 
 export default App;

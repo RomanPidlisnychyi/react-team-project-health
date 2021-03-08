@@ -1,9 +1,11 @@
 .list {
   list-style: none;
   width: 287px;
+  line-height: 1.5;
   max-height: 240px;
   overflow: auto;
   margin: auto;
+  margin-top: 15px;
   scrollbar-width: 3px;
   scrollbar-color: #264061;
 }
@@ -33,12 +35,14 @@
 @media (min-width: 768px) {
   .list {
     width: 589px;
+    margin-top: 22px;
   }
 }
 
 @media (min-width: 1280px) {
   .list {
-    width: 552px;
+    width: 595px;
     margin: 0;
+    margin-top: 22px;
   }
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { notrecomendedproductsSelectors } from '../../redux/notrecomendedproducts';
 import CaloriesInfo from './CaloriesInfo/CaloriesInfo';
 import NotRecommendedCategoryList from './NotRecommendedCategoryList/NotRecommendedCategoryList';
 import NotRecommendedProductsList from './NotRecommendedProductsList/NotRecommendedProductsList';
@@ -18,11 +19,9 @@ export default function NotRecommended() {
   const [isModal, setIsModal] = useState(false);
   const [products, setProducts] = useState(null);
 
-  // const categiry = useSelector(
-  //   notRecommendedSelectors.getNotRecommendedCategories,
-  // );
-
-  const categories = testCategories;
+  const categories = useSelector(
+    notrecomendedproductsSelectors.getListNotProducts,
+  );
 
   return (
     <div className={styles.wrapper}>

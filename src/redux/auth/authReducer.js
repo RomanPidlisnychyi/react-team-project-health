@@ -49,6 +49,8 @@ const token = createReducer(initialTokenState, {
 const params = createReducer(initialParamsState, {
   [authActions.loginSuccess]: (_, { payload }) => payload.user.params,
   [authActions.currentSuccess]: (_, { payload }) => payload.user.params,
+  [authActions.paramsSuccess]: (_, { payload }) => payload,
+  [authActions.paramsError]: () => initialParamsState,
   [authActions.logoutSuccess]: () => initialParamsState,
 });
 
