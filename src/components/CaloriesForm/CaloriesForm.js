@@ -46,6 +46,20 @@ class CaloriesForm extends Component {
     }
   }
 
+  componentDidUpdate() {
+    const {
+      height,
+      age,
+      currentWeight,
+      desiredWeight,
+      bloodGroup,
+    } = this.props.userParams;
+
+    if (height && !this.state.height) {
+      this.setState({ height, age, currentWeight, desiredWeight, bloodGroup });
+    }
+  }
+
   handleInput = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
