@@ -179,16 +179,11 @@ class ProductInputForm extends Component {
 
         const { mode } = this.props;
 
-        // const classDatePickerWrapper = `${styles.datePickerWrapper}
-        //  ${mode === 'usual' ? styles.enabled : styles.disabled}`
-
         const classUsualEnabled = `${mode === 'usual' ? styles.visible : styles.hidden}`;
         const classUsualDisabled = `${mode === 'modal' ? styles.visible : styles.hidden}`;
         const classButton = `${mode === 'usual' ? styles.buttonUsual : styles.buttonModal}`;
         const classInputPanelWrapper = `${mode === 'usual'
             ? styles.inputPanelWrapperUsual : styles.inputPanelWrapperModal}`;
-
-        console.log('classes: ', classButton)
 
         return <form id="form-products" className={styles.form} onSubmit={this.handleSubmit}>
             <div className={styles.datePickerWrapper, classUsualEnabled}>

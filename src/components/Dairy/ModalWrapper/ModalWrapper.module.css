@@ -15,16 +15,16 @@
         display: none;
     }
 
-    /* .backGroundModal {
-        display: none;
-    } */
+    .backGroundModal {
+        width: 589px;
+    }
 }
 
 @media(min-width: 1280px) {
     .button {
         display: none;
     }
-    /* .backGroundModal {
-        display: none;
-    } */
+    .backGroundModal {
+     width: 552px;
+    }
 }
