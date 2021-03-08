@@ -16,25 +16,6 @@ import { rationItemsSelectors } from '../../../redux/rations';
 // import debounce from 'lodash.debounce';
 
 class ProductInputForm extends Component {
-  constructor(props) {
-    super(props);
-    const nowDate = new Date();
-    const year = nowDate.getFullYear().toString();
-    const month = (nowDate.getMonth() + 1).toString();
-    const day = nowDate.getDate().toString();
-
-    const trDay = day.length === 2 ? day : '0' + day;
-    const trMonth = month.length === 2 ? month : '0' + month;
-
-    const { userDate } = this.props;
-
-    const newDate = userDate
-      ? userDate.split('-').reverse().join('-')
-      : year + '-' + trMonth + '-' + trDay;
-
-    this.state.date = newDate;
-  }
-
   state = {
     date: '',
     weight: '',
@@ -53,6 +34,23 @@ class ProductInputForm extends Component {
 
   componentDidMount() {
     document.addEventListener('click', this.addBodyClick);
+    const { userDate } = this.props;
+
+    if (userDate && !this.state.date) {
+      const newDate = userDate.split('-').reverse().join('-');
+
+      this.setState({ date: newDate });
+    }
+  }
+
+  componentDidUpdate() {
+    const { userDate } = this.props;
+
+    if (userDate && !this.state.date) {
+      const newDate = userDate.split('-').reverse().join('-');
+
+      this.setState({ date: newDate });
+    }
   }
 
   componentWillUnmount() {
