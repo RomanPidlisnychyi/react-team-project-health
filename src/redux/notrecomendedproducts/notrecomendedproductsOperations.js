@@ -1,7 +1,6 @@
 import axios from 'axios';
 import notrecomendedproductsActions from './notrecomendedproductsActions';
 import apiURL from '../../services/apiURL';
-import modalActions from '../modal/modalActions';
 
 const getListNotRecomendedProductsAndCalories = userParams => async dispatch => {
   dispatch(notrecomendedproductsActions.getNotProductsRequest());
