@@ -15,19 +15,15 @@
 .commonWrapper {
   display: flex;
   flex-direction: column;
-  /* outline: 1px #555555; */
   height: 600px;
 }
 
 .dairyWrapper {
-  /* outline: 1px #555555; */
   width: 287px;
   margin: 0 auto;
 }
 
 .usersInfoWrapper {
-  background: #ccddcc;
-  /* outline: 1px #555555; */
   width: 100%;
   width: 287px;
   margin: 0 auto;
@@ -39,7 +35,7 @@
     /* outline: 1px #555555; */
     height: 600px;
   }
-  
+
   .dairyWrapper {
     /* outline: 1px solid #dddddd; */
     width: 287px;
