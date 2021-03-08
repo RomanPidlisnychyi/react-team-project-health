@@ -88,8 +88,15 @@ const logIn = credentials => dispatch => {
     .then(response => {
       token.set(response.data.token.accessToken);
       dispatch(authActions.loginSuccess(response.data));
-      dispatch(refresh(response.data.token.expiresIn));
+      if (response.data.user.params && response.data.user.params.age) {
+        dispatch(
+          notrecomendedproductsOperations.getListNotRecomendedProductsAndCalories(
+            response.data.user.params,
+          ),
+        );
+      }
       dispatch(rationItemsOperations.fetchRationItems());
+      dispatch(refresh(response.data.token.expiresIn));
     })
     .catch(error => {
       store.addNotification({
@@ -158,8 +165,15 @@ const current = accessToken => dispatch => {
       }
 
       dispatch(authActions.currentSuccess(data));
-      dispatch(refresh(data.token.expiresIn));
+      if (data.user.params && data.user.params.age) {
+        dispatch(
+          notrecomendedproductsOperations.getListNotRecomendedProductsAndCalories(
+            data.user.params,
+          ),
+        );
+      }
       dispatch(rationItemsOperations.fetchRationItems());
+      dispatch(refresh(data.token.expiresIn));
     })
     .catch(error => {
       dispatch(authActions.currentError(error));
@@ -207,7 +221,6 @@ const refresh = expiresIn => (dispatch, getState) => {
   // setInterval - работает в милисекундах потому делаем значение немного меньше
   // чем жизнь токена на сервере.
 };
-
 
 const params = userData => dispatch => {
   dispatch(authActions.paramsRequest());
