@@ -28,14 +28,11 @@ function ModalCalories({
               </h3>
             </div>
 
-            <h4 className={styles.groceryList}>
-              Продукты, которые вам не рекомендуется употреблять
-            </h4>
-            <ol className={styles.listItem}>
-              <NotRecommendedCategoryList
-                categories={listNotRecomendedProducts}
-              />
-            </ol>
+            <NotRecommendedCategoryList
+              title="Продукты, которые вам не рекомендуется употреблять"
+              categories={listNotRecomendedProducts}
+            />
+
             <div className={styles.buttonStartLosingWeightWrapper}>
               <Link to={token ? '/dairy' : '/login'}>
                 <Button

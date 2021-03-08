@@ -26,9 +26,21 @@ export default class NewModal extends Component {
   };
 
   render() {
+    const { topMenuModal, closeButtonMenu } = this.props;
     return (
-      <div className={styles.modal} onClick={this.closeModal}>
-        <div className={styles.modalWrapper}>
+      <div
+        className={
+          topMenuModal ? `${styles.modal} ${styles.topMenuModal}` : styles.modal
+        }
+        onClick={this.closeModal}
+      >
+        <div
+          className={
+            closeButtonMenu
+              ? `${styles.modalWrapper}${styles.closeButtonMenu}`
+              : styles.modalWrapper
+          }
+        >
           <button className={styles.closeButton} onClick={this.closeModal}>
             &#10006;
           </button>

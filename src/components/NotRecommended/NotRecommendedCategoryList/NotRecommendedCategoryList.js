@@ -1,9 +1,9 @@
 import styles from '../NotRecommended.module.css';
 
-export default function NotRecommendedCategoryList({ categories }) {
+export default function NotRecommendedCategoryList({ title, categories }) {
   return (
     <>
-      <h2>Нерекомендуемые продукты</h2>
+      <h2 className={styles.groceryList}>{title}</h2>
       {categories.length > 0 ? (
         <ol className={styles.listItem}>
           {categories.map(category => (
