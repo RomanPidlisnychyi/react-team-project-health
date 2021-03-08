@@ -206,6 +206,7 @@ const refresh = expiresIn => (dispatch, getState) => {
   // чем жизнь токена на сервере.
 };
 
+
 const params = userData => dispatch => {
   console.log('userDataParams:', userData);
 
@@ -239,33 +240,6 @@ const params = userData => dispatch => {
     .then(console.log);
 };
 
-// const params = {
-//   // params: {
-//   height: userData.height,
-//   age: userData.age,
-//   currentWeight: userData.currentWeight,
-//   desiredWeight: userData.desiredWeight,
-//   bloodGroup: userData.bloodGroup,
-//   // },
-// };
-
-// const options = {
-//   method: 'PATCH',
-//   'Content-Type': 'application/json',
-//   body: JSON.stringify(userData),
-// body: {
-//   user: {
-//     params: {
-//       height: 185,
-//       age: 35,
-//       currentWeight: 75,
-//       desiredWeight: 68,
-//       bloodGroup: 4,
-//     },
-//   },
-// },
-// };
-
 // return (
 //   fetch(`${apiURL}/users/params`, options)
 //     .then(response => {
@@ -278,42 +252,6 @@ const params = userData => dispatch => {
 //     })
 //     .then(console.log)
 
-// return await axios
-//   // .patch(`${apiURL}/users/params`, { userData })
-//   .patch(`${apiURL}/users/params`, {
-//   //   // params: {
-//     height: userData.height,
-//     age: userData.age,
-//     currentWeight: userData.currentWeight,
-//     desiredWeight: userData.desiredWeight,
-//     bloodGroup: userData.bloodGroup,
-//   //   // },
-//   })
-// .then(({ data }) => dispatch(authActions.addUserParamsSuccess(data)))
-// .then(response => {
-//   dispatch(authActions.paramsSuccess(response.data));
-//   console.log('responseUser.data:', response.data);
-//   dispatch(modalActions.onModal());
-// })
-// .then(data => {
-//   console.log('userParamsResponseData:', data);
-// })
-//       .catch(error => dispatch(authActions.paramsError(error)))
-//   );
-// };
-
 export default { register, logIn, logOut, current, refresh, params };
 
-// const rationsItemAdd = param => dispatch => {
-//   console.log('button Add action')
-//   console.log('param: ', param)
-//   dispatch(rationsItemActions.rationsItemAddRequest(param));
 
-//   Axios.post(`${HEROKU}/rations`, {
-//       date: param.date,
-//       productTitle: param.productTitle,
-//       weight: param.weight,
-//   })
-//       .then(response => dispatch(rationsItemActions.rationsItemAddSuccess(response.status)))
-//       .catch(error => dispatch(rationsItemActions.rationsItemAddError(error.response.data)))
-// }

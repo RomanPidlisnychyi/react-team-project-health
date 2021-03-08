@@ -10,7 +10,6 @@ import {
   notrecomendedproductsSelectors,
 } from '../../redux/notrecomendedproducts';
 import { authOperations, authSelectors } from '../../redux/auth';
-import { modalActions, modalSelectors } from '../../redux/modal/';
 
 import Button from '../Button/Button';
 
@@ -83,7 +82,6 @@ class CaloriesForm extends Component {
     onGetListNotRecomendedProductsAndCalories(userParams).then(data => {
       if (data && data.dailyCalorieNormInteger) {
         this.setState({ showModal: true });
-        // console.log(`NotRecomProduct of user saved successfully: ${data}`);
         return;
       }
       console.log('Щось пішло не так! Спробуйте ввести параметри ще раз!');
@@ -122,6 +120,12 @@ class CaloriesForm extends Component {
       bloodGroup,
       showModal,
     } = this.state;
+
+    const { dailyCalorieNormInteger, categoriesList } = this.props;
+
+  
+    // console.log('thisRenderForm.props:', this.props);
+    // console.log('thisRenderForm.state:', this.state);
 
     return (
       <form className={styles.dailyCaloriesForm} onSubmit={this.handleSubmit}>
@@ -245,13 +249,13 @@ class CaloriesForm extends Component {
           <Button
             title={'Похудеть'}
             type="submit"
-            // onClick={this.handleModal}
-            // onClick={this.showModalCalories}
-            // onClick={() => dispatch(modalActions.onModal())}
           ></Button>
           {showModal && (
             <NewModal onModalClose={this.onModalClose}>
-              <ModalCalories />
+              <ModalCalories
+                calories={dailyCalorieNormInteger}
+                listNotRecomendedProducts={categoriesList}
+              />
             </NewModal>
           )}
         </div>
@@ -264,18 +268,14 @@ const mapStateToProps = state => ({
   dailyCalorieNormInteger: notrecomendedproductsSelectors.getDailyCalorieNormInteger(
     state,
   ),
-  listNotProducts: notrecomendedproductsSelectors.getListNotProducts(state),
+  categoriesList: notrecomendedproductsSelectors.getListNotProducts(state),
   userParams: authSelectors.getParams(state),
-  // isModal: modalSelectors.isModal(state)
 });
 
 const mapDispatchToProps = {
   onGetListNotRecomendedProductsAndCalories:
     notrecomendedproductsOperations.getListNotRecomendedProductsAndCalories,
   onAddUserParams: authOperations.params,
-  // isModal: modalActions.offModal,
-  // isModal: modalActions.onModal,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CaloriesForm);
-// export default CaloriesForm;

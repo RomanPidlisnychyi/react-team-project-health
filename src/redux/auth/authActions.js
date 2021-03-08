@@ -24,14 +24,6 @@ const paramsRequest = createAction('auth/paramsRequest');
 const paramsSuccess = createAction('auth/paramsSuccess');
 const paramsError = createAction('auth/paramsError');
 
-// const paramsRequest = createAction('users/paramsRequest');
-// const paramsSuccess = createAction('users/paramsSuccess');
-// const paramsError = createAction('users/paramsError');
-
-// const addUserParamsRequest = createAction('users/params/addParamsRequest');
-// const addUserParamsSuccess = createAction('users/params/addParamsSuccess');
-// const addUserParamsError = createAction('users/params/addParamsError');
-
 export default {
   registerRequest,
   registerSuccess,
