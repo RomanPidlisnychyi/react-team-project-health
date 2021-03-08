@@ -16,12 +16,20 @@ const token = {
   },
 };
 
-const register = credentials => dispatch => {
+const register = credentials => (dispatch, getState) => {
   const user = {
     name: credentials.name,
     email: credentials.email,
     password: credentials.password,
   };
+
+  const state = getState();
+  const params = authSelectors.getParams(state);
+
+  if (params && params.age) {
+    user.params = params;
+  }
+
   dispatch(authActions.registerRequest());
 
   return axios
@@ -75,11 +83,18 @@ const register = credentials => dispatch => {
     });
 };
 
-const logIn = credentials => dispatch => {
+const logIn = credentials => (dispatch, getState) => {
   const user = {
     email: credentials.email,
     password: credentials.password,
   };
+
+  const state = getState();
+  const params = authSelectors.getParams(state);
+
+  if (params && params.age) {
+    user.params = params;
+  }
 
   dispatch(authActions.loginRequest());
 
