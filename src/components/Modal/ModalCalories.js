@@ -27,12 +27,10 @@ function ModalCalories({
                 <p className={styles.unitOfEnergy}>ккал</p>
               </h3>
             </div>
-
             <NotRecommendedCategoryList
               title="Продукты, которые вам не рекомендуется употреблять"
               categories={listNotRecomendedProducts}
             />
-
             <div className={styles.buttonStartLosingWeightWrapper}>
               <Link to={token ? '/dairy' : '/login'}>
                 <Button

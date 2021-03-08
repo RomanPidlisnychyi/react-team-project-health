@@ -262,7 +262,7 @@ class CaloriesForm extends Component {
         <div className={styles.buttonWrapper}>
           <Button title={'Похудеть'} type="submit"></Button>
           {showModal && (
-            <NewModal onModalClose={this.onModalClose}>
+            <NewModal onModalClose={this.onModalClose} closeButton={true}>
               <ModalCalories
                 isModal={this.onModalClose}
                 calories={dailyCalorieNormInteger}
