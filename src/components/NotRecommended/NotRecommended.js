@@ -7,14 +7,6 @@ import NotRecommendedProductsList from './NotRecommendedProductsList/NotRecommen
 import NewModal from '../Modal/NewModal';
 import styles from './NotRecommended.module.css';
 
-const testCategories = [
-  'зерновые',
-  'мучные',
-  'орехи',
-  'овощи и зелень',
-  'масла и жиры',
-];
-
 export default function NotRecommended() {
   const [isModal, setIsModal] = useState(false);
   const [products, setProducts] = useState(null);
@@ -26,7 +18,10 @@ export default function NotRecommended() {
   return (
     <div className={styles.wrapper}>
       <CaloriesInfo />
-      <NotRecommendedCategoryList categories={categories} />
+      <NotRecommendedCategoryList
+        title={'Нерекомендуемые продукты'}
+        categories={categories}
+      />
       {isModal && (
         <NewModal onModalClose={setIsModal}>
           <NotRecommendedProductsList />
