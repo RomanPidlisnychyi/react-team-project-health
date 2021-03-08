@@ -5,12 +5,12 @@
 .ButtonWrap {
 	text-align: center;
 } */
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   line-height: 1.7;
-}
+} */
 
 .commonWrapper {
   display: flex;
@@ -19,14 +19,16 @@
 }
 
 .dairyWrapper {
-  width: 287px;
+  /* width: 287px; */
   margin: 0 auto;
 }
 
 .usersInfoWrapper {
   width: 100%;
-  width: 287px;
+  /* width: 287px; */
   margin: 0 auto;
+  /* background: #f0f1f3;
+  background-image: url(../../images/Home/Layer-4\ 1.png); */
 }
 
 @media (min-width: 768px) {
@@ -38,7 +40,7 @@
 
   .dairyWrapper {
     /* outline: 1px solid #dddddd; */
-    width: 287px;
+    /* width: 287px; */
     margin: 0 auto;
   }
 

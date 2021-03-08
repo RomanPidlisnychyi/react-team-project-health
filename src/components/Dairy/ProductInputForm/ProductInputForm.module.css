@@ -10,7 +10,7 @@
 }
 
 .inputPanelWrapperModal {
-  margin: 0 auto;  
+  margin: 0 auto;
 }
 .inputPanelWrapperUsual {
   margin: 0 auto;
@@ -32,7 +32,7 @@
     width: 589px;
     margin-left: 92px;
     padding-top: 100px;
-    padding-bottom: 59px;
+    padding-bottom: 30px;
   }
 
   .inputPanelWrapperModal {
@@ -45,10 +45,9 @@
 
 @media (min-width: 1280px) {
   .form {
-    /* width: 1280px; */
-    width: 552px;
     margin-left: 92px;
-    padding-top: 146px;
+    padding-top: 115px;
+    width: 595px;
   }
 
   .inputPanelWrapperModal {
@@ -56,7 +55,7 @@
   }
   .inputPanelWrapperUsual {
     display: flex;
-  }  
+  }
 }
 
 .input {
@@ -81,18 +80,17 @@
   display: none;
 }
 
-  @media (min-width: 768px) {
-    .buttonUsual {
-      display: flex;
-    }
+@media (min-width: 768px) {
+  .buttonUsual {
+    display: flex;
   }
+}
 
-  @media (min-width: 1280px) {
-    .buttonUsual {
-      display: flex;
-    }
+@media (min-width: 1280px) {
+  .buttonUsual {
+    display: flex;
   }
-
+}
 
 .buttonModal {
   display: block;
