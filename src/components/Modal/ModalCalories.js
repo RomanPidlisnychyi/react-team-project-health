@@ -1,13 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ListOfNonRecommendedProducts from '../ListOfNonRecommendedProducts/ListOfNonRecommendedProducts';
 import NotRecommendedCategoryList from '../NotRecommended/NotRecommendedCategoryList/NotRecommendedCategoryList';
 import Button from '../Button/Button';
 import { notrecomendedproductsSelectors } from '../../redux/notrecomendedproducts';
+import { authSelectors } from '../../redux/auth';
 import styles from './ModalCalories.module.css';
 
-function ModalCalories({ calories, listNotRecomendedProducts, isModal }) {
+function ModalCalories({
+  calories,
+  listNotRecomendedProducts,
+  token,
+  isModal,
+}) {
   return (
     <div className={styles.cover}>
       <div className={styles.modalCalories}>
@@ -32,7 +37,7 @@ function ModalCalories({ calories, listNotRecomendedProducts, isModal }) {
               />
             </ol>
             <div className={styles.buttonStartLosingWeightWrapper}>
-              <Link to={'/login'}>
+              <Link to={token ? '/dairy' : '/login'}>
                 <Button
                   title={'Начать худеть'}
                   className={styles.buttonStartLosingWeight}
@@ -53,6 +58,7 @@ const mapStateToProps = state => ({
     state,
   ),
   calories: notrecomendedproductsSelectors.getDailyCalorieNormInteger(state),
+  token: authSelectors.getToken(state),
 });
 
 export default connect(mapStateToProps)(ModalCalories);

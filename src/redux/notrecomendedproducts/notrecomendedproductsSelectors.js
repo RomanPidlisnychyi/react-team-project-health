@@ -18,7 +18,7 @@ const getComboInfo = createSelector(
       left: calories - caloriesByDay,
       used: caloriesByDay,
       norma: calories,
-      fromTheNorm: (100 / calories) * caloriesByDay,
+      fromTheNorm: calories ? (100 / calories) * caloriesByDay : calories,
     };
   },
 );
