@@ -1,9 +1,12 @@
 import axios from 'axios';
 import rationItemsActions from './rationItemsActions';
 import HEROKU from '../../services/apiURL';
+import generateCurrentDate from '../../services/generateCurrentDate';
 
-const fetchRationItems = date => dispatch => {
+const fetchRationItems = someDate => dispatch => {
   dispatch(rationItemsActions.fetchRationItemsRequest());
+
+  const date = someDate ? someDate : generateCurrentDate();
 
   return axios
     .get(`/users/infobyday/${date}`)
