@@ -44,7 +44,7 @@
 @media (min-width: 1280px) {
   .list {
     width: 595px;
-    margin: 0;
     margin-top: 22px;
+    padding-left: 18px;
   }
 }

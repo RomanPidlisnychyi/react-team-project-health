@@ -2,10 +2,10 @@ import styles from '../NotRecommended.module.css';
 
 export default function NotRecommendedCategoryList({ title, categories }) {
   return (
-    <div>
+    <div className={styles.categoryBox}>
       <p className={styles.title}>{title}</p>
       {categories.length > 0 ? (
-        <ol className={styles.listItem}>
+        <ol className={styles.list}>
           {categories.map(category => (
             <li className={styles.item} key={category}>
               <span>{category}</span>
