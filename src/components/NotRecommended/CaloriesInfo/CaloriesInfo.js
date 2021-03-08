@@ -9,16 +9,25 @@ export default function CaloriesInfo() {
   const info = useSelector(notrecomendedproductsSelectors.getComboInfo);
 
   return (
-    <div>
-      <h2>Сводка за {date}</h2>
+    <div className={styles.box}>
+      <p className={styles.title}>Сводка за {date}</p>
       <ul className={styles.list}>
-        <li>
-          {info.left >= 0 ? 'Осталось' : 'Сверх нормы'} {Math.abs(info.left)}{' '}
-          ккал
+        <li className={styles.item}>
+          {info.left >= 0 ? <p>Осталось </p> : <p>Сверх нормы</p>}
+          <p className={styles.value}>{Math.abs(info.left)} ккал</p>
         </li>
-        <li>Употребленно {info.used} ккал</li>
-        <li>Дневная норма {info.norma} ккал</li>
-        <li>n% от нормы {Math.round(info.fromTheNorm)} %</li>
+        <li className={styles.item}>
+          <p>Употребленно</p>
+          <p className={styles.value}>{info.used} ккал</p>
+        </li>
+        <li className={styles.item}>
+          <p>Дневная норма</p>
+          <p className={styles.value}>{info.norma} ккал</p>
+        </li>
+        <li className={styles.item}>
+          <p>n% от нормы</p>
+          <p className={styles.value}>{Math.round(info.fromTheNorm)} %</p>
+        </li>
       </ul>
     </div>
   );
