@@ -14,6 +14,7 @@ import styles from './NotRecommended.module.css';
 export default function NotRecommended() {
   const [isModal, setIsModal] = useState(false);
   const [products, setProducts] = useState(null);
+  const [category, setCategory] = useState(null);
 
   const categories = useSelector(
     notrecomendedproductsSelectors.getListNotProducts,
@@ -29,6 +30,7 @@ export default function NotRecommended() {
       .then(products => {
         setProducts(products);
         setIsModal(true);
+        setCategory(category);
       });
   };
 
@@ -43,6 +45,7 @@ export default function NotRecommended() {
         <NewModal onModalClose={setIsModal}>
           <NotRecommendedProductsList
             products={products}
+            category={category}
             onModalClose={setIsModal}
           />
         </NewModal>

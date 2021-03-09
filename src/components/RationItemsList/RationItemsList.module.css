@@ -2,7 +2,7 @@
   list-style: none;
   width: 287px;
   line-height: 1.5;
-  max-height: 240px;
+  max-height: 230px;
   overflow: auto;
   margin: auto;
   margin-top: 15px;
@@ -38,6 +38,7 @@
     width: 589px;
     margin-top: 22px;
     margin-bottom: 60px;
+    max-height: 240px;
   }
 }
 
@@ -46,5 +47,6 @@
     width: 595px;
     margin-top: 22px;
     padding-left: 18px;
+    max-height: 250px;
   }
 }

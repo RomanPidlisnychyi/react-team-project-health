@@ -2,6 +2,7 @@
   display: none;
   width: 0;
   height: 0;
+  cursor: pointer;
 }
 
 .modal {
@@ -35,7 +36,6 @@
   border: none;
   background: white;
   font-size: 20px;
-
 }
 
 @media (min-width: 768px) {
@@ -63,9 +63,7 @@
 
   .closeButtonNav {
     right: 20%;
-
   }
-
 }
 
 /* @media (min-width: 1280px) {
