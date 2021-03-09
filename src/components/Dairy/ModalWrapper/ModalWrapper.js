@@ -9,7 +9,7 @@ const ModalWrapper = () => {
   return (
     <>
       <div className={styles.button}>
-        <Button title="+" onClick={() => setIsModal(!isModal)} />
+        <Button title="+" onClick={() => setIsModal(!isModal)} circle={true} />
       </div>
 
       {isModal && (

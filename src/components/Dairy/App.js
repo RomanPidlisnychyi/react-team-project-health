@@ -4,8 +4,6 @@ import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
 import dairyWrapper from '../Dairy/DairyWrapper/DairyWrapper';
-// import Rations from '../Dairy/Rations/Rations';
-import RationItemsList from '../RationItemsList/RationItemsList';
 import NotRecommended from '../NotRecommended/NotRecommended';
 import CalculatorCalories from '../CalculatorCalories/CalculatorCalories';
 

@@ -31,6 +31,7 @@ class ProductInputForm extends Component {
     WeightInputDisabled: false,
     buttonText: 'Добавить',
     buttonAddAllow: true,
+    // buttonCircle: false,
   };
 
   componentDidMount() {
@@ -248,7 +249,6 @@ class ProductInputForm extends Component {
               onChangeWeight={this.handleChangeWeight}
               disabled={WeightInputDisabled}
             />
-            {/* {className={styles.button, classUsualEnabled}} */}
             <div className={classButton}>
               <Button
                 type="submit"

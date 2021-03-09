@@ -3,10 +3,6 @@
   width: 100%;
   padding-bottom: 31px;
   padding-top: 88px;
-  /* width: 589px; */
-  /* margin: 0 auto; */
-  /* margin-left: 15px; */
-  /* display: flex; */
 }
 
 .inputPanelWrapperModal {
@@ -23,7 +19,6 @@
 
 .visible {
   display: block;
-  /* width: 100%; */
 }
 
 @media (min-width: 768px) {

@@ -26,12 +26,17 @@
   box-shadow: 1px 6px 10px rgba(252, 132, 45, 0.7);
 } */
 
+.circle{
+  min-width: 0;
+  padding: 11px 16px 13px;
+}
+
 .allow {
   cursor: not-allowed;
 }
 
 .allow:hover{
-  background: #613d23;
+  background: #833e0d;
 }
 
 .normal {
