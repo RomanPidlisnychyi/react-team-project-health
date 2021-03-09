@@ -4,10 +4,12 @@ import styles from './Modal.module.css';
 export default class NewModal extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.handlKeyDown);
+    // console.log(this.handlKeyDown);
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handlKeyDown);
+    // console.log(this.handlKeyDown);
   }
 
   closeModal = e => {

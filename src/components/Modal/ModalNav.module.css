@@ -1,9 +1,10 @@
 .modalNavWrap {
   background-color: #264061;
-  min-width: 320px;
+  /* min-width: 320px; */
   min-height: 488px;
   /* z-index: 5; */
   height: 100vh;
+  width: 100vh;
 }
 
 .modalNav_list {
@@ -18,6 +19,7 @@
   text-decoration: none;
   color: white;
 }
+
 .modalNav_list {
   list-style: none;
   display: flex;
