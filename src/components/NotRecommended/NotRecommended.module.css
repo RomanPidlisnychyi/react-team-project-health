@@ -128,14 +128,14 @@
   .wrapper {
     flex-direction: column;
     justify-content: start;
-    padding-top: 143px;
+    padding-top: 120px;
     width: auto;
   }
 
   .categoryBox {
     width: 287px;
     margin: 0;
-    margin-left: 30px;
+    margin-left: 60px;
   }
 
   .modBox {
