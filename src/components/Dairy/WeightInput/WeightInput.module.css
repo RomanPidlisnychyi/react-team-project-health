@@ -1,43 +1,46 @@
 .input {
-  width: 105px;
+  width: 289px;
   margin: 0;
   padding: 0;
   height: 40px;
-  margin-right: 70px;
   outline: none;
   border-radius: nullpx;
-  border: 1px solid; 
+  border: 1px solid;
   font-family: Verdana;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: 17px;
   letter-spacing: 0.04em;
-  text-align: right;
+  text-align: left;
   outline: none;
   color: #212121;
   border: none;
   border-bottom: 1px solid #E0E0E0;
+
+  margin-bottom: 60px;
 }
+
 input:-internal-autofill-selected {
   background: #ffffff;
 }
 
 .input::placeholder {
-	color: #9B9FAA;
+  color: #9B9FAA;
 }
 
 
 @media (min-width: 768px) {
-    .input {
-      /* width: 768px; */
-      margin-right: 40px;
-    }
+  .input {
+    width: 104px;
+    margin-right: 40px;
+    text-align: right;
+  }
 }
 
 @media (min-width: 1280px) {
-    .input {
-      /* width: 768px; */
-      margin-right: 20px;
-    }
+  .input {
+    /* width: 768px; */
+    margin-right: 20px;
+  }
 }

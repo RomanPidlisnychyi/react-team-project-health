@@ -8,6 +8,7 @@
   height: 40px;
   background: #eff1f3;
   display: flex;
+  z-index: 1;
 }
 
 .userInfo_img {

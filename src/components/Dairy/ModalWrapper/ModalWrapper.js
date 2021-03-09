@@ -14,9 +14,7 @@ const ModalWrapper = () => {
 
       {isModal && (
         <NewModal onModalClose={setIsModal}>
-          <div className={styles.backGroundModal}>
-            <ProductInputForm mode="modal" />
-          </div>
+          <ProductInputForm mode="modal" />
         </NewModal>
       )}
     </>

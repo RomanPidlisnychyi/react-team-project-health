@@ -1,10 +1,9 @@
 .input {
 	position: relative;
-	width: 240px;
+	width: 289px;
 	margin: 0;
 	padding: 0;
 	height: 40px;
-	margin-right: 30px;
 	font-family: Verdana;
 	font-style: normal;
 	font-weight: bold;
@@ -16,9 +15,17 @@
 	color: #212121;
 	background: rgba(1, 1, 1, 0);
 	border-bottom: 1px solid #E0E0E0;
+
+	margin-bottom: 30px;
 }
 
 .input::placeholder {
 	color: #9B9FAA;
 }
 
+@media (min-width: 768px) {
+	.input {
+		width: 239px;
+		margin-right: 30px;
+	}
+}
