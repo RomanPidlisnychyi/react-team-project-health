@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './CalculatorCalories.modele.css';
+
+import styles from './CalculatorCalories.module.css';
 import CaloriesForm from '../CaloriesForm/CaloriesForm';
 
 const СalculatorCalories = () => {

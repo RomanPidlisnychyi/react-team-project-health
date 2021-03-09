@@ -26,6 +26,8 @@ class CaloriesForm extends Component {
     desiredWeight: '',
     bloodGroup: '',
     showModal: false,
+    disabled: true, //* неактивна
+    // disabled: false, //* активна
   };
 
   componentDidMount() {
@@ -40,6 +42,8 @@ class CaloriesForm extends Component {
     if (height) {
       this.setState({ height, age, currentWeight, desiredWeight, bloodGroup });
     }
+
+    this.onDisable(this.props.userParams);
   }
 
   componentDidUpdate() {
@@ -59,6 +63,7 @@ class CaloriesForm extends Component {
   handleInput = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
+    this.setState({ disabled: false });
   };
 
   onModalClose = () => {
@@ -67,8 +72,10 @@ class CaloriesForm extends Component {
 
   handleRadio = e => {
     const { value } = e.target;
+
     this.setState({
       bloodGroup: Number(value),
+      disabled: false,
     });
   };
 
@@ -82,6 +89,8 @@ class CaloriesForm extends Component {
       desiredWeight: Number(this.state.desiredWeight),
       bloodGroup: Number(this.state.bloodGroup),
     };
+
+    this.onDisable(userParams);
 
     const {
       onGetListNotRecomendedProductsAndCalories,
@@ -113,6 +122,20 @@ class CaloriesForm extends Component {
     });
   };
 
+  onDisable = userParams => {
+    const {
+      height,
+      age,
+      currentWeight,
+      desiredWeight,
+      bloodGroup,
+    } = this.props.userParams;
+
+    height && age && currentWeight && desiredWeight && bloodGroup
+      ? this.setState({ disabled: true })
+      : this.setState({ disabled: false });
+  };
+
   handleClearForm = e => {
     e.preventDefault();
     this.setState({
@@ -132,6 +155,7 @@ class CaloriesForm extends Component {
       desiredWeight,
       bloodGroup,
       showModal,
+      disabled,
     } = this.state;
 
     return (
@@ -148,6 +172,7 @@ class CaloriesForm extends Component {
               max="210"
               required
               onChange={this.handleInput}
+              // onkeyup={this.checkParams}
               className={styles.dailyCaloriesInput}
             />
           </label>
@@ -253,7 +278,7 @@ class CaloriesForm extends Component {
           </label>
         </div>
         <div className={styles.buttonWrapper}>
-          <Button title={'Похудеть'} type="submit"></Button>
+          <Button title={'Похудеть'} type="submit" disabled={disabled}></Button>
           {showModal && (
             <NewModal onModalClose={this.onModalClose} closeButton={true}>
               <ModalCalories isModal={this.onModalClose} />

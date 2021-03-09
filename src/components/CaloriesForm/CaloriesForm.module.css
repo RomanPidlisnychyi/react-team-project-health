@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin-bottom: 40px;
+  width: 240px;
 }
 
 .dailyCaloriesLabel {
@@ -16,13 +16,14 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  min-height: 27px;
+  height: 27px;
   border-bottom: 1px solid #e0e0e0;
   margin-bottom: 30px;
 }
 
 .dailyCaloriesLabel:last-child {
   margin-bottom: 0px;
+  height: auto;
   border-bottom: none;
 }
 
@@ -34,8 +35,9 @@
 }
 
 .dailyCaloriesInput {
-  width: 90px;
+  width: 80px;
   padding: 0px 4px;
+  margin: 0px;
   font-family: Verdana;
   font-style: normal;
   font-weight: bold;
@@ -54,6 +56,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .radioGroupWrapper {
@@ -64,6 +67,7 @@
 }
 
 .inputRadioLabel {
+  display: flex;
 }
 
 .inputRadio {
@@ -130,35 +134,8 @@
 
 /*! Button */
 .buttonWrapper {
-  margin: 0px auto;
-}
-
-.dailyCaloriesButton {
-  font-family: Verdana;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  word-wrap: break-word;
-  border: 0;
-  outline: 0;
-  transition: all 200ms ease-in-out;
-  color: #ffffff;
-  border: 1px solid #dc6611;
-  border-radius: 30px;
-  background: #fc842d;
-  box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.3);
-  padding: 14px 30px;
-  cursor: pointer;
-}
-
-.dailyCaloriesButton:hover {
-  background: #e16710;
-  box-shadow: 1px 6px 10px rgba(252, 132, 45, 0.5);
-}
-
-.buttonWrapper {
+  width: 100%;
+  text-align: center;
   margin: 0px auto;
 }
 
@@ -171,7 +148,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
-    max-width: 550px;
+    width: 510px;
     height: 187px;
     margin-bottom: 64px;
   }
@@ -194,15 +171,12 @@
   }
 
   .buttonWrapper {
-    margin: 0px 0px 424px;
+    text-align: left;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .buttonWrapper {
-    margin: 0px 0px 111px 346px;
+    margin-left: 346px;
   }
-}
-
-@media screen and (min-width: 1680px) {
 }
