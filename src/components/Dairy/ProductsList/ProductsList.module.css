@@ -42,6 +42,7 @@
 
 .list {
     list-style: none;
+    min-width: 280px;
 }
 
 .listItem {

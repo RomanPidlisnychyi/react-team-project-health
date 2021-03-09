@@ -7,11 +7,14 @@ export default function Button({
   type = 'button',
   disabled = false,
   role = '',
+  allow = false,
 }) {
+  const customHover = `${styles.button} ${allow ? styles.allow : styles.normal}`;
+
   return (
     <button
       disabled={disabled}
-      className={ styles.button}
+      className={customHover}
       onClick={onClick}
       type={type}
       role={role}
