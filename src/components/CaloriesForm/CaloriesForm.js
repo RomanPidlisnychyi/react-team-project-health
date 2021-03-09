@@ -5,15 +5,11 @@ import NewModal from '../Modal/NewModal';
 import ModalCalories from '../Modal/ModalCalories';
 import styles from './CaloriesForm.module.css';
 
-import {
-  notrecomendedproductsOperations,
-  notrecomendedproductsSelectors,
-} from '../../redux/notrecomendedproducts';
+import { notrecomendedproductsOperations } from '../../redux/notrecomendedproducts';
 import { authOperations, authSelectors } from '../../redux/auth';
 
 import Button from '../Button/Button';
 
-// const CaloriesForm = ({
 class CaloriesForm extends Component {
   static propTypes = {
     height: PropTypes.number,
@@ -55,7 +51,7 @@ class CaloriesForm extends Component {
       bloodGroup,
     } = this.props.userParams;
 
-    if (height && !this.state.height) {
+    if (height && !this.state.height && !this.state.age) {
       this.setState({ height, age, currentWeight, desiredWeight, bloodGroup });
     }
   }
@@ -97,7 +93,6 @@ class CaloriesForm extends Component {
       onGetListNotRecomendedProductsAndCalories(userParams).then(data => {
         if (data && data.dailyCalorieNormInteger) {
           this.setState({ showModal: true });
-          // console.log(`NotRecomProduct of user saved successfully: ${data}`);
           return;
         }
         console.log('Щось пішло не так! Спробуйте ввести параметри ще раз!');
@@ -138,8 +133,6 @@ class CaloriesForm extends Component {
       bloodGroup,
       showModal,
     } = this.state;
-
-    const { dailyCalorieNormInteger, categoriesList } = this.props;
 
     return (
       <form className={styles.dailyCaloriesForm} onSubmit={this.handleSubmit}>
@@ -263,11 +256,7 @@ class CaloriesForm extends Component {
           <Button title={'Похудеть'} type="submit"></Button>
           {showModal && (
             <NewModal onModalClose={this.onModalClose} closeButton={true}>
-              <ModalCalories
-                isModal={this.onModalClose}
-                calories={dailyCalorieNormInteger}
-                categories={categoriesList}
-              />
+              <ModalCalories isModal={this.onModalClose} />
             </NewModal>
           )}
         </div>
@@ -277,10 +266,6 @@ class CaloriesForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  dailyCalorieNormInteger: notrecomendedproductsSelectors.getDailyCalorieNormInteger(
-    state,
-  ),
-  categoriesList: notrecomendedproductsSelectors.getListNotProducts(state),
   userParams: authSelectors.getParams(state),
   token: authSelectors.getToken(state),
 });

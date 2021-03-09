@@ -1,6 +1,11 @@
+import { useSelector } from 'react-redux';
+import { notrecomendedproductsSelectors } from '../../../redux/notrecomendedproducts';
 import styles from '../NotRecommended.module.css';
 
-export default function NotRecommendedCategoryList({ title, categories }) {
+export default function NotRecommendedCategoryList({ title }) {
+  const categories = useSelector(
+    notrecomendedproductsSelectors.getListNotProducts,
+  );
   return (
     <div className={styles.categoryBox}>
       <p className={styles.title}>{title}</p>
