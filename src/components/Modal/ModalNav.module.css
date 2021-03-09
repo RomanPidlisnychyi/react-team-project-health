@@ -18,6 +18,18 @@
   text-decoration: none;
   color: white;
 }
+.modalNav_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 108px;
+}
+
+.modalNav_link {
+  text-decoration: none;
+  color: white;
+}
 
 .modalNav_link:hover {
   color: #9b9faa;
