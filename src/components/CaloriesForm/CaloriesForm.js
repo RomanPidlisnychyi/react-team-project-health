@@ -39,7 +39,7 @@ class CaloriesForm extends Component {
       bloodGroup,
     } = this.props.userParams;
 
-    if (height) {
+    if (bloodGroup) {
       this.setState({ height, age, currentWeight, desiredWeight, bloodGroup });
     }
 
@@ -55,7 +55,7 @@ class CaloriesForm extends Component {
       bloodGroup,
     } = this.props.userParams;
 
-    if (height && !this.state.height && !this.state.age) {
+    if (bloodGroup && !this.state.bloodGroup) {
       this.setState({ height, age, currentWeight, desiredWeight, bloodGroup });
     }
   }
