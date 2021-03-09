@@ -3,7 +3,6 @@
 	width: 240px;
 	margin: 0;
 	padding: 0;
-	/* height: 16px; */
 	height: 40px;
 	margin-right: 30px;
 	font-family: Verdana;
@@ -12,15 +11,18 @@
 	font-size: 14px;
 	line-height: 17px;
 	letter-spacing: 0.04em;
-	color: #9B9FAA;
 	border: none;
 	outline: none;
+	color: #212121;
 	background: rgba(1, 1, 1, 0);
 	border-bottom: 1px solid #E0E0E0;
-	/* padding-bottom: 19.5px; */
 }
 
-.input::before {
+.input::placeholder {
+	color: #9B9FAA;
+}
+
+/* .input::before {
 	content: '""';
 	display: block;
 	position: absolute;
@@ -30,7 +32,7 @@
 	top: 50px;
 	border: 100px solid #000;
 	background: #000;	
-}
+} */
 
 /* .input:active,
 input:hover,

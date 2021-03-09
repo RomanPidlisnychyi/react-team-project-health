@@ -10,7 +10,7 @@ const WeightInput = ({onChangeWeight, weight, disabled}) =>
         className={styles.input}
         onChange={onChangeWeight}
         value={weight}
-        disabled={disabled}
+        disabled={false}
     />
 
 export default WeightInput;
