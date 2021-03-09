@@ -2,7 +2,10 @@
   background-color: #264061;
   min-width: 320px;
   min-height: 488px;
+  /* z-index: 5; */
+  height: 100vh;
 }
+
 .modalNav_list {
   list-style: none;
   display: flex;
@@ -16,7 +19,8 @@
 
 @media (min-width: 768px) {
   .modalNavWrap {
-    min-width: 768px;
-    min-height: 944px;
+    /* min-width: 768px; */
+    /* min-height: 944px; */
+    width: 100vw
   }
 }

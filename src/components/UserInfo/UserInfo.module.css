@@ -19,6 +19,7 @@
   display: flex;
   justify-content: flex-end;
   padding-right: 15px;
+  align-items: center;
 }
 
 .userInfo_item {

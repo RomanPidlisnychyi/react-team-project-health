@@ -1,7 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit';
 import rationItemsActions from './rationItemsActions';
 import authActions from '../auth/authActions';
-// import rationsItemActionsKolya from ''
+import rationsItemActions from '../dairy/rationsItemActions';
+import rationsItemActionsKolya from '../dairy/rationsItemActions';
 
 //================ from Kolya =====================================
 const onItemUpdate = (state, action) => {
@@ -34,6 +35,7 @@ const ration = createReducer(initialState, {
   }),
   [rationItemsActions.deleteRationItemSuccess]: onDeleteRationItem,
   [rationItemsActions.rationsItemUpdate]: onItemUpdate,
+  // [rationsItemActionsKolya.dateToStore]: onDateToStor,
 });
 
 export default ration;

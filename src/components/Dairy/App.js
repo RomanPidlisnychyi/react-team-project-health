@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from './App.module.css';
 import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 
-import ProductInputForm from '../Dairy/ProductInputForm/ProductInputForm';
+import dairyWrapper from '../Dairy/DairyWrapper/DairyWrapper';
 // import Rations from '../Dairy/Rations/Rations';
 import RationItemsList from '../RationItemsList/RationItemsList';
 import NotRecommended from '../NotRecommended/NotRecommended';
@@ -16,11 +16,11 @@ const App = () => (
   
       <Switch>
          <Route path="/calculator" component={CalculatorCalories} />
-         <Route path="/dairy" component={ProductInputForm} />
+         <Route path="/dairy" component={dairyWrapper} />
       </Switch>
      
       {/* <Rations /> */}
-      <RationItemsList />
+      {/* <RationItemsList /> */}
     </div>
     <div className={styles.usersInfoWrapper}>
       <NotRecommended />

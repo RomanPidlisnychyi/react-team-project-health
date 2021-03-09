@@ -16,12 +16,20 @@ const token = {
   },
 };
 
-const register = credentials => dispatch => {
+const register = credentials => (dispatch, getState) => {
   const user = {
     name: credentials.name,
     email: credentials.email,
     password: credentials.password,
   };
+
+  const state = getState();
+  const params = authSelectors.getParams(state);
+
+  if (params && params.age) {
+    user.params = params;
+  }
+
   dispatch(authActions.registerRequest());
 
   return axios
@@ -75,11 +83,18 @@ const register = credentials => dispatch => {
     });
 };
 
-const logIn = credentials => dispatch => {
+const logIn = credentials => (dispatch, getState) => {
   const user = {
     email: credentials.email,
     password: credentials.password,
   };
+
+  const state = getState();
+  const params = authSelectors.getParams(state);
+
+  if (params && params.age) {
+    user.params = params;
+  }
 
   dispatch(authActions.loginRequest());
 
@@ -88,8 +103,15 @@ const logIn = credentials => dispatch => {
     .then(response => {
       token.set(response.data.token.accessToken);
       dispatch(authActions.loginSuccess(response.data));
-      dispatch(refresh(response.data.token.expiresIn));
+      if (response.data.user.params && response.data.user.params.age) {
+        dispatch(
+          notrecomendedproductsOperations.getListNotRecomendedProductsAndCalories(
+            response.data.user.params,
+          ),
+        );
+      }
       dispatch(rationItemsOperations.fetchRationItems());
+      dispatch(refresh(response.data.token.expiresIn));
     })
     .catch(error => {
       store.addNotification({
@@ -158,8 +180,15 @@ const current = accessToken => dispatch => {
       }
 
       dispatch(authActions.currentSuccess(data));
-      dispatch(refresh(data.token.expiresIn));
+      if (data.user.params && data.user.params.age) {
+        dispatch(
+          notrecomendedproductsOperations.getListNotRecomendedProductsAndCalories(
+            data.user.params,
+          ),
+        );
+      }
       dispatch(rationItemsOperations.fetchRationItems());
+      dispatch(refresh(data.token.expiresIn));
     })
     .catch(error => {
       dispatch(authActions.currentError(error));
@@ -207,7 +236,6 @@ const refresh = expiresIn => (dispatch, getState) => {
   // setInterval - работает в милисекундах потому делаем значение немного меньше
   // чем жизнь токена на сервере.
 };
-
 
 const params = userData => dispatch => {
   dispatch(authActions.paramsRequest());

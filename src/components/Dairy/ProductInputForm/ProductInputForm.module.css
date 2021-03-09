@@ -1,7 +1,61 @@
 .form {
-    position: relative;
-    width: 100%;
-    /* display: flex; */
+  position: relative;
+  width: 100%;
+  padding-bottom: 31px;
+  padding-top: 88px;
+  /* width: 589px; */
+  /* margin: 0 auto; */
+  /* margin-left: 15px; */
+  /* display: flex; */
+}
+
+.inputPanelWrapperModal {
+  margin: 0 auto;
+}
+.inputPanelWrapperUsual {
+  margin: 0 auto;
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+  /* width: 100%; */
+}
+
+@media (min-width: 768px) {
+  .form {
+    /* width: 768px; */
+    width: 589px;
+    margin-left: 92px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+  }
+
+  .inputPanelWrapperModal {
+    display: block;
+  }
+  .inputPanelWrapperUsual {
+    display: flex;
+  }
+}
+
+@media (min-width: 1280px) {
+  .form {
+    margin-left: 92px;
+    padding-top: 115px;
+    width: 595px;
+  }
+
+  .inputPanelWrapperModal {
+    display: block;
+  }
+  .inputPanelWrapperUsual {
+    display: flex;
+  }
 }
 
 .input {
@@ -11,7 +65,33 @@
 }
 
 .select {
-    /* position: absolute; */
-    /* left: 0;
+  /* position: absolute; */
+  /* left: 0;
     top: 0; */
+}
+
+.datePickerWrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.buttonUsual {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .buttonUsual {
+    display: flex;
+  }
+}
+
+@media (min-width: 1280px) {
+  .buttonUsual {
+    display: flex;
+  }
+}
+
+.buttonModal {
+  display: block;
 }

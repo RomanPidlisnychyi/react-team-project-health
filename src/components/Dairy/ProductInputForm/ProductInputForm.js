@@ -4,7 +4,7 @@ import styles from './ProductInputForm.module.css';
 import ProductsList from '../ProductsList/ProductsList';
 import WeightInput from '../WeightInput/WeightInput';
 import ProductsInput from '../ProductsInput/ProductsInput.js';
-import objectRequestValidator from './objectRequestValidator';
+// import objectRequestValidator from './objectRequestValidator';
 import rationsItemOperations from '../../../redux/dairy/rationsItemOperations';
 import Button from '../../Button/Button';
 import Picker from '../Picker/Picker';
@@ -12,21 +12,10 @@ import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import sendNotification from './notification';
 import rationsItemOperationsVit from '../../../redux/rations/rationItemsOperations';
+import { rationItemsSelectors } from '../../../redux/rations';
 // import debounce from 'lodash.debounce';
 
 class ProductInputForm extends Component {
-  constructor(props) {
-    super(props);
-    const nowDate = new Date();
-    const year = nowDate.getFullYear().toString();
-    const month = (nowDate.getMonth() + 1).toString();
-    const day = nowDate.getDate().toString();
-
-    const trDay = day.length === 2 ? day : '0' + day;
-    const trMonth = month.length === 2 ? month : '0' + month;
-    this.state.date = year + '-' + trMonth + '-' + trDay;
-  }
-
   state = {
     date: '',
     weight: '',
@@ -45,6 +34,23 @@ class ProductInputForm extends Component {
 
   componentDidMount() {
     document.addEventListener('click', this.addBodyClick);
+    const { userDate } = this.props;
+
+    if (userDate && !this.state.date) {
+      const newDate = userDate.split('-').reverse().join('-');
+
+      this.setState({ date: newDate });
+    }
+  }
+
+  componentDidUpdate() {
+    const { userDate } = this.props;
+
+    if (userDate && !this.state.date) {
+      const newDate = userDate.split('-').reverse().join('-');
+
+      this.setState({ date: newDate });
+    }
   }
 
   componentWillUnmount() {
@@ -126,19 +132,19 @@ class ProductInputForm extends Component {
       productTitle: productSearchValue,
       weight: Number(weight),
     };
-    const fail = objectRequestValidator(ration);
+    // const fail = objectRequestValidator(ration);
 
-    if (fail) {
-      const failMessage = fail.details[0].message;
+    // if (fail) {
+    //     const failMessage = fail.details[0].message;
 
-      this.setState({
-        visibleNotification: true,
-        notificationMessage: failMessage,
-      });
+    //     this.setState({
+    //         visibleNotification: true,
+    //         notificationMessage: failMessage,
+    //     });
 
-      sendNotification(failMessage, 'danger');
-      return;
-    }
+    //     sendNotification(failMessage, 'danger');
+    //     return;
+    // }
 
     try {
       this.setState({
@@ -168,10 +174,6 @@ class ProductInputForm extends Component {
     }
   };
 
-  handleProductsListMouseOut = e => {
-    // this.setState({visibleListProducts: false})
-  };
-
   render() {
     const {
       weight,
@@ -186,48 +188,73 @@ class ProductInputForm extends Component {
       buttonText,
     } = this.state;
 
+    const { mode } = this.props;
+
+    const classUsualEnabled = `${
+      mode === 'usual' ? styles.visible : styles.hidden
+    }`;
+    const classUsualDisabled = `${
+      mode === 'modal' ? styles.visible : styles.hidden
+    }`;
+    const classButton = `${
+      mode === 'usual' ? styles.buttonUsual : styles.buttonModal
+    }`;
+    const classInputPanelWrapper = `${
+      mode === 'usual'
+        ? styles.inputPanelWrapperUsual
+        : styles.inputPanelWrapperModal
+    }`;
+
     return (
       <form
         id="form-products"
         className={styles.form}
         onSubmit={this.handleSubmit}
       >
-        <Picker date={date} onChangeData={this.handlerChangeDate} />
+        <div className={(styles.datePickerWrapper, classUsualEnabled)}>
+          <Picker date={date} onChangeData={this.handlerChangeDate} />
+        </div>
 
-        <ProductsInput
-          productSearchValue={productSearchValue}
-          onChangeInput={this.handleChangeProducts}
-          disabled={productInputDisabled}
-        />
-
-        <WeightInput
-          weight={weight}
-          onChangeWeight={this.handleChangeWeight}
-          disabled={WeightInputDisabled}
-        />
-        <Button
-          type="submit"
-          title={buttonText}
-          onClick={this.handleAddProductClick}
-          disabled={buttonAddDisabled}
-        />
-
-        {products && products.length > 0 && visibleListProducts && (
-          <ProductsList
-            products={products}
-            onHover={this.handleItemHover}
-            onInputClick={this.handleProductInputClick}
-            onMouseOut={this.handleProductsListMouseOut}
+        <div className={classInputPanelWrapper}>
+          <ProductsInput
+            productSearchValue={productSearchValue}
+            onChangeInput={this.handleChangeProducts}
+            disabled={productInputDisabled}
           />
-        )}
 
-        {visibleNotification && <ReactNotification />}
+          <WeightInput
+            weight={weight}
+            onChangeWeight={this.handleChangeWeight}
+            disabled={WeightInputDisabled}
+          />
+          {/* {className={styles.button, classUsualEnabled}} */}
+          <div className={classButton}>
+            <Button
+              type="submit"
+              title={buttonText}
+              onClick={this.handleAddProductClick}
+              disabled={buttonAddDisabled}
+            />
+          </div>
+          </div>
+
+          {products && products.length > 0 && visibleListProducts && (
+            <ProductsList
+              products={products}
+              onHover={this.handleItemHover}
+              onInputClick={this.handleProductInputClick}
+              onMouseOut={this.handleProductsListMouseOut}
+            />
+          )}
+
+          {visibleNotification && <ReactNotification />}
+       
       </form>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({});
+// const mapStateToProps = (state, ownProps) => ({});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onRationsItemAdd: param =>
@@ -238,6 +265,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   // onGetInfo: (param) => dispatch(rationsItemOperations.getInfoByDate(param)),
   onRationsItemUpdate: param =>
     dispatch(rationsItemOperationsVit.rationsItemUpdate(param)),
+});
+const mapStateToProps = (state, ownProps) => ({
+  userDate: rationItemsSelectors.getRationDate(state),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductInputForm);

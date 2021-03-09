@@ -22,6 +22,7 @@ const refreshError = createAction('auth/refreshError');
 
 const paramsRequest = createAction('users/paramsRequest');
 const paramsSuccess = createAction('users/paramsSuccess');
+const setNotAuthorizedParams = createAction('users/setNotAuthorizedParams');
 const paramsError = createAction('users/paramsError');
 
 export default {
@@ -42,5 +43,6 @@ export default {
   refreshError,
   paramsRequest,
   paramsSuccess,
+  setNotAuthorizedParams,
   paramsError,
 };

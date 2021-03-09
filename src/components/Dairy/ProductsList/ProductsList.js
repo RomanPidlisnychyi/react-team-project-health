@@ -8,7 +8,7 @@ const ProductsList = ({ products, onHover, onInputClick, onMouseOut }) => {
             onMouseOut={onMouseOut}
         >
             {products.map(product =>
-                <li
+                <li 
                     className={styles.listItem}
                     key={product}
                     value={product}

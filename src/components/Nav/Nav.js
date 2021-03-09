@@ -14,7 +14,11 @@ function Nav({ token }) {
   return (
     <div className={styles.nav_wrap}>
       {isModal && (
-        <NewModal onModalClose={setIsModal}>
+        <NewModal
+          onModalClose={setIsModal}
+          topMenuModal={true}
+          // closeButtonNav={true}
+        >
           <ModalNav setIsModal={setIsModal} />
         </NewModal>
       )}

@@ -5,10 +5,7 @@ import NewModal from '../Modal/NewModal';
 import ModalCalories from '../Modal/ModalCalories';
 import styles from './CaloriesForm.module.css';
 
-import {
-  notrecomendedproductsOperations,
-  notrecomendedproductsSelectors,
-} from '../../redux/notrecomendedproducts';
+import { notrecomendedproductsOperations } from '../../redux/notrecomendedproducts';
 import { authOperations, authSelectors } from '../../redux/auth';
 
 import Button from '../Button/Button';
@@ -47,6 +44,20 @@ class CaloriesForm extends Component {
     }
 
     this.onDisable(this.props.userParams);
+  }
+
+  componentDidUpdate() {
+    const {
+      height,
+      age,
+      currentWeight,
+      desiredWeight,
+      bloodGroup,
+    } = this.props.userParams;
+
+    if (height && !this.state.height && !this.state.age) {
+      this.setState({ height, age, currentWeight, desiredWeight, bloodGroup });
+    }
   }
 
   handleInput = e => {
@@ -146,10 +157,6 @@ class CaloriesForm extends Component {
       showModal,
       disabled,
     } = this.state;
-
-    console.log('disabledRend:', disabled);
-
-    const { dailyCalorieNormInteger, categoriesList } = this.props;
 
     return (
       <form className={styles.dailyCaloriesForm} onSubmit={this.handleSubmit}>
@@ -273,12 +280,8 @@ class CaloriesForm extends Component {
         <div className={styles.buttonWrapper}>
           <Button title={'Похудеть'} type="submit" disabled={disabled}></Button>
           {showModal && (
-            <NewModal onModalClose={this.onModalClose}>
-              <ModalCalories
-                isModal={this.onModalClose}
-                calories={dailyCalorieNormInteger}
-                categories={categoriesList}
-              />
+            <NewModal onModalClose={this.onModalClose} closeButton={true}>
+              <ModalCalories isModal={this.onModalClose} />
             </NewModal>
           )}
         </div>
@@ -288,10 +291,6 @@ class CaloriesForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  dailyCalorieNormInteger: notrecomendedproductsSelectors.getDailyCalorieNormInteger(
-    state,
-  ),
-  categoriesList: notrecomendedproductsSelectors.getListNotProducts(state),
   userParams: authSelectors.getParams(state),
   token: authSelectors.getToken(state),
 });

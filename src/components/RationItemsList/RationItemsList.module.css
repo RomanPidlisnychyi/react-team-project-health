@@ -6,6 +6,7 @@
   overflow: auto;
   margin: auto;
   margin-top: 15px;
+  margin-bottom: 30px;
   scrollbar-width: 3px;
   scrollbar-color: #264061;
 }
@@ -36,13 +37,14 @@
   .list {
     width: 589px;
     margin-top: 22px;
+    margin-bottom: 60px;
   }
 }
 
 @media (min-width: 1280px) {
   .list {
     width: 595px;
-    margin: 0;
     margin-top: 22px;
+    padding-left: 18px;
   }
 }
