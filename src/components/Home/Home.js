@@ -93,7 +93,9 @@ class Home extends Component {
           <h2 className={styles.titleForm}>
             Просчитай свою суточную норму калорий прямо сейчас
           </h2>
-          <CaloriesForm />
+          <div className={styles.wrapperForm}>
+            <CaloriesForm />
+          </div>
         </div>
         {/* {this.state.showModal && (
           <Modal handleModal={this.handleModal}>

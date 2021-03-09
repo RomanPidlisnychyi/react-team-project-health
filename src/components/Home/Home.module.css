@@ -16,23 +16,31 @@
   margin-bottom: 30px;
 }
 
+.wrapperForm {
+  margin: 0px 0px 0px 0px;
+}
+
 @media screen and (min-width: 768px) {
   .wrapper {
     margin: 0px auto;
     padding: 100px 76px 0px 87px;
 
     background: url('../../images/Home/Strawberry-Big-PNG.png') left 464px top
-        503px no-repeat,
-      url('../../images/Home/Layer-9.png') left 277px top 513px no-repeat,
-      url('../../images/Home/Layer-4 1.png') left bottom no-repeat,
-      url('../../images/Home/Vector 3.png') left 247px top 381px no-repeat;
+    503px no-repeat,
+    url('../../images/Home/Layer-9.png') left 277px top 513px no-repeat,
+    url('../../images/Home/Layer-4 1.png') left bottom no-repeat,
+    url('../../images/Home/Vector 3.png') left 247px top 381px no-repeat;
   }
-
+  
   .titleForm {
     min-height: 70px;
     font-size: 30px;
     line-height: 36px;
     margin-bottom: 60px;
+  }
+  
+  .wrapperForm {
+    margin: 0px 0px 424px 0px;
   }
 }
 
@@ -55,7 +63,8 @@
     line-height: 41px;
     margin-bottom: 68px;
   }
-}
 
-@media screen and (min-width: 1680px) {
+  .wrapperForm {
+    margin: 0px 0px 111px 0px;
+  }
 }

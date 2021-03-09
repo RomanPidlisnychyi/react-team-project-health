@@ -2,44 +2,23 @@
   display: flex;
   flex-direction: column;
   margin: 0px auto;
-  padding: 40px 15px 60px;
+  padding: 80px 15px 60px;
   font-family: Verdana;
   font-style: normal;
   font-weight: bold;
-  /* background-color: rgb(174, 236, 130); */
 }
 
 .titleCalculator {
-  /* font-family: Verdana;
-  font-style: normal;
-  font-weight: bold; */
   font-size: 18px;
   line-height: 26px;
   color: ##212121;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
-
-
-/* position: absolute;
-width: 290px;
-height: 50px;
-left: 15px;
-top: 160px;
-
-
-*/
-
 
 @media screen and (min-width: 768px) {
   .wrapperСalculator {
     margin: 0px auto;
-    padding: 100px 76px 0px 87px;
-
-    /* background: url('../../images/Home/Strawberry-Big-PNG.png') left 464px top
-          503px no-repeat,
-        url('../../images/Home/Layer-9.png') left 277px top 513px no-repeat,
-        url('../../images/Home/Layer-4 1.png') left bottom no-repeat,
-        url('../../images/Home/Vector 3.png') left 247px top 381px no-repeat; */
+    padding: 100px 76px 74px 87px;
   }
 
   .titleCalculator {
@@ -52,21 +31,13 @@ top: 160px;
 
 @media screen and (min-width: 1280px) {
   .wrapperСalculator {
-    margin: 0px auto;
-    padding: 146px 0px 0px 115px;
-    /* background: url('../../images/Home/Layer-4\ 1-big.png') left 339px top -172px
-        no-repeat,
-      url('../../images/Home/Strawberry-Big-PNG-big.png') right 5px bottom 35px
-        no-repeat,
-      url('../../images/Home/Layer-9-big.png') left 782px top -152px no-repeat,
-      url('../../images/Home/Vector 3-big.png') right bottom no-repeat; */
+    margin: 0px auto 110px;
+    padding: 142px 0px 0px 115px;
   }
 
   .titleCalculator {
-    /* width: 605px;
-    min-height: 85px;
     font-size: 34px;
     line-height: 41px;
-    margin-bottom: 68px; */
+    margin-bottom: 68px;
   }
 }
