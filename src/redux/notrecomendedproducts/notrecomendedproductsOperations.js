@@ -32,6 +32,13 @@ const getListNotRecomendedProductsAndCalories = userParams => (
     );
 };
 
+const getNotRecommendedProductListByCategory = (category, bloodGroup) => {
+  return fetch(
+    `${apiURL}/notrecomendedproducts/${category}/${bloodGroup}`,
+  ).then(response => response.json());
+};
+
 export default {
   getListNotRecomendedProductsAndCalories,
+  getNotRecommendedProductListByCategory,
 };

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { notrecomendedproductsSelectors } from '../../../redux/notrecomendedproducts';
 import styles from '../NotRecommended.module.css';
 
-export default function NotRecommendedCategoryList({ title }) {
+export default function NotRecommendedCategoryList({ title, onTabHandler }) {
   const categories = useSelector(
     notrecomendedproductsSelectors.getListNotProducts,
   );
@@ -13,7 +13,13 @@ export default function NotRecommendedCategoryList({ title }) {
         <ol className={styles.list}>
           {categories.map(category => (
             <li className={styles.item} key={category}>
-              <span>{category}</span>
+              <span
+                title="Подробнее ..."
+                onClick={onTabHandler}
+                className={styles.span}
+              >
+                {category}
+              </span>
             </li>
           ))}
         </ol>
