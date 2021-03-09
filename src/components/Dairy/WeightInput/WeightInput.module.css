@@ -16,10 +16,17 @@
   letter-spacing: 0.04em;
   text-align: right;
   outline: none;
-  color: #9B9FAA;
-  background: rgba(1, 1, 1, 0);
+  color: #212121;
+  /* background: rgba(1, 1, 1, 0); */
   border: none;
   border-bottom: 1px solid #E0E0E0;
+}
+input:-internal-autofill-selected {
+  background: #ffffff;
+}
+
+.input::placeholder {
+	color: #9B9FAA;
 }
 
 
