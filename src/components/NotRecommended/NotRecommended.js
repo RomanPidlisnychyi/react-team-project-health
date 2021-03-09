@@ -18,10 +18,7 @@ export default function NotRecommended() {
   return (
     <div className={styles.wrapper}>
       <CaloriesInfo />
-      <NotRecommendedCategoryList
-        title={'Нерекомендуемые продукты'}
-        categories={categories}
-      />
+      <NotRecommendedCategoryList title={'Нерекомендуемые продукты'} />
       {isModal && (
         <NewModal onModalClose={setIsModal}>
           <NotRecommendedProductsList />
