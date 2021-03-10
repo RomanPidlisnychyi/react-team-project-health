@@ -1,29 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './App.module.css';
-import { Switch } from 'react-router-dom';
-import { Route } from 'react-router-dom';
-
-import dairyWrapper from '../Dairy/DairyWrapper/DairyWrapper';
+import DairyWrapper from '../Dairy/DairyWrapper/DairyWrapper';
 import NotRecommended from '../NotRecommended/NotRecommended';
 import CalculatorCalories from '../CalculatorCalories/CalculatorCalories';
 
-const App = () => (
-  <div className={styles.commonWrapper}>
-    <div className={styles.dairyWrapper}>
-      {/* Dairy components */}
-  
-      <Switch>
-         <Route path="/calculator" component={CalculatorCalories} />
-         <Route path="/dairy" component={dairyWrapper} />
-      </Switch>
-     
-      {/* <Rations /> */}
-      {/* <RationItemsList /> */}
+export default function App({ props }) {
+  const { pathname } = props.location;
+  return (
+    <div className={styles.commonWrapper}>
+      <div className={styles.dairyWrapper}>
+        {pathname === '/calculator' ? <CalculatorCalories /> : <DairyWrapper />}
+      </div>
+      <div className={styles.usersInfoWrapper}>
+        <NotRecommended />
+      </div>
     </div>
-    <div className={styles.usersInfoWrapper}>
-      <NotRecommended />
-    </div>
-  </div>
-);
-
-export default App;
+  );
+}
