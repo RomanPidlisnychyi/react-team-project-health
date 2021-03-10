@@ -8,9 +8,9 @@
 
 .modalCalories {
   background-color: white;
-  padding-top: 40px;
-  /* width: 320px; */
-  /* height: 650px; */
+  /* padding-top: 40px; */
+  /* хз нашо не зарег */
+
   height: 100vh;
 }
 
@@ -91,7 +91,9 @@
 
 .buttonStartLosingWeightWrapper {
   text-align: center;
-  padding-bottom: 80px;
+  margin-top: 40px;
+  /* padding-bottom: 80px; */
+  /* хз нашо не зарег*/
 }
 
 @media (min-width: 768px) {

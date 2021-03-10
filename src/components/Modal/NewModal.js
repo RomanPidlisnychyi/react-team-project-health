@@ -4,10 +4,16 @@ import styles from './Modal.module.css';
 export default class NewModal extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.handlKeyDown);
+    document.querySelector('body').classList.add(`${styles.onModal}`);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handlKeyDown);
+    document.querySelector('body').classList.remove(`${styles.onModal}`);
   }
 
   closeModal = e => {

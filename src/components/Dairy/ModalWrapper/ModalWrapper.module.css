@@ -1,9 +1,9 @@
-.backGroundModal {
+/* .backGroundModal {
     margin-left: -40px;
     background: #fff;
     width: 287px;
     /* text-align: center; */
-}
+/* } */
 
 .button {
     display: block;
@@ -17,16 +17,17 @@
         display: none;
     }
 
-    .backGroundModal {
+    /* .backGroundModal {
         width: 589px;
-    }
+    } */
 }
 
 @media(min-width: 1280px) {
     .button {
         display: none;
     }
+
     .backGroundModal {
-     width: 552px;
+        width: 552px;
     }
 }
