@@ -33,6 +33,9 @@
     width: 270px;
     margin: 0;
   }
+  .title {
+    margin-bottom: 40px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -43,6 +46,6 @@
   .box {
     width: 287px;
     margin-left: 60px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
 }
