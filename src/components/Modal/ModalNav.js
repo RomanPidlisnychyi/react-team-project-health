@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import routes from '../../routes';
-
 import styles from './ModalNav.module.css';
 
 export default function ModalNav({ setIsModal }) {
@@ -11,7 +10,6 @@ export default function ModalNav({ setIsModal }) {
         {routes
           .filter(route => route.pablic === false)
           .map(route => {
-            console.log(route);
             return (
               <li className={styles.modalNav_item} key={route.path}>
                 <div>

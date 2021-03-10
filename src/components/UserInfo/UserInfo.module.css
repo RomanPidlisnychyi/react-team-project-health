@@ -1,13 +1,13 @@
 .userInfo {
   position: absolute;
   top: 64px;
-  display: flex;
+  /* display: flex;
   justify-content: end;
-  align-items: center;
+  align-items: center; */
   width: 320px;
   height: 40px;
   background: #eff1f3;
-  display: flex;
+
   z-index: 1;
 }
 
@@ -21,6 +21,7 @@
   justify-content: flex-end;
   padding-right: 15px;
   align-items: center;
+  padding-top: 8px;
 }
 
 .userInfo_item {

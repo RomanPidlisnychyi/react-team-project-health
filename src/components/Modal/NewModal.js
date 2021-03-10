@@ -42,7 +42,13 @@ export default class NewModal extends Component {
         }
         onClick={this.closeModal}
       >
-        <div className={styles.modalWrapper}>
+        <div
+          className={
+            topMenuModal
+              ? `${styles.modalWrapper}${styles.topMenuModal}`
+              : styles.modalWrapper
+          }
+        >
           <button
             className={
               topMenuModal ? `${styles.closeButtonNav}` : styles.closeButton
