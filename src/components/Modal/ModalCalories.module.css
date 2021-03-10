@@ -1,15 +1,13 @@
 .cover {
-  /* margin: 0 auto; */
-  /* width: 320px; */
+
   width: 100vw;
-  /* margin-top: 120px; */
+
 
 }
 
 .modalCalories {
   background-color: white;
-  /* padding-top: 40px; */
-  /* хз нашо не зарег */
+
 
   height: 100vh;
 }
@@ -89,8 +87,7 @@
 .buttonStartLosingWeightWrapper {
   text-align: center;
   margin-top: 40px;
-  /* padding-bottom: 80px; */
-  /* хз нашо не зарег*/
+
 }
 
 
@@ -106,7 +103,6 @@
   }
 
   .modalCalories {
-    padding-top: 64px;
     width: 594px;
     position: relative;
     height: auto;
