@@ -58,7 +58,6 @@ export default class NewModal extends Component {
             &#10006;
           </button>
           <div className={styles.buttonBackWrapper}>
-            {/* не должно быть если не зареган */}
             <button
               className={
                 topMenuModal ? `${styles.noneButtonBack}` : styles.buttonBack

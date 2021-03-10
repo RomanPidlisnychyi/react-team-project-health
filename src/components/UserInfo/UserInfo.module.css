@@ -1,13 +1,9 @@
 .userInfo {
   position: absolute;
   top: 64px;
-  /* display: flex;
-  justify-content: end;
-  align-items: center; */
   width: 320px;
   height: 40px;
   background: #eff1f3;
-
   z-index: 1;
 }
 
@@ -77,10 +73,6 @@
     top: 3px;
     left: 288px;
     justify-content: flex-end;
-  }
-
-  .userInfo_vector {
-    display: none;
   }
 }
 
