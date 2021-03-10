@@ -1,7 +1,7 @@
 .modalNavWrap {
   background-color: #264061;
-  min-width: 320px;
-  min-height: 488px;
+  /* min-width: 320px; */
+  /* min-height: 488px; */
   /* z-index: 5; */
   height: 100vh;
 }
@@ -12,12 +12,14 @@
   flex-direction: column;
   align-items: center;
   padding-top: 108px;
+  width: 100vw;
 }
 
 .modalNav_link {
   text-decoration: none;
   color: white;
 }
+
 .modalNav_list {
   list-style: none;
   display: flex;
