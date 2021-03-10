@@ -53,7 +53,7 @@ export default function NotRecommendedCategoryList({ title }) {
         <span>Введите свои параметры...</span>
       )}
       {isModal && (
-        <NewModal onModalClose={setIsModal}>
+        <NewModal onModalClose={setIsModal} closeButton={true}>
           <NotRecommendedProductsList
             products={products}
             category={category}

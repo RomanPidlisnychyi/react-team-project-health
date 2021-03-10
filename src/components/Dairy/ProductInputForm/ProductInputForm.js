@@ -4,7 +4,6 @@ import styles from './ProductInputForm.module.css';
 import ProductsList from '../ProductsList/ProductsList';
 import WeightInput from '../WeightInput/WeightInput';
 import ProductsInput from '../ProductsInput/ProductsInput.js';
-// import objectRequestValidator from './objectRequestValidator';
 import rationsItemOperations from '../../../redux/dairy/rationsItemOperations';
 import Button from '../../Button/Button';
 import Picker from '../Picker/Picker';
@@ -13,7 +12,6 @@ import 'react-notifications-component/dist/theme.css';
 import sendNotification from './notification';
 import rationsItemOperationsVit from '../../../redux/rations/rationItemsOperations';
 import { rationItemsSelectors } from '../../../redux/rations';
-// import debounce from 'lodash.debounce';
 
 class ProductInputForm extends Component {
   state = {
@@ -74,19 +72,22 @@ class ProductInputForm extends Component {
     this.setState({ weight: e.target.value }, () => {
       this.state.productSearchValue === '' || this.state.weight === ''
         ? this.setState({ buttonAddAllow: true })
-        : this.setState({ buttonAddAllow: false })
+        : this.setState({ buttonAddAllow: false });
     });
-  }
+  };
 
   handleChangeProducts = async e => {
-    this.setState({
-      productSearchValue: e.target.value,
-      visibleListProducts: true,
-    }, () => {
-      this.state.productSearchValue === '' || this.state.weight === ''
-        ? this.setState({ buttonAddAllow: true })
-        : this.setState({ buttonAddAllow: false })
-    });
+    this.setState(
+      {
+        productSearchValue: e.target.value,
+        visibleListProducts: true,
+      },
+      () => {
+        this.state.productSearchValue === '' || this.state.weight === ''
+          ? this.setState({ buttonAddAllow: true })
+          : this.setState({ buttonAddAllow: false });
+      },
+    );
 
     try {
       const products = await rationsItemOperations.getProducts(e.target.value);
@@ -137,7 +138,8 @@ class ProductInputForm extends Component {
       weight: Number(weight),
     };
 
-    if (this.state.buttonAddAllow ||
+    if (
+      this.state.buttonAddAllow ||
       this.state.productSearchValue === '' ||
       this.state.weight === ''
     ) {
@@ -190,16 +192,20 @@ class ProductInputForm extends Component {
 
     const { mode } = this.props;
 
-    const classUsualEnabled = `${mode === 'usual' ? styles.visible : styles.hidden
-      }`;
-    const classUsualDisabled = `${mode === 'modal' ? styles.visible : styles.hidden
-      }`;
-    const classButton = `${mode === 'usual' ? styles.buttonUsual : styles.buttonModal
-      }`;
-    const classInputPanelWrapper = `${mode === 'usual'
-      ? styles.inputPanelWrapperUsual
-      : styles.inputPanelWrapperModal
-      }`;
+    const classUsualEnabled = `${
+      mode === 'usual' ? styles.visible : styles.hidden
+    }`;
+    const classUsualDisabled = `${
+      mode === 'modal' ? styles.visible : styles.hidden
+    }`;
+    const classButton = `${
+      mode === 'usual' ? styles.buttonUsual : styles.buttonModal
+    }`;
+    const classInputPanelWrapper = `${
+      mode === 'usual'
+        ? styles.inputPanelWrapperUsual
+        : styles.inputPanelWrapperModal
+    }`;
 
     return (
       <form
@@ -244,7 +250,6 @@ class ProductInputForm extends Component {
         )}
 
         {visibleNotification && <ReactNotification />}
-
       </form>
     );
   }

@@ -6,16 +6,16 @@ export default function NotRecommendedProductsList({
   onModalClose,
 }) {
   return (
-    <div className={styles.modWrapper}>
+    <div className={styles.modWrapperInModal}>
       <p className={styles.modTitle}>
         Нерекомендуемые по категории:{' '}
         <span className={styles.modSpan}>{category}</span>
       </p>
-      <div className={styles.modBox}>
-        <ul className={styles.modList}>
-          {products.map(product => (
-            <li className={styles.item} key={product}>
-              {product}
+      <div className={styles.categoryBoxInModal}>
+        <ul className={styles.modListInModal}>
+          {products.map((product, index) => (
+            <li className={styles.itemInModal} key={product}>
+              {index + 1}. {product}
             </li>
           ))}
         </ul>
