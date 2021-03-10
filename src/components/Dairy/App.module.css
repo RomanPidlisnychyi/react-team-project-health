@@ -6,7 +6,6 @@
 
 .dairyWrapper {
   margin: 0 auto;
-  margin-top: 80px;
 }
 
 .usersInfoWrapper {
@@ -48,7 +47,6 @@
     margin: 0 auto;
     min-height: 595px;
   } */
-
 
   .dairyWrapper,
   .usersInfoWrapper {
