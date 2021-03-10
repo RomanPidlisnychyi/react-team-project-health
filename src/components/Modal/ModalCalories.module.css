@@ -19,10 +19,6 @@
   margin: 0 auto;
 }
 
-/* 
-.closeButton {
-  display: none;
-} */
 
 .headingCalories {
   margin: 0;
@@ -96,6 +92,7 @@
   /* хз нашо не зарег*/
 }
 
+
 @media (min-width: 768px) {
   .cover {
     width: 594px;
@@ -141,6 +138,8 @@
   .buttonStartLosingWeightWrapper {
     padding-bottom: 68px;
   }
+
+
 }
 
 @media (min-width: 1280px) {

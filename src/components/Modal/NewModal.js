@@ -51,6 +51,12 @@ export default class NewModal extends Component {
           >
             &#10006;
           </button>
+          <div className={styles.buttonBackWrapper}>
+            {/* не должно быть если не зареган */}
+            <button className={styles.buttonBack} onClick={this.closeModal}>
+              &#8629;
+            </button>
+          </div>
           {this.props.children}
         </div>
       </div>
