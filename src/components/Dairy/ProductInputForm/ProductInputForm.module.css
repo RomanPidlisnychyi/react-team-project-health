@@ -1,8 +1,8 @@
 .form {
   position: relative;
   width: 100%;
-  padding-bottom: 31px;
   background: white;
+  margin-bottom: 38px;
 }
 
 .inputPanelWrapperModal {
@@ -33,7 +33,7 @@
   .form {
     width: 589px;
     margin-left: 92px;
-    padding-bottom: 30px;
+    margin-bottom: 0;
   }
 
   .inputPanelWrapperModal {
@@ -58,18 +58,6 @@
   .inputPanelWrapperUsual {
     display: flex;
   }
-}
-
-.input {
-  /* position: absolute;  */
-  /* left: 0;
-  top: 5px;  */
-}
-
-.select {
-  /* position: absolute; */
-  /* left: 0;
-    top: 0; */
 }
 
 .datePickerWrapper {
