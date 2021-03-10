@@ -16,6 +16,9 @@
     .button {
         display: none;
     }
+    .modalShowing {
+        display: none;
+    }
 
     /* .backGroundModal {
         width: 589px;
@@ -24,6 +27,9 @@
 
 @media(min-width: 1280px) {
     .button {
+        display: none;
+    }
+    .modalShowing {
         display: none;
     }
 
