@@ -38,6 +38,10 @@
   font-size: 20px;
 }
 
+.onModal {
+  overflow: hidden;
+}
+
 @media (min-width: 768px) {
   .modal {
     margin-top: 0px;

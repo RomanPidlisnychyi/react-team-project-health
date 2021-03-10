@@ -44,7 +44,7 @@
 .button {
   position: relative;
   border: none;
-
+  outline: none;
   font-family: Gotham Pro;
   font-style: normal;
   font-weight: bold;
@@ -52,6 +52,11 @@
   line-height: 13px;
   background-color: rgba(255, 255, 255, 0.1);
   color: #9b9faa;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: grey;
 }
 
 .button::after {
