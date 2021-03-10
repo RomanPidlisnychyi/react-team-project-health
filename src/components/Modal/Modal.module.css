@@ -2,48 +2,50 @@
   display: none;
   width: 0;
   height: 0;
+  cursor: pointer;
 }
 
-/* @media (min-width: 768px) { */
 .modal {
   margin-top: 120px;
-  width: 100%;
-  /* background: rgba(78, 78, 78, 0.12); */
+  /* нужен маргін топ 95-90 коли не зареганий */
+  background: rgba(78, 78, 78, 0.12);
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1;
-  /* background-color: rgba(0, 0, 0, 0.6); */
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .modalWrapper {
-  /* width: 594px; */
   margin: auto;
   position: relative;
 }
 
 .topMenuModal {
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .closeButtonNav {
   position: absolute;
-  top: -6%;
-  right: 3%;
+  top: -4%;
+  right: 35%;
+  border: none;
+  background: white;
+  font-size: 20px;
+}
 
+.onModal {
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .modal {
     margin-top: 0px;
-    background: rgba(78, 78, 78, 0.12);
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
   }
 
   .closeButton {
@@ -60,19 +62,14 @@
   }
 
   .topMenuModal {
-    margin-top: 80px;
+    margin-top: 60px;
   }
 
   .closeButtonNav {
-    /* position: absolute; */
-    /* top: -6%; */
-    right: 18%;
-
+    right: 20%;
   }
-
 }
 
-/* } */
 /* @media (min-width: 1280px) {
   .modalWrapper {
     width: 690px;

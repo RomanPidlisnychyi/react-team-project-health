@@ -10,7 +10,7 @@ export default function Button({
   allow = false,
   circle = false,
 }) {
-  const classCircle = `${circle ? styles.circle : ''}`;
+  const classCircle = circle ? styles.circle : '';
   const customHover = `${styles.button} ${allow ? styles.allow : styles.normal} ${classCircle}`;
 
   return (
@@ -20,7 +20,6 @@ export default function Button({
       onClick={onClick}
       type={type}
       role={role}
-      circle={circle}
     >
       {title}
     </button>

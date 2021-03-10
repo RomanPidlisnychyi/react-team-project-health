@@ -2,12 +2,21 @@
   position: relative;
   width: 100%;
   padding-bottom: 31px;
-  padding-top: 88px;
+  /* margin-top: 88px; */
+  background: white;
 }
 
 .inputPanelWrapperModal {
   margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: start;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
 }
+
 .inputPanelWrapperUsual {
   margin: 0 auto;
   display: none;
@@ -19,11 +28,11 @@
 
 .visible {
   display: block;
+  margin-top: 88px;
 }
 
 @media (min-width: 768px) {
   .form {
-    /* width: 768px; */
     width: 589px;
     margin-left: 92px;
     padding-top: 100px;
@@ -33,6 +42,7 @@
   .inputPanelWrapperModal {
     display: block;
   }
+
   .inputPanelWrapperUsual {
     display: flex;
   }
@@ -48,6 +58,7 @@
   .inputPanelWrapperModal {
     display: block;
   }
+
   .inputPanelWrapperUsual {
     display: flex;
   }

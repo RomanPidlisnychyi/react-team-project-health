@@ -4,31 +4,37 @@
     overflow: auto;
     scrollbar-width: 3px;
     border-radius: 3px;
-    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
     margin-top: 10px;
     background: #fff;
     position: absolute;
+    top: 32px;
+    left: 30px;
     z-index: 10;
 }
 
-.listContainer::-moz-scrollbar{
-    scrollbar-color: #458245 #714826;     /* «цвет ползунка» «цвет полосы скроллбара» */
-    scrollbar-width: auto;  /* толщина */
+.listContainer::-moz-scrollbar {
+    scrollbar-color: #458245 #714826;
+    /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: auto;
+    /* толщина */
 }
 
 /* .listContainer::-webkit-scrollbar { width: 3px;} */
 /* полоса прокрутки (скроллбар) */
 .listContainer::-webkit-scrollbar {
-    width: 5px; /* ширина для вертикального скролла */
-    height: 8px; /* высота для горизонтального скролла */
-    
+    width: 5px;
+    /* ширина для вертикального скролла */
+    height: 8px;
+    /* высота для горизонтального скролла */
+
     background-color: #dddddd;
 }
 
 /* ползунок скроллбара */
 .listContainer::-webkit-scrollbar-thumb {
     background-color: #264061;
-    box-shadow:  1px 1px 10px #f3faf7;
+    box-shadow: 1px 1px 10px #f3faf7;
 }
 
 .listContainer::-webkit-scrollbar-thumb:hover {
@@ -50,6 +56,6 @@
     display: flex;
 }
 
-.listItem:hover  {
+.listItem:hover {
     background: #dddddd;
 }

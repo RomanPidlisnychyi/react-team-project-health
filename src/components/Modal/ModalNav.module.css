@@ -1,9 +1,10 @@
 .modalNavWrap {
   background-color: #264061;
-  min-width: 320px;
+  /* min-width: 320px; */
   min-height: 488px;
   /* z-index: 5; */
   height: 100vh;
+  width: 100vh;
 }
 
 .modalNav_list {
@@ -11,16 +12,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 108px;
 }
 
 .modalNav_link {
+  text-decoration: none;
   color: white;
+}
+
+.modalNav_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 108px;
+}
+
+.modalNav_link {
+  text-decoration: none;
+  color: white;
+}
+
+.modalNav_link:hover {
+  color: #9b9faa;
+}
+
+.modalNav_link:focus {
+  color: #9b9faa;
+}
+
+.modalNav_link:active {
+  color: #9b9faa;
 }
 
 @media (min-width: 768px) {
   .modalNavWrap {
     /* min-width: 768px; */
     /* min-height: 944px; */
-    width: 100vw
+    width: 100vw;
   }
 }
