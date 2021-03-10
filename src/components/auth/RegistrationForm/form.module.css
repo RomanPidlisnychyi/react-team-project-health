@@ -17,6 +17,7 @@ form {
   flex-direction: column;
   align-items: center;
   padding: 4px;
+  padding-top: 40px;
 }
 
 label {
