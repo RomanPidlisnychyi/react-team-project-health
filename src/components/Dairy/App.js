@@ -11,12 +11,12 @@ const App = () => (
   <div className={styles.commonWrapper}>
     <div className={styles.dairyWrapper}>
       {/* Dairy components */}
-  
+
       <Switch>
-         <Route path="/calculator" component={CalculatorCalories} />
-         <Route path="/dairy" component={dairyWrapper} />
+        <Route path="/calculator" component={CalculatorCalories} />
+        <Route path="/dairy" component={dairyWrapper} />
       </Switch>
-     
+
       {/* <Rations /> */}
       {/* <RationItemsList /> */}
     </div>

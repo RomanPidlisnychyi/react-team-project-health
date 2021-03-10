@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { modalActions } from '../../redux/modal/index';
-import styles from './Modal.module.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { modalActions } from "../../redux/modal/index";
+import styles from "./Modal.module.css";
 
 class Modal extends Component {
   componentDidMount() {
-    window.addEventListener('keydown', this.handlKeyDown);
+    window.addEventListener("keydown", this.handlKeyDown);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handlKeyDown);
+    window.removeEventListener("keydown", this.handlKeyDown);
   }
 
-  closeModal = e => {
+  closeModal = (e) => {
     if (e.target === e.currentTarget) {
       const { isModal } = this.props;
       isModal();
@@ -20,8 +20,8 @@ class Modal extends Component {
     return;
   };
 
-  handlKeyDown = e => {
-    if (e.code === 'Escape') {
+  handlKeyDown = (e) => {
+    if (e.code === "Escape") {
       const { isModal } = this.props;
       isModal();
     }
@@ -41,7 +41,7 @@ class Modal extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   showModal: state.modal,
 });
 
