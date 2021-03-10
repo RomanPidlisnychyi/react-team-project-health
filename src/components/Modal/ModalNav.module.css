@@ -47,10 +47,9 @@
 
 @media (min-width: 768px) {
   .modalNavWrap {
-    /* min-width: 768px; */
-    /* min-height: 944px; */
     width: 100vw;
   }
+
   .modalNav_link {
     font-size: 20px;
   }
