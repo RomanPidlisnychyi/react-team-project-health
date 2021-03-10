@@ -29,6 +29,8 @@
 .modalNav_link {
   text-decoration: none;
   color: white;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .modalNav_link:hover {
@@ -48,5 +50,8 @@
     /* min-width: 768px; */
     /* min-height: 944px; */
     width: 100vw;
+  }
+  .modalNav_link {
+    font-size: 20px;
   }
 }
