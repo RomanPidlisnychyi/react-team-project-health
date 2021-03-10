@@ -1,10 +1,9 @@
 .modalNavWrap {
   background-color: #264061;
-  /* min-width: 320px; */
+  min-width: 320px;
   min-height: 488px;
   /* z-index: 5; */
   height: 100vh;
-  width: 100vh;
 }
 
 .modalNav_list {
@@ -19,7 +18,6 @@
   text-decoration: none;
   color: white;
 }
-
 .modalNav_list {
   list-style: none;
   display: flex;
@@ -31,6 +29,8 @@
 .modalNav_link {
   text-decoration: none;
   color: white;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .modalNav_link:hover {
@@ -47,8 +47,10 @@
 
 @media (min-width: 768px) {
   .modalNavWrap {
-    /* min-width: 768px; */
-    /* min-height: 944px; */
     width: 100vw;
+  }
+
+  .modalNav_link {
+    font-size: 20px;
   }
 }

@@ -14,16 +14,6 @@ export default function Header() {
       </div>
 
       <UserInfo />
-
-      {/* {isModal ? (
-        <NewModal onModalClose={setIsModal}>
-          <ModalNav />
-        </NewModal>
-      ) : (
-        <button onClick={() => setIsModal(true)}>
-          <Hamburger />
-        </button>
-      )} */}
     </div>
   );
 }

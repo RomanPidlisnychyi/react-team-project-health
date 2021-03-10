@@ -172,6 +172,7 @@
   }
 
   .buttonWrapper {
+    width: inherit;
     text-align: left;
   }
 }

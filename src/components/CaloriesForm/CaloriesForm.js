@@ -26,8 +26,7 @@ class CaloriesForm extends Component {
     desiredWeight: '',
     bloodGroup: '',
     showModal: false,
-    disabled: true, //* неактивна
-    // disabled: false, //* активна
+    disabled: true,
   };
 
   componentDidMount() {
@@ -111,7 +110,7 @@ class CaloriesForm extends Component {
     }
 
     onAddUserParams(userParams).then(data => {
-      console.log('dataUserPar', data);
+      // console.log('dataUserPar', data);
 
       if (data && data.age) {
         this.setState({ showModal: true });
