@@ -23,14 +23,14 @@
 @media (min-width: 1280px) {
   .container {
     width: 1280px;
+    padding-top: 0;
   }
 
   .bg {
-    height: 850px;
-    background: url('../../images/Home/Layer-4\ 1-big.png') right 200px top
-        no-repeat,
-      url('../../images/Home/Strawberry-Big-PNG-big.png') right bottom no-repeat,
-      url('../../images/Home/Layer-9-big.png') right top no-repeat,
-      url('../../images/Home/Vector\ 3-big.png') right bottom no-repeat;
+    background-image: url('../../images/Home/BG.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
   }
 }
