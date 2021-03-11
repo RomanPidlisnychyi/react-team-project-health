@@ -11,7 +11,9 @@ export default function Button({
   circle = false,
 }) {
   const classCircle = circle ? styles.circle : '';
-  const customHover = `${styles.button} ${allow ? styles.allow : styles.normal} ${classCircle}`;
+  const customHover = `${styles.button} ${
+    allow ? styles.allow : styles.normal
+  } ${classCircle}`;
 
   return (
     <button
