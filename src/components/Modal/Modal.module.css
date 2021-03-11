@@ -10,13 +10,9 @@
 }
 
 .modal {
-  /* margin-top: 116px; */
-  /* нужен маргін топ 95-90 коли не зареганий */
   position: fixed;
   top: 0;
-  /* left: 0; */
   left: 50%;
-  /* margin-right: -50%; */
   transform: translate(-50%, 0);
   width: 320px;
   display: flex;
@@ -42,7 +38,7 @@
 
 .closeButtonNav {
   position: absolute;
-  top: -5%;
+  top: -4%;
   right: 14%;
   border: none;
   background: transparent;
@@ -56,8 +52,6 @@
 .buttonBackWrapper {
   width: 320px;
   text-align: center;
-  /* height: 100px; */
-  /* не центується чогось */
 }
 
 .buttonBack {
@@ -83,8 +77,6 @@
   }
 
   .modalNav {
-    /* margin-top: 0px;
-    height: 100vh; */
     background-color: transparent;
   }
 
@@ -112,7 +104,7 @@
 
   .closeButtonNav {
     right: 12%;
-    /* top: -4% */
+    top: -6%
   }
 
   .buttonBack {
