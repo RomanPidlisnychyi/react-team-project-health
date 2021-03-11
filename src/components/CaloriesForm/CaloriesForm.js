@@ -118,8 +118,6 @@ class CaloriesForm extends Component {
     }
 
     onAddUserParams(userParams).then(data => {
-      // console.log('dataUserPar', data);
-
       if (data && data.age) {
         this.setState({ showModal: true });
         return;
@@ -180,7 +178,6 @@ class CaloriesForm extends Component {
               max="210"
               required
               onChange={this.handleInput}
-              // onkeyup={this.checkParams}
               className={styles.dailyCaloriesInput}
             />
           </label>
