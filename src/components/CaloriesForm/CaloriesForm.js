@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { css } from '@emotion/core';
+import { ScaleLoader } from 'react-spinners';
+import { loadingSelectors } from '../../redux/loading';
 import NewModal from '../Modal/NewModal';
 import ModalCalories from '../Modal/ModalCalories';
 import styles from './CaloriesForm.module.css';
@@ -9,6 +12,11 @@ import { notrecomendedproductsOperations } from '../../redux/notrecomendedproduc
 import { authOperations, authSelectors } from '../../redux/auth';
 
 import Button from '../Button/Button';
+
+const override = css`
+  display: block;
+  margin: -13px auto 0;
+`;
 
 class CaloriesForm extends Component {
   static propTypes = {
@@ -157,6 +165,7 @@ class CaloriesForm extends Component {
       disabled,
     } = this.state;
 
+    const { loading } = this.props;
     return (
       <form className={styles.dailyCaloriesForm} onSubmit={this.handleSubmit}>
         <div className={styles.dailyCaloriesLabelWrapper}>
@@ -277,7 +286,17 @@ class CaloriesForm extends Component {
           </label>
         </div>
         <div className={styles.buttonWrapper}>
-          <Button title={'Похудеть'} type="submit" disabled={disabled}></Button>
+          <Button
+            title={
+              loading ? (
+                <ScaleLoader color={'#fff'} loading={true} css={override} />
+              ) : (
+                'Похудеть'
+              )
+            }
+            type="submit"
+            disabled={disabled}
+          ></Button>
           {showModal && (
             <NewModal onModalClose={this.onModalClose} closeButton={true}>
               <ModalCalories isModal={this.onModalClose} />
@@ -292,6 +311,7 @@ class CaloriesForm extends Component {
 const mapStateToProps = state => ({
   userParams: authSelectors.getParams(state),
   token: authSelectors.getToken(state),
+  loading: loadingSelectors(state),
 });
 
 const mapDispatchToProps = {

@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {
-  CircleLoader,
-  ClockLoader,
-  HashLoader,
-  RingLoader,
-  ScaleLoader,
-} from 'react-spinners';
+import { css } from '@emotion/core';
+import { ScaleLoader } from 'react-spinners';
 import { loadingSelectors } from '../../../redux/loading';
 import { authOperations } from '../../../redux/auth';
 import styles from '../RegistrationForm/form.module.css';
 import Button from '../../Button/Button';
 import { FormErrors } from '../RegistrationForm/FormErrors';
+
+const override = css`
+  display: block;
+  margin: -13px auto 0;
+`;
 
 class LoginForm extends Component {
   state = {
@@ -86,7 +86,6 @@ class LoginForm extends Component {
     const { loading } = this.props;
     return (
       <div className={styles.registrationForm}>
-        {/* <RingLoader color={'green'} loading={!loading} /> */}
         <form onSubmit={this.handleSubmit} className={styles.form}>
           <h3 className={styles.title}>Вход</h3>
           <label className={styles.label}>
@@ -117,7 +116,13 @@ class LoginForm extends Component {
           <div className={styles.buttons}>
             <Button
               className={styles.buttonLogin}
-              title={'Вход'}
+              title={
+                loading ? (
+                  <ScaleLoader color={'#fff'} loading={true} css={override} />
+                ) : (
+                  'Вход'
+                )
+              }
               type={'submit'}
               disabled={!this.state.formValid}
             />
