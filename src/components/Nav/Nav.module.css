@@ -7,7 +7,6 @@
 .nav_wrap {
   display: flex;
   align-items: center;
-  /* padding-left: 46px; */
   padding-right: 16px;
 }
 
@@ -45,20 +44,6 @@
   padding-right: 16px;
 }
 
-/* .nav_gamburger {
-  width: 18px;
-  height: 12px;
-  cursor: pointer;
-}
-
-.nav_gamburger_item {
-  display: block;
-  height: 2px;
-  width: 24px;
-  background-color: #000000;
-  margin-bottom: 3px;
-} */
-
 @media (min-width: 1280px) {
   .nav_wrap {
     padding: 0px;
@@ -77,7 +62,6 @@
 
   .nav_hamburger {
     display: flex;
-    /* height: 200px; */
   }
 
   .offRegist {
