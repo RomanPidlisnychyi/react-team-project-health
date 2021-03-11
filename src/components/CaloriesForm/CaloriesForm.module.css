@@ -38,6 +38,7 @@
   width: 80px;
   padding: 0px 4px;
   margin: 0px;
+  line-height: 17px;
   font-family: Verdana;
   font-style: normal;
   font-weight: bold;
@@ -51,7 +52,6 @@
   font-weight: 300;
 }
 
-/*! Radio-button */
 .inputRadioWrapper {
   display: flex;
   flex-direction: column;
@@ -106,14 +106,12 @@
   background-size: 50%;
 }
 
-/* стили при наведении курсора на радио */
 .inputRadioLabel .inputRadio:not(:checked) + .inputRadioName:hover::before {
   cursor: pointer;
   border-color: #9b9faa;
   box-shadow: 0px 0px 4px 0.1px #9b9faa;
 }
 
-/* стили для активной радиокнопки (при нажатии на неё) */
 .inputRadioName:active {
   color: #fc842d;
 }
@@ -122,7 +120,6 @@
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='4' fill='%23fc842d'/%3e%3c/svg%3e");
 }
 
-/* стили для радиокнопки, находящейся в состоянии checked */
 .inputRadio:checked + .inputRadioName {
   color: #fc842d;
 }
@@ -133,17 +130,15 @@
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='4' fill='%23fc842d'/%3e%3c/svg%3e");
 }
 
-/*! Button */
 .buttonWrapper {
-  /* width: 100%; */
-  /* text-align: center; */
   margin: 0px auto;
 }
 
 @media screen and (min-width: 768px) {
   .dailyCaloriesForm {
-    padding-top: 0;
+    padding-top: 0px;
     padding-right: 0px;
+    padding-left: 0px;
   }
 
   .dailyCaloriesLabelWrapper {
