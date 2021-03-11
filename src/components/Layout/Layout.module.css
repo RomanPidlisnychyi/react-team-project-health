@@ -30,7 +30,6 @@
     background-image: url('../../images/Home/BG.png');
     background-repeat: no-repeat;
     background-position: right;
-    /* background-size: cover; */
     background-size: contain;
     height: 100vh;
   }
