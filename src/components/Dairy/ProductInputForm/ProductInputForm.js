@@ -156,7 +156,6 @@ class ProductInputForm extends Component {
 
       const rr = await onRationsItemAdd(ration);
       onRationsItemUpdate(rr.payload);
-      // sendNotification(`Продукт ${rr.payload.title} удачно добавлен` || 'ок!');
 
       this.setState({
         productSearchValue: '',
@@ -172,6 +171,9 @@ class ProductInputForm extends Component {
         WeightInputDisabled: false,
         buttonText: 'Добавить',
       });
+      if (this.props.onModalClose) {
+        this.props.onModalClose(false);
+      }
     }
   };
 
@@ -255,19 +257,15 @@ class ProductInputForm extends Component {
   }
 }
 
-// const mapStateToProps = (state, ownProps) => ({});
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
   onRationsItemAdd: param =>
     dispatch(rationsItemOperations.rationsItemAdd(param)),
-  // onGetInfo: (param) => dispatch(rationsItemOperations.getInfoByDate(param)),
   onGetInfo: param =>
     dispatch(rationsItemOperationsVit.fetchRationItems(param)),
-  // onGetInfo: (param) => dispatch(rationsItemOperations.getInfoByDate(param)),
   onRationsItemUpdate: param =>
     dispatch(rationsItemOperationsVit.rationsItemUpdate(param)),
 });
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   userDate: rationItemsSelectors.getRationDate(state),
 });
 
