@@ -7,33 +7,29 @@
 @media (min-width: 768px) {
   .container {
     width: 768px;
-    /* padding: 0px 40px; */
   }
 
   .bg {
-    height: 100vh;
-    background: url('../../images/Home/Layer-4\ 1-big.png') right 40px top -180px
+    height: 1024px;
+    background: url('../../images/Home/Layer-9.png') right bottom no-repeat,
+      url('../../images/Home/Layer-4\ 1.png') left bottom no-repeat,
+      url('../../images/Home/Strawberry-Big-PNG.png') right 30px bottom 180px
         no-repeat,
-      url('../../images/Home/Strawberry-Big-PNG-big.png') right 0px bottom 190px
-        no-repeat,
-      url('../../images/Home/Layer-9-big.png') right 6px bottom -200px no-repeat,
-      url('../../images/Home/Vector\ 3-big.png') right bottom -250px no-repeat;
+      url('../../images/Home/Vector\ 3.png') right bottom no-repeat;
   }
 }
 
 @media (min-width: 1280px) {
   .container {
     width: 1280px;
-    /* padding: 0px 35px; */
   }
 
   .bg {
-    height: 100vh;
-    background: url('../../images/Home/Layer-4\ 1-big.png') right 200px top -2px
+    height: 850px;
+    background: url('../../images/Home/Layer-4\ 1-big.png') right 200px top
         no-repeat,
-      url('../../images/Home/Strawberry-Big-PNG-big.png') right 0px bottom 35px
-        no-repeat,
-      url('../../images/Home/Layer-9-big.png') right top -32px no-repeat,
+      url('../../images/Home/Strawberry-Big-PNG-big.png') right bottom no-repeat,
+      url('../../images/Home/Layer-9-big.png') right top no-repeat,
       url('../../images/Home/Vector\ 3-big.png') right bottom no-repeat;
   }
 }

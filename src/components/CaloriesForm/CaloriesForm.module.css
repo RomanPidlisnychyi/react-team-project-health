@@ -107,7 +107,7 @@
 }
 
 /* стили при наведении курсора на радио */
-.inputRadioLabel .inputRadio:not(:checked)+.inputRadioName:hover::before {
+.inputRadioLabel .inputRadio:not(:checked) + .inputRadioName:hover::before {
   cursor: pointer;
   border-color: #9b9faa;
   box-shadow: 0px 0px 4px 0.1px #9b9faa;
@@ -118,16 +118,16 @@
   color: #fc842d;
 }
 
-.inputRadio+.inputRadioName:active::before {
+.inputRadio + .inputRadioName:active::before {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='4' fill='%23fc842d'/%3e%3c/svg%3e");
 }
 
 /* стили для радиокнопки, находящейся в состоянии checked */
-.inputRadio:checked+.inputRadioName {
+.inputRadio:checked + .inputRadioName {
   color: #fc842d;
 }
 
-.inputRadio:checked+.inputRadioName::before {
+.inputRadio:checked + .inputRadioName::before {
   border-color: #e0e0e0;
   background-color: #ffffff;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='4' fill='%23fc842d'/%3e%3c/svg%3e");
@@ -142,6 +142,7 @@
 
 @media screen and (min-width: 768px) {
   .dailyCaloriesForm {
+    padding-top: 0;
     padding-right: 0px;
   }
 
