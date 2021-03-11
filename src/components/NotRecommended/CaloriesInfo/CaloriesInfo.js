@@ -4,7 +4,7 @@ import { notrecomendedproductsSelectors } from '../../../redux/notrecomendedprod
 import styles from './CaloriesInfo.module.css';
 
 export default function CaloriesInfo() {
-  const date = useSelector(rationItemsSelectors.getRationDate);
+  const date = useSelector(rationItemsSelectors.getCurrentFormatDate);
 
   const info = useSelector(notrecomendedproductsSelectors.getComboInfo);
 
