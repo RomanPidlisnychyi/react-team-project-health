@@ -33,7 +33,7 @@ class ProductInputForm extends Component {
 
   componentDidMount() {
     document.addEventListener('click', this.handleBodyClick);
-    const { userDate, productSearchValue, weight } = this.props;
+    const { userDate } = this.props;
 
     if (userDate && !this.state.date) {
       const newDate = userDate.split('-').reverse().join('-');
@@ -42,7 +42,7 @@ class ProductInputForm extends Component {
   }
 
   componentDidUpdate() {
-    const { userDate, productSearchValue, weight } = this.props;
+    const { userDate } = this.props;
 
     if (userDate && !this.state.date) {
       const newDate = userDate.split('-').reverse().join('-');
@@ -93,7 +93,6 @@ class ProductInputForm extends Component {
       const products = await rationsItemOperations.getProducts(e.target.value);
       this.setState({ products });
     } catch (error) {
-      // sendNotification(error.message);
       this.setState({ visibleListProducts: false });
     }
   };
@@ -107,11 +106,7 @@ class ProductInputForm extends Component {
       transformedDate,
     });
 
-    // try {
     await this.props.onGetInfo(transformedDate);
-    // } catch (error) {
-    // sendNotification(error.payload.message || 'По указанной дате нет записей');
-    // }
   };
 
   handleProductInputClick = () => {
@@ -121,15 +116,9 @@ class ProductInputForm extends Component {
     });
   };
 
-  // handleAddProductClick
   handleSubmit = async e => {
     e.preventDefault();
-    const {
-      transformedDate,
-      weight,
-      productSearchValue,
-      buttonAddDisabled,
-    } = this.state;
+    const { transformedDate, weight, productSearchValue } = this.state;
     const { onRationsItemAdd, onGetInfo, onRationsItemUpdate } = this.props;
 
     const ration = {
@@ -162,6 +151,10 @@ class ProductInputForm extends Component {
         weight: '',
         buttonAddAllow: true,
       });
+
+      if (this.props.onModalClose) {
+        this.props.onModalClose(false);
+      }
     } catch (error) {
       sendNotification(error.payload.message || 'error');
     } finally {
@@ -171,9 +164,6 @@ class ProductInputForm extends Component {
         WeightInputDisabled: false,
         buttonText: 'Добавить',
       });
-      if (this.props.onModalClose) {
-        this.props.onModalClose(false);
-      }
     }
   };
 
@@ -196,9 +186,6 @@ class ProductInputForm extends Component {
 
     const classUsualEnabled = `${
       mode === 'usual' ? styles.visible : styles.hidden
-    }`;
-    const classUsualDisabled = `${
-      mode === 'modal' ? styles.visible : styles.hidden
     }`;
     const classButton = `${
       mode === 'usual' ? styles.buttonUsual : styles.buttonModal
