@@ -22,6 +22,8 @@
   background-color: #f0f1f3;
   background-image: url(../../images/Dairy/Layer-42\ 1.png);
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
   z-index: -1;
 }
 
@@ -93,7 +95,7 @@
   }
 
   .usersInfoWrapper::before {
-    top: -116px;
+    top: -100px;
     height: 100vh;
   }
 }
