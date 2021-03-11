@@ -16,8 +16,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4px;
-  padding-top: 40px;
+  padding: 40px 4px 4px 15px;
 }
 
 label {
@@ -102,7 +101,7 @@ input:focus::placeholder {
 }
 
 .buttonLogin {
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .buttonRegistration {
@@ -131,6 +130,7 @@ input:focus::placeholder {
     width: 50%;
     align-items: baseline;
     padding-top: 150px;
+    padding-left: 45px;
   }
 
   input {
