@@ -29,7 +29,7 @@
   .bg {
     background-image: url('../../images/Home/BG.png');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: right;
     background-size: cover;
     height: 100vh;
   }
