@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import {
+  CircleLoader,
+  ClockLoader,
+  HashLoader,
+  RingLoader,
+  ScaleLoader,
+} from 'react-spinners';
+import { loadingSelectors } from '../../../redux/loading';
 import { authOperations } from '../../../redux/auth';
 import styles from '../RegistrationForm/form.module.css';
 import Button from '../../Button/Button';
@@ -75,9 +83,10 @@ class LoginForm extends Component {
 
   render() {
     const { email, password } = this.state;
-
+    const { loading } = this.props;
     return (
       <div className={styles.registrationForm}>
+        {/* <RingLoader color={'green'} loading={!loading} /> */}
         <form onSubmit={this.handleSubmit} className={styles.form}>
           <h3 className={styles.title}>Вход</h3>
           <label className={styles.label}>
@@ -123,7 +132,11 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(null, {
+const mapStateToProps = state => ({
+  loading: loadingSelectors(state),
+});
+
+export default connect(mapStateToProps, {
   onLogin: authOperations.logIn,
   onRefresh: authOperations.refresh,
 })(LoginForm);
