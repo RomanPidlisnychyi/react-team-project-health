@@ -13,7 +13,7 @@
 }
 
 .modWrapper {
-  width: 420px;
+  width: 320px;
   height: 300px;
   background: #fff;
   padding-top: 30px;
@@ -71,8 +71,10 @@
 }
 
 .list::-webkit-scrollbar {
-  width: 6px; /* ширина для вертикального скролла */
-  height: 8px; /* высота для горизонтального скролла */
+  width: 6px;
+  /* ширина для вертикального скролла */
+  height: 8px;
+  /* высота для горизонтального скролла */
   background-color: #f0f1f3;
 }
 
@@ -157,6 +159,10 @@
 
   .categoryBox {
     width: 270px;
+  }
+
+  .modListInModal {
+    height: 466px;
   }
 }
 

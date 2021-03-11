@@ -14,8 +14,11 @@
   /* нужен маргін топ 95-90 коли не зареганий */
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  /* left: 0; */
+  left: 50%;
+  /* margin-right: -50%; */
+  transform: translate(-50%, 0);
+  width: 320px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +54,7 @@
 }
 
 .buttonBackWrapper {
-  width: 300px;
+  width: 320px;
   text-align: center;
   /* height: 100px; */
   /* не центується чогось */
@@ -66,7 +69,7 @@
   font-size: 30px;
   background-color: transparent;
 
-  left: 42px;
+  left: 20px;
 
 }
 
@@ -76,6 +79,7 @@
     height: 100vh;
     background: rgba(78, 78, 78, 0.12);
     background-color: rgba(0, 0, 0, 0.6);
+    width: 768px;
   }
 
   .modalNav {
@@ -103,19 +107,26 @@
 
   .topMenuModal {
     margin-top: 76px;
+    width: 768px;
   }
 
   .closeButtonNav {
     right: 12%;
+    /* top: -4% */
   }
 
   .buttonBack {
     display: none;
   }
+
+  .buttonBackWrapper {
+    width: 768px;
+    position: absolute;
+  }
 }
 
-/* @media (min-width: 1280px) {
-  .modalWrapper {
-    width: 690px;
+@media (min-width: 1280px) {
+  .modal {
+    width: 100vw;
   }
-} */
+}
