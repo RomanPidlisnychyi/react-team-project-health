@@ -1,0 +1,56 @@
+.modalNavWrap {
+  background-color: #264061;
+  height: 100vh;
+}
+
+.modalNav_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 108px;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.modalNav_link {
+  text-decoration: none;
+  color: white;
+}
+
+.modalNav_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 108px;
+}
+
+.modalNav_link {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.modalNav_link:hover {
+  color: #9b9faa;
+}
+
+.modalNav_link:focus {
+  color: #9b9faa;
+}
+
+.modalNav_link:active {
+  color: #9b9faa;
+}
+
+@media (min-width: 768px) {
+  .modalNavWrap {
+    width: 768px;
+  }
+
+  .modalNav_link {
+    font-size: 20px;
+  }
+}

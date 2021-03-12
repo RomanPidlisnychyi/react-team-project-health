@@ -6,7 +6,6 @@
   font-family: Verdana;
   font-style: normal;
   font-weight: bold;
-  /* background-color: rgb(248, 250, 228); */
 }
 
 .titleForm {
@@ -17,179 +16,14 @@
   margin-bottom: 30px;
 }
 
-.dailyCaloriesForm {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding-right: 30px;
-  margin-bottom: 40px;
-}
-
-.dailyCaloriesLabel {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  min-height: 27px;
-  border-bottom: 1px solid #e0e0e0;
-  margin-bottom: 30px;
-}
-
-.dailyCaloriesLabel:last-child {
-  margin-bottom: 0px;
-  border-bottom: none;
-}
-
-.dailyCaloriesName {
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: #9b9faa;
-}
-
-.dailyCaloriesInput {
-  min-width: 90px;
-  padding: 0px 4px;
-  /* min-height: 16px; */
-  font-family: Verdana;
-  font-style: normal;
-  font-weight: bold;
-  text-align: center;
-  border-style: none;
-}
-
-.dailyCaloriesInput::-webkit-input-placeholder {
-  color: #bbbbbb;
-  font-style: italic;
-  font-weight: 300;
-}
-
-/*! Radio-button */
-.inputRadioWrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.radioGroupWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 10px;
-}
-
-.inputRadioLabel {
-}
-
-.inputRadio {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-  transition: all 200ms ease-in-out;
-}
-
-.inputRadioName {
-  display: inline-flex;
-  align-items: center;
-  font-family: Verdana;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  text-align: left;
-  color: #9b9faa;
-}
-
-.inputRadioName::before {
-  content: "";
-  /* display: inline-block; */
-  display: block;
-  /* width: 1em; */
-  /* height: 1em; */
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  flex-grow: 0;
-  border: 1px solid #e0e0e0;
-  border-radius: 50%;
-  margin-right: 0.5em;
-  background: #ffffff;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 50%;
-}
-
-/* стили при наведении курсора на радио */
-.inputRadioLabel .inputRadio:not(:checked) + .inputRadioName:hover::before {
-  cursor: pointer;
-  border-color: #9b9faa;
-  box-shadow: 0px 0px 4px 0.1px #9b9faa;
-}
-
-/* стили для активной радиокнопки (при нажатии на неё) */
-.inputRadioName:active {
-  color: #fc842d;
-}
-
-.inputRadio + .inputRadioName:active::before {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='4' fill='%23fc842d'/%3e%3c/svg%3e");
-}
-
-/* стили для радиокнопки, находящейся в состоянии checked */
-.inputRadio:checked + .inputRadioName {
-  color: #fc842d;
-}
-.inputRadio:checked + .inputRadioName::before {
-  border-color: #e0e0e0;
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='4' fill='%23fc842d'/%3e%3c/svg%3e");
-}
-
-/*! Button */
-.buttonWrapper {
-  /* max-width: 176px; */
-  margin: 0px auto;
-}
-
-.dailyCaloriesButton {
-  font-family: Verdana;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  word-wrap: break-word;
-  border: 0;
-  outline: 0;
-  transition: all 200ms ease-in-out;
-  color: #ffffff;
-  border: 1px solid #dc6611;
-  border-radius: 30px;
-  background: #fc842d;
-  box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.3);
-  padding: 14px 30px;
-  cursor: pointer;
-}
-
-.dailyCaloriesButton:hover {
-  background: #e16710;
-  box-shadow: 1px 6px 10px rgba(252, 132, 45, 0.5);
+.wrapperForm {
+  margin: 0px 0px 0px 0px;
 }
 
 @media screen and (min-width: 768px) {
   .wrapper {
     margin: 0px auto;
     padding: 100px 76px 0px 87px;
-
-    background: url("../../images/Home/Strawberry-Big-PNG.png") left 464px top
-        503px no-repeat,
-      url("../../images/Home/Layer-9.png") left 277px top 513px no-repeat,
-      url("../../images/Home/Layer-4 1.png") left bottom no-repeat,
-      url("../../images/Home/Vector 3.png") left 247px top 381px no-repeat;
-    /* background-color: rgb(230, 248, 252); */
   }
 
   .titleForm {
@@ -199,36 +33,8 @@
     margin-bottom: 60px;
   }
 
-  .dailyCaloriesForm {
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    max-width: 550px;
-    height: 187px;
-    background-color: #fff;
-    padding-right: 0px;
-    margin-bottom: 64px;
-  }
-
-  .dailyCaloriesLabel {
-    width: 240px;
-    min-height: 35.5px;
-    margin-bottom: 40px;
-  }
-
-  .dailyCaloriesLabel:nth-last-of-type(3n) {
-    margin-bottom: 0px;
-  }
-
-  .dailyCaloriesName {
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.04em;
-    color: #9b9faa;
-  }
-
-  .buttonWrapper {
-    margin: 0px 0px 424px;
+  .wrapperForm {
+    margin: 0px 0px 424px 0px;
   }
 }
 
@@ -236,13 +42,6 @@
   .wrapper {
     margin: 0px auto;
     padding: 146px 0px 0px 115px;
-    background: url("../../images/Home/Layer-4\ 1-big.png") left 339px top -172px
-        no-repeat,
-      url("../../images/Home/Strawberry-Big-PNG-big.png") right 5px bottom 35px
-        no-repeat,
-      url("../../images/Home/Layer-9-big.png") left 782px top -152px no-repeat,
-      url("../../images/Home/Vector 3-big.png") right bottom no-repeat;
-    /* background-color: rgb(237, 247, 230); */
   }
 
   .titleForm {
@@ -253,10 +52,7 @@
     margin-bottom: 68px;
   }
 
-  .buttonWrapper {
-    margin: 0px 0px 111px 346px;
+  .wrapperForm {
+    margin: 0;
   }
-}
-
-@media screen and (min-width: 1680px) {
 }

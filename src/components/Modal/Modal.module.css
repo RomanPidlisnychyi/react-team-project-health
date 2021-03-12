@@ -1,42 +1,124 @@
 .closeButton {
   display: none;
-  color: black;
-  box-shadow: none;
   width: 0;
   height: 0;
+  cursor: pointer;
 }
+
+.noneButtonBack {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+
+}
+
+.modalWrapper {
+  padding-top: 116px;
+  margin: auto;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.topMenuModal {
+  margin-top: 76px;
+  padding-top: 0;
+
+
+}
+
+.closeButtonNav {
+  position: absolute;
+  top: -4%;
+  right: 12%;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+}
+
+.onModal {
+  overflow: hidden;
+}
+
+.buttonBackWrapper {
+  width: 320px;
+  text-align: center;
+}
+
+.buttonBack {
+  position: absolute;
+  z-index: 1;
+  top: 72px;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  background-color: transparent;
+
+  left: 20px;
+
+}
+
 @media (min-width: 768px) {
   .modal {
-    width: 100%;
-    background: rgba(78, 78, 78, 0.12);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
+    margin-top: 0px;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: rgba(78, 78, 78, 0.12);
     background-color: rgba(0, 0, 0, 0.6);
+    width: 768px;
   }
+
+  .modalNav {
+    background-color: transparent;
+  }
+
   .modalWrapper {
-    width: 594px;
-    margin: auto;
-    position: relative;
+    padding-top: 0;
   }
+
   .closeButton {
+    color: black;
+    box-shadow: none;
     display: inline-block;
     margin: 0;
     position: absolute;
-    right: 4%;
-    top: 5%;
+    right: 5%;
+    top: 3%;
     border: none;
     background-color: rgba(255, 255, 255, 0.1);
     z-index: 1;
   }
+
+  .topMenuModal {
+    margin-top: 76px;
+    width: 768px;
+  }
+
+  .closeButtonNav {
+    right: 12%;
+    top: -6%
+  }
+
+  .buttonBack {
+    display: none;
+  }
+
+  .buttonBackWrapper {
+    width: 768px;
+    position: absolute;
+  }
 }
+
 @media (min-width: 1280px) {
-  .modalWrapper {
-    width: 690px;
+  .modal {
+    width: 100vw;
   }
 }

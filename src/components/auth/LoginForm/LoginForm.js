@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { css } from '@emotion/core';
+import { ScaleLoader } from 'react-spinners';
+import { loadingSelectors } from '../../../redux/loading';
 import { authOperations } from '../../../redux/auth';
 import styles from '../RegistrationForm/form.module.css';
 import Button from '../../Button/Button';
 import { FormErrors } from '../RegistrationForm/FormErrors';
+
+const override = css`
+  display: block;
+  margin: -13px auto 0;
+`;
 
 class LoginForm extends Component {
   state = {
@@ -21,10 +29,10 @@ class LoginForm extends Component {
   };
 
   handleSubmit = e => {
+    const { onLogin, onRefresh } = this.props;
     e.preventDefault();
 
-    this.props.onLogin({ ...this.state });
-    this.setState({ email: '', password: '' });
+    onLogin({ ...this.state });
   };
 
   validateField(fieldName, value) {
@@ -45,7 +53,7 @@ class LoginForm extends Component {
 
         fieldValidationErrors.email = emailValid
           ? (inputColor('email', 'green'), '')
-          : (inputColor('email', 'red'), ' Неправельная почта');
+          : (inputColor('email', 'red'), ' Неправильная почта');
 
         break;
       case 'password':
@@ -75,7 +83,7 @@ class LoginForm extends Component {
 
   render() {
     const { email, password } = this.state;
-
+    const { loading } = this.props;
     return (
       <div className={styles.registrationForm}>
         <form onSubmit={this.handleSubmit} className={styles.form}>
@@ -108,7 +116,13 @@ class LoginForm extends Component {
           <div className={styles.buttons}>
             <Button
               className={styles.buttonLogin}
-              title={'Вход'}
+              title={
+                loading ? (
+                  <ScaleLoader color={'#fff'} loading={true} css={override} />
+                ) : (
+                  'Вход'
+                )
+              }
               type={'submit'}
               disabled={!this.state.formValid}
             />
@@ -123,4 +137,11 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(null, { onLogin: authOperations.logIn })(LoginForm);
+const mapStateToProps = state => ({
+  loading: loadingSelectors(state),
+});
+
+export default connect(mapStateToProps, {
+  onLogin: authOperations.logIn,
+  onRefresh: authOperations.refresh,
+})(LoginForm);

@@ -9,12 +9,13 @@ export default function PablicRoute({
   ...rest
 }) {
   const isAuthenticated = useSelector(authSelectors.getToken);
+  const isParamsSet = useSelector(authSelectors.getParams).bloodGroup;
   return (
     <Route
       {...rest}
       render={props =>
         restricted && isAuthenticated ? (
-          <Redirect to="/calculator" />
+          <Redirect to={isParamsSet ? '/dairy' : '/calculator'} />
         ) : (
           <Component {...props} />
         )

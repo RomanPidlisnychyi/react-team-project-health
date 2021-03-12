@@ -7,13 +7,20 @@ export default function Button({
   type = 'button',
   disabled = false,
   role = '',
+  allow = false,
+  circle = false,
 }) {
+  const classCircle = circle ? styles.circle : '';
+  const customHover = `${styles.button} ${
+    allow ? styles.allow : styles.normal
+  } ${classCircle}`;
+
   return (
     <button
-      className={styles.button}
+      disabled={disabled}
+      className={customHover}
       onClick={onClick}
       type={type}
-      disabled={disabled}
       role={role}
     >
       {title}

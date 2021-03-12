@@ -1,0 +1,190 @@
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+.categoryBox {
+  width: 287px;
+  margin: 0 auto;
+  letter-spacing: 0.04em;
+}
+
+.modWrapper {
+  width: 320px;
+  height: 300px;
+  background: #fff;
+  padding-top: 30px;
+}
+
+.modTitle {
+  font-weight: 700;
+  margin: auto;
+  width: 260px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modSpan {
+  text-transform: capitalize;
+}
+
+.modBox {
+  composes: categoryBox;
+  margin: auto;
+}
+
+.modButton {
+  display: block;
+  font-family: Verdana;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  padding: 5px 20px;
+  border-radius: 30px;
+  color: #ffffff;
+  border: 1px solid #dc6611;
+  border-radius: 30px;
+  background: #fc842d;
+  box-shadow: 2px 3px 8px 2px rgba(0, 0, 0, 0.3);
+  margin: 30px auto 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.modButton:hover {
+  background: #e16710;
+  box-shadow: 1px 6px 10px rgba(252, 132, 45, 0.7);
+}
+
+.list {
+  color: #9b9faa;
+  padding-left: 20px;
+  height: 110px;
+  overflow: auto;
+}
+
+.modList {
+  composes: list;
+}
+
+.list::-webkit-scrollbar {
+  width: 6px;
+  /* ширина для вертикального скролла */
+  height: 8px;
+  /* высота для горизонтального скролла */
+  background-color: #f0f1f3;
+}
+
+/* ползунок скроллбара */
+.list::-webkit-scrollbar-thumb {
+  background-color: gray;
+  box-shadow: inset 1px 1px 10px #f3faf7;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background-color: #264061;
+}
+
+.item {
+  margin-bottom: 7px;
+  text-transform: capitalize;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.span {
+  cursor: pointer;
+}
+
+.span:hover {
+  cursor: pointer;
+  color: grey;
+}
+
+.title {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+.modWrapperInModal {
+  composes: modWrapper;
+  height: 100vh;
+}
+
+.categoryBoxInModal {
+  width: 287px;
+  margin: 0 auto;
+}
+
+.modListInModal {
+  composes: modList;
+  list-style: none;
+  height: 50vh;
+}
+
+.itemInModal {
+  composes: item;
+  border-bottom: 1px solid grey;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+    width: 589px;
+    justify-content: space-between;
+    padding-top: 60px;
+    margin-bottom: 40px;
+  }
+
+  .title {
+    margin-bottom: 40px;
+  }
+
+  .modWrapperInModal {
+    width: 594px;
+    height: 580px;
+  }
+
+  .categoryBoxInModal {
+    width: 95%;
+  }
+
+  .categoryBox {
+    width: 270px;
+  }
+
+  .modListInModal {
+    height: 466px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .wrapper {
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 120px;
+    width: auto;
+  }
+
+  .modWrapperInModal {
+    width: 690px;
+  }
+
+  .categoryBox {
+    width: 287px;
+    margin: 0;
+    margin-left: 60px;
+  }
+
+  .modBox {
+    margin: auto;
+  }
+}

@@ -1,0 +1,39 @@
+/* .backGroundModal {
+    margin-left: -40px;
+    background: #fff;
+    width: 287px;
+    /* text-align: center; */
+/* } */
+
+.button {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+@media(min-width: 768px) {
+    .button {
+        display: none;
+    }
+    .modalShowing {
+        display: none;
+    }
+
+    /* .backGroundModal {
+        width: 589px;
+    } */
+}
+
+@media(min-width: 1280px) {
+    .button {
+        display: none;
+    }
+    .modalShowing {
+        display: none;
+    }
+
+    .backGroundModal {
+        width: 552px;
+    }
+}

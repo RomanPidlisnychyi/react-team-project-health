@@ -1,9 +1,13 @@
 import React from 'react';
-import ListOfNonRecommendedProducts from '../ListOfNonRecommendedProducts/ListOfNonRecommendedProducts';
-import styles from './ModalCalories.module.css';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import NotRecommendedCategoryList from '../NotRecommended/NotRecommendedCategoryList/NotRecommendedCategoryList';
 import Button from '../Button/Button';
+import { notrecomendedproductsSelectors } from '../../redux/notrecomendedproducts';
+import { authSelectors } from '../../redux/auth';
+import styles from './ModalCalories.module.css';
 
-export default function ModalCalories({ calories = '2800' }) {
+function ModalCalories({ calories, token, isModal }) {
   return (
     <div className={styles.cover}>
       <div className={styles.modalCalories}>
@@ -18,21 +22,16 @@ export default function ModalCalories({ calories = '2800' }) {
                 <p className={styles.unitOfEnergy}>ккал</p>
               </h3>
             </div>
-
-            <h4 className={styles.groceryList}>
-              Продукты, которые вам не рекомендуется употреблять
-            </h4>
-            <ol className={styles.listItem}>
-              <ListOfNonRecommendedProducts stylesList={styles.item} />
-            </ol>
+            <NotRecommendedCategoryList title="Продукты, которые вам не рекомендуется употреблять" />
             <div className={styles.buttonStartLosingWeightWrapper}>
-              <Button
-                title={'Начать худеть'}
-                className={styles.buttonStartLosingWeight}
-              />
-              {/* <button className={styles.buttonStartLosingWeight}>
-                Начать худеть
-              </button> */}
+              <Link to={token ? '/dairy' : '/login'}>
+                <Button
+                  title={'Начать худеть'}
+                  className={styles.buttonStartLosingWeight}
+                  role={'link'}
+                  onClick={() => isModal()}
+                />
+              </Link>
             </div>
           </div>
         </div>
@@ -40,3 +39,10 @@ export default function ModalCalories({ calories = '2800' }) {
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  calories: notrecomendedproductsSelectors.getDailyCalorieNormInteger(state),
+  token: authSelectors.getToken(state),
+});
+
+export default connect(mapStateToProps)(ModalCalories);

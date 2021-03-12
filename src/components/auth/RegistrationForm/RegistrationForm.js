@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { authOperations } from '../../../redux/auth';
+import { css } from '@emotion/core';
+import { ScaleLoader } from 'react-spinners';
+import { loadingSelectors } from '../../../redux/loading';
+import { authOperations, authSelectors } from '../../../redux/auth';
 import styles from './form.module.css';
 import Button from '../../Button/Button';
 import { FormErrors } from './FormErrors';
+
+const override = css`
+  display: block;
+  margin: -13px auto 0;
+`;
 
 class RegistrationForm extends Component {
   state = {
@@ -27,8 +35,12 @@ class RegistrationForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.props.onRegister({ ...this.state });
-    this.setState({ name: '', email: '', password: '' });
+    this.props.onRegister({ ...this.state }).then(res => {
+      if (res) {
+        return;
+      }
+      this.setState({ name: '', email: '', password: '' });
+    });
   };
 
   validateField(fieldName, value) {
@@ -89,7 +101,7 @@ class RegistrationForm extends Component {
 
   render() {
     const { name, email, password } = this.state;
-
+    const { loading } = this.props;
     return (
       <div className={styles.registrationForm}>
         <form onSubmit={this.handleSubmit} className={styles.form}>
@@ -137,7 +149,13 @@ class RegistrationForm extends Component {
             </Link>
 
             <Button
-              title={'Регистрация'}
+              title={
+                loading ? (
+                  <ScaleLoader color={'#fff'} loading={true} css={override} />
+                ) : (
+                  'Регистрация'
+                )
+              }
               type={'submit'}
               disabled={!this.state.formValid}
               className={styles.buttonRegistration}
@@ -149,6 +167,11 @@ class RegistrationForm extends Component {
   }
 }
 
-export default connect(null, { onRegister: authOperations.register })(
-  RegistrationForm,
-);
+const mapStateToProps = state => ({
+  authError: authSelectors.getError(state),
+  loading: loadingSelectors(state),
+});
+
+export default connect(mapStateToProps, {
+  onRegister: authOperations.register,
+})(RegistrationForm);

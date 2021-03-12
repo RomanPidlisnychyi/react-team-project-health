@@ -1,12 +1,12 @@
 .cover {
-  margin: 0 auto;
-  width: 320px;
+  min-width: 320px;
 }
 
 .modalCalories {
   background-color: white;
-  padding-top: 40px;
-  width: 320px;
+
+
+  height: 100vh;
 }
 
 .modalCaloriesWrapper {
@@ -14,9 +14,6 @@
   margin: 0 auto;
 }
 
-.closeButton {
-  display: none;
-}
 
 .headingCalories {
   margin: 0;
@@ -27,6 +24,7 @@
   font-size: 18px;
   line-height: 26px;
   color: #212121;
+  padding-top: 40px;
 }
 
 .countedСalories {
@@ -66,18 +64,6 @@
   margin-left: 8px;
 }
 
-.groceryList {
-  margin: 0;
-  font-family: Verdana;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: #212121;
-  margin-bottom: 22px;
-}
-
 .listItem {
   margin: 0;
   padding-left: 18px;
@@ -97,8 +83,10 @@
 
 .buttonStartLosingWeightWrapper {
   text-align: center;
-  padding-bottom: 80px;
+  margin-top: 40px;
+
 }
+
 
 @media (min-width: 768px) {
   .cover {
@@ -112,9 +100,9 @@
   }
 
   .modalCalories {
-    padding-top: 64px;
     width: 594px;
     position: relative;
+    height: auto;
   }
 
   .modalCaloriesWrapper {

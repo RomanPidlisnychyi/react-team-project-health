@@ -1,5 +1,6 @@
 import React from 'react';
+import App from '../components/Dairy/App';
 
-export default function DiaryView() {
-  return <h1>Hello form Diary View</h1>;
+export default function DiaryView(props) {
+  return <App props={props} />;
 }

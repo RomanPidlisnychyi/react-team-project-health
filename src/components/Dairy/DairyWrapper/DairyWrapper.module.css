@@ -1,0 +1,10 @@
+.container {
+  padding-top: 120px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    min-height: 595px;
+    margin-bottom: 30px;
+  }
+} ;
