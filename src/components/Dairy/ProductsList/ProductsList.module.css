@@ -1,3 +1,7 @@
+.notRecommended {
+  color: indianred;
+}
+
 .listContainer {
   margin: 0 auto;
   max-height: 285px;
@@ -9,8 +13,6 @@
   margin-top: 10px;
   background: #fff;
   position: absolute;
-  /* top: 30px;
-  left: 0px; */
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);

@@ -7,6 +7,8 @@ import ProductsInput from '../ProductsInput/ProductsInput.js';
 import rationsItemOperations from '../../../redux/dairy/rationsItemOperations';
 import Button from '../../Button/Button';
 import Picker from '../Picker/Picker';
+import NewModal from '../../Modal/NewModal';
+import NotRecommendedInModal from '../NotRecommendedInModal/NotRecommendedInModal';
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import sendNotification from './notification';
@@ -29,6 +31,8 @@ class ProductInputForm extends Component {
     WeightInputDisabled: false,
     buttonText: 'Добавить',
     buttonAddAllow: true,
+    isModal: false,
+    isNotRecommended: false,
   };
 
   componentDidMount() {
@@ -109,15 +113,35 @@ class ProductInputForm extends Component {
     await this.props.onGetInfo(transformedDate);
   };
 
-  handleProductInputClick = () => {
+  handleProductInputClick = isNotRecommended => {
     this.setState({
       productSearchValue: this.state.productInFocusId,
       visibleListProducts: false,
+      isNotRecommended,
     });
   };
 
-  handleSubmit = async e => {
-    e.preventDefault();
+  handlerNotRecommended = answer => {
+    if (answer) {
+      this.setProductInRacion();
+      this.handleModal();
+      this.setState({ isNotRecommended: false });
+      return;
+    }
+
+    this.setState({
+      productSearchValue: '',
+      weight: '',
+      buttonAddAllow: true,
+      isNotRecommended: false,
+    });
+    this.handleModal();
+  };
+
+  handleModal = () =>
+    this.setState(prevState => ({ isModal: !prevState.isModal }));
+
+  setProductInRacion = async () => {
     const { transformedDate, weight, productSearchValue } = this.state;
     const { onRationsItemAdd, onGetInfo, onRationsItemUpdate } = this.props;
 
@@ -167,6 +191,18 @@ class ProductInputForm extends Component {
     }
   };
 
+  handleSubmit = async e => {
+    e.preventDefault();
+    const { isNotRecommended } = this.state;
+
+    if (isNotRecommended) {
+      this.handleModal();
+      return;
+    }
+
+    this.setProductInRacion();
+  };
+
   render() {
     const {
       weight,
@@ -180,6 +216,8 @@ class ProductInputForm extends Component {
       WeightInputDisabled,
       buttonText,
       buttonAddAllow,
+      isModal,
+      isNotRecommended,
     } = this.state;
 
     const { mode } = this.props;
@@ -208,6 +246,7 @@ class ProductInputForm extends Component {
 
         <div className={classInputPanelWrapper}>
           <ProductsInput
+            isNotRecommended={isNotRecommended}
             productSearchValue={productSearchValue}
             onChangeInput={this.handleChangeProducts}
             disabled={productInputDisabled}
@@ -239,6 +278,14 @@ class ProductInputForm extends Component {
         )}
 
         {visibleNotification && <ReactNotification />}
+        {isModal && (
+          <NewModal onModalClose={this.handleModal}>
+            <NotRecommendedInModal
+              productName={productSearchValue}
+              handlerNotRecommended={this.handlerNotRecommended}
+            />
+          </NewModal>
+        )}
       </form>
     );
   }
