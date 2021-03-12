@@ -54,6 +54,7 @@
 
   .inputPanelWrapperUsual {
     display: flex;
+    width: 100%;
   }
 
   .buttonUsual {
@@ -65,14 +66,6 @@
   .form {
     margin-left: 92px;
     width: 595px;
-  }
-
-  .inputPanelWrapperModal {
-    display: block;
-  }
-
-  .inputPanelWrapperUsual {
-    display: flex;
   }
 
   .buttonModal {
