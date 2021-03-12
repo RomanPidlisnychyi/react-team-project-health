@@ -58,7 +58,7 @@ const getProducts = spr => {
   }
 
   return new Promise((res, rej) => {
-    Axios.get(`${HEROKU}/products?${spr}`)
+    Axios.get(`${HEROKU}/products/query?${spr}`)
       .then(response => res(response.data))
       .catch(error => rej(error.response.data));
   });
