@@ -1,33 +1,164 @@
-.container {
-  height: 100vh;
-  padding: 10px;
-  background-color: ivory;
-}
-
-.content {
-  margin-bottom: 15px;
-  padding-top: 30px;
-}
-
-.name {
-  font-size: 16px;
-  line-height: 32px;
-  color: indianred;
-}
-
-.btnControl {
-  display: flex;
-  margin: 0 auto 15px;
-  width: 280px;
-  justify-content: space-between;
-}
-
 .title {
   width: 100px;
 }
 
-@media screen and (min-width: 768px) {
+.cover {
+  min-width: 320px;
+  text-align: center;
+}
+
+.modalCalories {
+  background-color: white;
+
+  height: 100vh;
+}
+
+.modalCaloriesWrapper {
+  width: 290px;
+  margin: 0 auto;
+}
+
+.headingCalories {
+  margin: 0;
+  margin-bottom: 40px;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  color: #212121;
+  padding-top: 40px;
+}
+
+.countedСalories {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.calories {
+  margin: 0;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #264061;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.calories::after {
+  content: '';
+  width: 290px;
+  height: 1px;
+  background-color: #e0e0e0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -20px;
+}
+
+.unitOfEnergy {
+  color: indianred;
+  font-size: 18px;
+  margin: 0;
+  margin-left: 8px;
+}
+
+.listItem {
+  margin: 0;
+  padding-left: 18px;
+  font-family: Verdana;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+  margin-bottom: 40px;
+}
+
+.item {
+  margin-bottom: 10px;
+}
+
+.buttonStartLosingWeightWrapper {
+  display: flex;
+  width: 280px;
+  margin: 0 auto;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.text {
+  composes: headingCalories;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
   .container {
     height: auto;
+  }
+
+  .cover {
+    width: 594px;
+    box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .backButton {
+    display: none;
+  }
+
+  .modalCalories {
+    width: 594px;
+    position: relative;
+    height: auto;
+  }
+
+  .modalCaloriesWrapper {
+    width: 509px;
+  }
+
+  .headingCalories {
+    margin-bottom: 22px;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+    color: #212121;
+  }
+
+  .wrapperCountedCalories {
+    margin-bottom: 42px;
+    width: 330px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .calories::after {
+    width: 330px;
+    bottom: -12px;
+  }
+
+  .buttonStartLosingWeightWrapper {
+    padding-bottom: 68px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cover {
+    width: 690px;
+  }
+
+  .modalCalories {
+    width: 690px;
   }
 }
