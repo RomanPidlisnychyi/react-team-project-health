@@ -35,6 +35,7 @@ const register = credentials => (dispatch, getState) => {
   return axios
     .post('/auth/register', user)
     .then(res => {
+      dispatch(authActions.registerSuccess());
       store.addNotification({
         type: 'success',
         message:

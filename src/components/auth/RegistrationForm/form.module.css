@@ -100,14 +100,11 @@ input:focus::placeholder {
   padding-top: 60px;
 }
 
-.buttonLogin {
+.buttonLogin,
+.buttonRegistration {
   margin-top: 20px;
 }
 
-.buttonRegistration {
-  margin: 0;
-  margin-top: 20px;
-}
 .red {
   outline: 1px solid red;
 }
@@ -137,12 +134,9 @@ input:focus::placeholder {
     width: 240px;
   }
 
-  .buttonLogin {
-    margin-right: 30px;
-  }
-
+  .buttonLogin,
   .buttonRegistration {
-    margin-left: 30px;
+    margin: 20px 30px 0;
   }
 
   .buttons {

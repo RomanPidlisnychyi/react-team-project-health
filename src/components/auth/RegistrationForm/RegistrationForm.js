@@ -144,10 +144,6 @@ class RegistrationForm extends Component {
             <FormErrors formErrors={this.state.formErrors.password} />
           </label>
           <div className={styles.buttons}>
-            <Link to={`/login`} className={styles.buttonLogin}>
-              <Button title={'Вход'} role={'link'} />
-            </Link>
-
             <Button
               title={
                 loading ? (
@@ -160,6 +156,9 @@ class RegistrationForm extends Component {
               disabled={!this.state.formValid}
               className={styles.buttonRegistration}
             />
+            <Link to={`/login`} className={styles.buttonLogin}>
+              <Button title={'Вход'} role={'link'} />
+            </Link>
           </div>
         </form>
       </div>
