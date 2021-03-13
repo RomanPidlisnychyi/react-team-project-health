@@ -9,6 +9,10 @@ import CalculatorCalories from '../CalculatorCalories/CalculatorCalories';
 import styles from './App.module.css';
 
 const override = css`
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
   display: block;
   margin: 0 auto;
   padding-top: 100px;
@@ -19,22 +23,13 @@ export default function App({ props }) {
   const loading = useSelector(loadingSelectors);
   return (
     <div className={styles.commonWrapper}>
-      {loading ? (
-        <ScaleLoader color="#fc842d" loading={true} css={override} />
-      ) : (
-        <>
-          <div className={styles.dairyWrapper}>
-            {pathname === '/calculator' ? (
-              <CalculatorCalories />
-            ) : (
-              <DairyWrapper />
-            )}
-          </div>
-          <div className={styles.usersInfoWrapper}>
-            <NotRecommended />
-          </div>
-        </>
-      )}
+      <div className={styles.dairyWrapper}>
+        {pathname === '/calculator' ? <CalculatorCalories /> : <DairyWrapper />}
+      </div>
+      <div className={styles.usersInfoWrapper}>
+        <NotRecommended />
+      </div>
+      <ScaleLoader color="#fc842d" loading={loading} css={override} />
     </div>
   );
 }
