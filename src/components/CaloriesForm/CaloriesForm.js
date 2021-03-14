@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { css } from '@emotion/core';
 import { ScaleLoader } from 'react-spinners';
-import { loadingSelectors } from '../../redux/loading';
 import NewModal from '../Modal/NewModal';
 import ModalCalories from '../Modal/ModalCalories';
 import styles from './CaloriesForm.module.css';
@@ -34,7 +33,8 @@ class CaloriesForm extends Component {
     desiredWeight: '',
     bloodGroup: '',
     showModal: false,
-    disabled: true,
+    disabled: false,
+    loading: false,
   };
 
   componentDidMount() {
@@ -48,9 +48,8 @@ class CaloriesForm extends Component {
 
     if (bloodGroup) {
       this.setState({ height, age, currentWeight, desiredWeight, bloodGroup });
+      this.setState({ disabled: true });
     }
-
-    this.onDisable(this.props.userParams);
   }
 
   componentDidUpdate() {
@@ -64,13 +63,15 @@ class CaloriesForm extends Component {
 
     if (bloodGroup && !this.state.bloodGroup) {
       this.setState({ height, age, currentWeight, desiredWeight, bloodGroup });
+      this.setState({ disabled: true });
     }
+
+    this.onDisable();
   }
 
   handleInput = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
-    this.setState({ disabled: false });
   };
 
   onModalClose = () => {
@@ -82,12 +83,12 @@ class CaloriesForm extends Component {
 
     this.setState({
       bloodGroup: Number(value),
-      disabled: false,
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
+    this.setState({ loading: true });
 
     const userParams = {
       height: Number(this.state.height),
@@ -96,8 +97,6 @@ class CaloriesForm extends Component {
       desiredWeight: Number(this.state.desiredWeight),
       bloodGroup: Number(this.state.bloodGroup),
     };
-
-    this.onDisable(userParams);
 
     const {
       onGetListNotRecomendedProductsAndCalories,
@@ -109,8 +108,10 @@ class CaloriesForm extends Component {
       onGetListNotRecomendedProductsAndCalories(userParams).then(data => {
         if (data && data.dailyCalorieNormInteger) {
           this.setState({ showModal: true });
+          this.setState({ loading: false });
           return;
         }
+        this.setState({ loading: false });
         console.log('Щось пішло не так! Спробуйте ввести параметри ще раз!');
       });
 
@@ -120,14 +121,15 @@ class CaloriesForm extends Component {
     onAddUserParams(userParams).then(data => {
       if (data && data.age) {
         this.setState({ showModal: true });
+        this.setState({ loading: false });
         return;
       }
       console.log('Щось пішло не так! Спробуйте ввести параметри ще раз!');
-      this.handleClearForm(e);
+      this.setState({ loading: false });
     });
   };
 
-  onDisable = userParams => {
+  onDisable = () => {
     const {
       height,
       age,
@@ -136,9 +138,16 @@ class CaloriesForm extends Component {
       bloodGroup,
     } = this.props.userParams;
 
-    height && age && currentWeight && desiredWeight && bloodGroup
-      ? this.setState({ disabled: true })
-      : this.setState({ disabled: false });
+    const disabled =
+      height == this.state.height &&
+      age == this.state.age &&
+      currentWeight == this.state.currentWeight &&
+      desiredWeight == this.state.desiredWeight &&
+      bloodGroup === this.state.bloodGroup;
+
+    if (this.state.disabled !== disabled) {
+      this.setState({ disabled });
+    }
   };
 
   handleClearForm = e => {
@@ -285,7 +294,7 @@ class CaloriesForm extends Component {
         <div className={styles.buttonWrapper}>
           <Button
             title={
-              loading ? (
+              this.state.loading ? (
                 <ScaleLoader color={'#fff'} loading={true} css={override} />
               ) : (
                 'Похудеть'
@@ -308,7 +317,6 @@ class CaloriesForm extends Component {
 const mapStateToProps = state => ({
   userParams: authSelectors.getParams(state),
   token: authSelectors.getToken(state),
-  loading: loadingSelectors(state),
 });
 
 const mapDispatchToProps = {

@@ -1,17 +1,17 @@
-@import url(//db.onlinewebfonts.com/c/07a38bbad54db72a40b406bed1c72f53?family=Gotham+Pro);
+/* @import url(//db.onlinewebfonts.com/c/07a38bbad54db72a40b406bed1c72f53?family=Gotham+Pro); */
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
 }
 
-a {
+.a {
   color: inherit;
   text-decoration: none;
 }
 
-form {
+.form {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -19,12 +19,12 @@ form {
   padding: 40px 4px 4px 15px;
 }
 
-label {
+.label {
   width: 90%;
   position: relative;
 }
 
-input {
+.input {
   width: 100%;
   border-width: 0;
   border-bottom: 1px solid #e0e0e0;
@@ -67,11 +67,11 @@ button:focus {
   vertical-align: middle;
 }
 
-input:focus {
+.input:focus {
   transition: padding 0.2s ease;
 }
 
-input:focus::placeholder {
+.input:focus::placeholder {
   opacity: 0;
 }
 
@@ -123,14 +123,14 @@ input:focus::placeholder {
     text-align: left;
   }
 
-  form {
+  .form {
     width: 50%;
     align-items: baseline;
     padding-top: 150px;
     padding-left: 45px;
   }
 
-  input {
+  .input {
     width: 240px;
   }
 

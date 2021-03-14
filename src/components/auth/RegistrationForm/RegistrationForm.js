@@ -109,6 +109,7 @@ class RegistrationForm extends Component {
 
           <label className={styles.label}>
             <input
+              className={styles.input}
               id="name"
               required
               placeholder="Имя *"
@@ -121,6 +122,7 @@ class RegistrationForm extends Component {
           </label>
           <label className={styles.label}>
             <input
+              className={styles.input}
               id="email"
               required
               placeholder="Почта *"
@@ -133,6 +135,7 @@ class RegistrationForm extends Component {
           </label>
           <label className={styles.label}>
             <input
+              className={styles.input}
               id="password"
               required
               placeholder="Пароль *"

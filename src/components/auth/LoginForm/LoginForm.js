@@ -90,6 +90,7 @@ class LoginForm extends Component {
           <h3 className={styles.title}>Вход</h3>
           <label className={styles.label}>
             <input
+              className={styles.input}
               id="email"
               required
               placeholder="Почта *"
@@ -103,6 +104,7 @@ class LoginForm extends Component {
 
           <label className={styles.label}>
             <input
+              className={styles.input}
               id="password"
               required
               placeholder="Пароль *"
