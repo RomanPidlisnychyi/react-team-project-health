@@ -69,7 +69,7 @@
   .listContainer {
     max-height: 300px;
     top: 40px;
-    transform: translateX(-20%);
-    width: 500px;
+    transform: translateX(-24%);
+    width: 580px;
   }
 } ;
