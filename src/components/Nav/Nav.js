@@ -15,13 +15,14 @@ function Nav({ token }) {
     <div className={styles.nav_wrap}>
       {isModal && (
         <NewModal
+          btnDisabled={true}
           onModalClose={setIsModal}
           topMenuModal={true}
         >
           <ModalNav setIsModal={setIsModal} />
         </NewModal>
       )}
-      {token && !isModal && <Hamburger onClick={setIsModal} />}
+      {token && <Hamburger isModal={isModal} onClick={setIsModal} />}
       <ul className={token ? styles.nav_hamburger : styles.nav_list}>
         {token
           ? routes

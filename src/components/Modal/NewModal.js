@@ -49,24 +49,31 @@ export default class NewModal extends Component {
               : styles.modalWrapper
           }
         >
-          <button
-            className={
-              topMenuModal ? `${styles.closeButtonNav}` : styles.closeButton
-            }
-            onClick={this.closeModal}
-          >
-            &#10006;
-          </button>
-          <div className={styles.buttonBackWrapper}>
-            <button
-              className={
-                topMenuModal ? `${styles.noneButtonBack}` : styles.buttonBack
-              }
-              onClick={this.closeModal}
-            >
-              &#8629;
-            </button>
-          </div>
+          {!this.props.btnDisabled && (
+            <>
+              <button
+                className={
+                  topMenuModal ? `${styles.closeButtonNav}` : styles.closeButton
+                }
+                onClick={this.closeModal}
+              >
+                &#10006;
+              </button>
+              <div className={styles.buttonBackWrapper}>
+                <button
+                  className={
+                    topMenuModal
+                      ? `${styles.noneButtonBack}`
+                      : styles.buttonBack
+                  }
+                  onClick={this.closeModal}
+                >
+                  &#8629;
+                </button>
+              </div>
+            </>
+          )}
+
           {this.props.children}
         </div>
       </div>
