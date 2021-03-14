@@ -4,20 +4,15 @@
   padding: 0;
   height: 40px;
   outline: none;
-  border-radius: nullpx;
-  border: 1px solid;
+  border: none;
   font-family: Verdana;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: 17px;
   letter-spacing: 0.04em;
-  text-align: left;
-  outline: none;
   color: #212121;
-  border: none;
   border-bottom: 1px solid #e0e0e0;
-
   margin-bottom: 60px;
 }
 
