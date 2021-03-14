@@ -44,7 +44,7 @@
   cursor: not-allowed;
   background: #ffffff;
   color: #fc842d;
-  border: 2px solid #fc842d;
+  border: 1px solid #fc842d;
 }
 
 :-webkit-autofill:focus {

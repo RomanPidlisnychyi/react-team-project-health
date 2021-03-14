@@ -23,13 +23,22 @@ export default function App({ props }) {
   const loading = useSelector(loadingSelectors);
   return (
     <div className={styles.commonWrapper}>
-      <div className={styles.dairyWrapper}>
-        {pathname === '/calculator' ? <CalculatorCalories /> : <DairyWrapper />}
-      </div>
-      <div className={styles.usersInfoWrapper}>
-        <NotRecommended />
-      </div>
-      <ScaleLoader color="#fc842d" loading={loading} css={override} />
+      {loading ? (
+        <ScaleLoader color="#fc842d" loading={loading} css={override} />
+      ) : (
+        <>
+          <div className={styles.dairyWrapper}>
+            {pathname === '/calculator' ? (
+              <CalculatorCalories />
+            ) : (
+              <DairyWrapper />
+            )}
+          </div>
+          <div className={styles.usersInfoWrapper}>
+            <NotRecommended />
+          </div>
+        </>
+      )}
     </div>
   );
 }

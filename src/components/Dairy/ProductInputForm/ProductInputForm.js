@@ -245,12 +245,22 @@ class ProductInputForm extends Component {
         </div>
 
         <div className={classInputPanelWrapper}>
-          <ProductsInput
-            isNotRecommended={isNotRecommended}
-            productSearchValue={productSearchValue}
-            onChangeInput={this.handleChangeProducts}
-            disabled={productInputDisabled}
-          />
+          <div className={styles.inputWrap}>
+            <ProductsInput
+              isNotRecommended={isNotRecommended}
+              productSearchValue={productSearchValue}
+              onChangeInput={this.handleChangeProducts}
+              disabled={productInputDisabled}
+            />
+            {products && products.length > 0 && visibleListProducts && (
+              <ProductsList
+                products={products}
+                onHover={this.handleItemHover}
+                onInputClick={this.handleProductInputClick}
+                onMouseOut={this.handleProductsListMouseOut}
+              />
+            )}
+          </div>
 
           <WeightInput
             weight={weight}
@@ -267,16 +277,6 @@ class ProductInputForm extends Component {
             />
           </div>
         </div>
-
-        {products && products.length > 0 && visibleListProducts && (
-          <ProductsList
-            products={products}
-            onHover={this.handleItemHover}
-            onInputClick={this.handleProductInputClick}
-            onMouseOut={this.handleProductsListMouseOut}
-          />
-        )}
-
         {visibleNotification && <ReactNotification />}
         {isModal && (
           <NewModal onModalClose={this.handleModal}>
