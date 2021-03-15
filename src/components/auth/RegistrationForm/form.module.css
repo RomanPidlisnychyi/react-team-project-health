@@ -76,7 +76,7 @@ button:focus {
 }
 
 .title {
-  font-family: 'Gotham Pro';
+  font-family: 'Gotham Pro', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
