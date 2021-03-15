@@ -1,5 +1,6 @@
 import axios from 'axios';
 import rationItemsActions from './rationItemsActions';
+import { authActions } from '../auth';
 import HEROKU from '../../services/apiURL';
 import generateCurrentDate from '../../services/generateCurrentDate';
 
@@ -19,34 +20,14 @@ const fetchRationItems = someDate => dispatch => {
       );
       return response;
     })
-    .catch(error => dispatch(rationItemsActions.fetchRationItemsError(date)));
+    .catch(error => {
+      if (error.response.status === 401) {
+        dispatch(authActions.logoutError());
+        return;
+      }
+      dispatch(rationItemsActions.fetchRationItemsError(date));
+    });
 };
-
-// const fetchRationItems = date => dispatch => {
-//   dispatch(rationItemsActions.fetchRationItemsRequest());
-
-//   return new Promise((resolve, reject) => {
-//      return axios
-//       .get(`/users/infobyday/${date}`)
-//       .then(response =>
-//         resolve(
-//           dispatch(
-//             rationItemsActions.fetchRationItemsSuccess({
-//               rationItems: response.data,
-//               date,
-//             }),
-//           ),
-//         ),
-//       )
-//       .catch(error =>
-//         reject(
-//           dispatch(
-//             rationItemsActions.fetchRationItemsError(error.response.data),
-//           ),
-//         ),
-//       );
-//   });
-// };
 
 const deleteRationItem = (id, date) => dispatch => {
   dispatch(rationItemsActions.deleteRationItemRequest());
@@ -61,8 +42,21 @@ const deleteRationItem = (id, date) => dispatch => {
   };
 
   fetch(`${HEROKU}/rations/${id}`, options)
-    .then(() => dispatch(rationItemsActions.deleteRationItemSuccess(id)))
-    .catch(error => dispatch(rationItemsActions.deleteRationItemError(error)));
+    .then(response => {
+      if (response.status === 401) {
+        dispatch(authActions.logoutError());
+        return;
+      }
+
+      dispatch(rationItemsActions.deleteRationItemSuccess(id));
+    })
+    .catch(error => {
+      if (error.response.status === 401) {
+        dispatch(authActions.logoutError());
+        return;
+      }
+      dispatch(rationItemsActions.deleteRationItemError(error));
+    });
 };
 
 const rationsItemUpdate = param => dispatch => {

@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import rationsItemActions from './rationsItemActions';
+import { authActions } from '../auth';
 import HEROKU from '../../services/apiURL';
 import generateCurrentDate from '../../services/generateCurrentDate';
 
@@ -32,14 +33,26 @@ const rationsItemAdd = param => dispatch => {
 
   return new Promise((res, rej) => {
     Axios.post(`${HEROKU}/rations`, options)
-      .then(response =>
-        res(dispatch(rationsItemActions.rationsItemAddSuccess(response.data))),
-      )
-      .catch(error =>
-        rej(
+      .then(response => {
+        if (response.status === 401) {
+          dispatch(authActions.logoutError());
+          return;
+        }
+
+        return res(
+          dispatch(rationsItemActions.rationsItemAddSuccess(response.data)),
+        );
+      })
+      .catch(error => {
+        if (error.response.status === 401) {
+          dispatch(authActions.logoutError());
+          return;
+        }
+
+        return rej(
           dispatch(rationsItemActions.rationsItemAddError(error.response.data)),
-        ),
-      );
+        );
+      });
   });
 };
 
@@ -48,7 +61,6 @@ const rationsItemUpdate = param => dispatch => {
 };
 
 const dateToStore = param => dispatch => {
-  console.log('dateToStore: ', param);
   dispatch(rationsItemActions.dateToStore(param));
 };
 

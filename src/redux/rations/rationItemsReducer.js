@@ -35,6 +35,8 @@ const ration = createReducer(initialState, {
   }),
   [rationItemsActions.deleteRationItemSuccess]: onDeleteRationItem,
   [rationItemsActions.rationsItemUpdate]: onItemUpdate,
+  [authActions.logoutSuccess]: () => initialState,
+  [authActions.logoutError]: () => initialState,
   // [rationsItemActionsKolya.dateToStore]: onDateToStor,
 });
 

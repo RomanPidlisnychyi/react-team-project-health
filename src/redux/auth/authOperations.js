@@ -142,18 +142,6 @@ const logOut = () => dispatch => {
     })
 
     .catch(error => {
-      store.addNotification({
-        type: 'danger',
-        message: error.response.data.message,
-        container: 'center',
-        animationIn: ['animate__animated animate__zoomIn'],
-        animationOut: ['animate__animated animate__zoomOut'],
-        dismiss: {
-          duration: 5000,
-          onScreen: true,
-        },
-      });
-
       dispatch(authActions.logoutError(error));
     });
 };
