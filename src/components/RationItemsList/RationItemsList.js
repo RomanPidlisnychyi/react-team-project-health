@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import RationItem from '../RationItem/RationItem';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import styles from './RationItemsList.module.css';
 import PropTypes from 'prop-types';
+import RationItem from '../RationItem/RationItem';
 import rationItemsSelectors from '../../redux/rations/rationItemsSelectors';
+import styles from './RationItemsList.module.css';
 
 function RationItemsList({ rationItems }) {
   return (

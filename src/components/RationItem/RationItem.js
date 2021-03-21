@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import rationItemsOperations from '../../redux/rations/rationItemsOperations';
-import styles from './RationItem.module.css';
 import rationItemsSelectors from '../../redux/rations/rationItemsSelectors';
 import { authSelectors } from '../../redux/auth';
+import styles from './RationItem.module.css';
 
-const RationItem = ({ item, bloodGroup, date, onDeleteItem }) => {
+const RationItem = ({ item, bloodGroup, onDeleteItem }) => {
   const { title, weight, calories, groupBloodNotAllowed } = item;
   const isProductNotRecommended = groupBloodNotAllowed[bloodGroup];
   return (
@@ -23,11 +23,7 @@ const RationItem = ({ item, bloodGroup, date, onDeleteItem }) => {
       <p className={styles.calories}>
         {calories} <span className={styles.span}>ккал</span>
       </p>
-      <button
-        type="button"
-        className={styles.button}
-        onClick={() => onDeleteItem(item._id, date)}
-      >
+      <button type="button" className={styles.button} onClick={onDeleteItem}>
         <span className={styles.closeSpan}>&#10006;</span>
       </button>
     </li>
@@ -39,8 +35,13 @@ const mapStateToProps = state => ({
   bloodGroup: authSelectors.getParams(state).bloodGroup,
 });
 
-const mapDispatchToProps = {
-  onDeleteItem: rationItemsOperations.deleteRationItem,
+const mapDispatchToProps = (dispatch, props) => {
+  return {
+    onDeleteItem: () =>
+      dispatch(
+        rationItemsOperations.deleteRationItem(props.item._id, props.date),
+      ),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RationItem);

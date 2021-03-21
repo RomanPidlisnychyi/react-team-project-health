@@ -28,14 +28,14 @@
 
 @media (min-width: 768px) {
   .header {
-    width: 768px;
+    width: 650px;
     height: 44px;
-    padding: 18px 70px;
+    /* padding: 18px 70px; */
   }
 
   .header::after {
     width: 768px;
-    left: 0px;
+    left: -59px;
   }
 
   .header_wrap {
@@ -45,8 +45,8 @@
 
 @media (min-width: 1280px) {
   .header {
-    padding-top: 82px;
     width: 1280px;
+    height: auto;
     border-bottom: none;
   }
 
@@ -55,7 +55,9 @@
   }
 
   .header_wrap {
-    width: 1280px;
+    /* width: 1280px; */
+    margin-top: 82px;
+    margin-left: 60px;
     justify-content: start;
   }
 }

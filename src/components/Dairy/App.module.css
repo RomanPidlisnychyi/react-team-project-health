@@ -95,7 +95,7 @@
   }
 
   .usersInfoWrapper::before {
-    top: -100px;
+    top: -148px;
     height: 100vh;
   }
 }

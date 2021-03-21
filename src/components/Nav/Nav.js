@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Hamburger from '../Hamburger/Hamburger';
 import NewModal from '../Modal/NewModal';
@@ -6,7 +7,6 @@ import ModalNav from '../Modal/ModalNav';
 import styles from './Nav.module.css';
 import routes from '../../routes';
 import { authSelectors } from '../../redux/auth';
-import { connect } from 'react-redux';
 
 function Nav({ token }) {
   const [isModal, setIsModal] = useState(false);
