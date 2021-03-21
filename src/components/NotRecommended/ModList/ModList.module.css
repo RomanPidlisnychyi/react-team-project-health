@@ -4,21 +4,27 @@
   height: 300px;
   border: solid 1px;
   overflow-y: scroll;
+  background-color: beige;
 }
 
 .itemContainer {
   position: absolute;
   width: 287px;
-  background-color: azure;
 }
 
 .item {
   position: absolute;
-  background-color: beige;
   border-bottom: solid 1px;
   width: 287px;
   text-align: left;
   padding-left: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item:hover {
+  overflow: visible;
 }
 
 .viewPort::-webkit-scrollbar {
