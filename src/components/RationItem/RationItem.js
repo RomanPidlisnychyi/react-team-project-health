@@ -31,16 +31,13 @@ const RationItem = ({ item, bloodGroup, onDeleteItem }) => {
 };
 
 const mapStateToProps = state => ({
-  date: rationItemsSelectors.getRationDate(state),
   bloodGroup: authSelectors.getParams(state).bloodGroup,
 });
 
 const mapDispatchToProps = (dispatch, props) => {
   return {
     onDeleteItem: () =>
-      dispatch(
-        rationItemsOperations.deleteRationItem(props.item._id, props.date),
-      ),
+      dispatch(rationItemsOperations.deleteRationItem(props.item._id)),
   };
 };
 

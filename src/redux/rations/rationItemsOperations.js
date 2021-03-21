@@ -29,7 +29,8 @@ const fetchRationItems = someDate => dispatch => {
     });
 };
 
-const deleteRationItem = (id, date) => dispatch => {
+const deleteRationItem = id => (dispatch, getState) => {
+  const date = getState().ration.date;
   dispatch(rationItemsActions.deleteRationItemRequest());
 
   const options = {
