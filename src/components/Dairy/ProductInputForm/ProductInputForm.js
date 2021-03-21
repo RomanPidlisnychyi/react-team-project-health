@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styles from './ProductInputForm.module.css';
+import ReactNotification from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
 import ProductsList from '../ProductsList/ProductsList';
 import WeightInput from '../WeightInput/WeightInput';
 import ProductsInput from '../ProductsInput/ProductsInput.js';
@@ -9,11 +10,10 @@ import Button from '../../Button/Button';
 import Picker from '../Picker/Picker';
 import NewModal from '../../Modal/NewModal';
 import NotRecommendedInModal from '../NotRecommendedInModal/NotRecommendedInModal';
-import ReactNotification from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css';
 import sendNotification from './notification';
 import rationsItemOperationsVit from '../../../redux/rations/rationItemsOperations';
 import { rationItemsSelectors } from '../../../redux/rations';
+import styles from './ProductInputForm.module.css';
 
 class ProductInputForm extends Component {
   state = {

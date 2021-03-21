@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { authSelectors } from '../../../redux/auth';
 
 export default function PrivedRoute({ component: Component, ...rest }) {

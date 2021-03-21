@@ -5,9 +5,9 @@ import { css } from '@emotion/core';
 import { ScaleLoader } from 'react-spinners';
 import { loadingSelectors } from '../../../redux/loading';
 import { authOperations, authSelectors } from '../../../redux/auth';
-import styles from './form.module.css';
 import Button from '../../Button/Button';
 import { FormErrors } from './FormErrors';
+import styles from './form.module.css';
 
 const override = css`
   display: block;

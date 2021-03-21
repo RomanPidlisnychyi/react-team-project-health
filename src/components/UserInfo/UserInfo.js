@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './UserInfo.module.css';
-import { authOperations, authSelectors } from '../../redux/auth';
 import { connect } from 'react-redux';
+import { authOperations, authSelectors } from '../../redux/auth';
+import styles from './UserInfo.module.css';
 
 function UserInfo({ showName, logOut }) {
   if (showName !== null) {

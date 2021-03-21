@@ -5,16 +5,14 @@ import CaloriesForm from '../CaloriesForm/CaloriesForm';
 
 const Home = () => {
   return (
-    <>
-      <div className={styles.wrapper}>
-        <h2 className={styles.titleForm}>
-          Просчитай свою суточную норму калорий прямо сейчас
-        </h2>
-        <div className={styles.wrapperForm}>
-          <CaloriesForm />
-        </div>
+    <div className={styles.wrapper}>
+      <h2 className={styles.titleForm}>
+        Просчитай свою суточную норму калорий прямо сейчас
+      </h2>
+      <div className={styles.wrapperForm}>
+        <CaloriesForm />
       </div>
-    </>
+    </div>
   );
 };
 
